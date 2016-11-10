@@ -27,5 +27,12 @@ public class Println {
         System.out.println(String.format("%06.1f", 1234.587654321));	// 001235.6
         System.out.println(String.format("%06.0f", 1234.587654321));	// 001235.0
         System.out.println(String.format("%2.3f",  1234.587654321));	// 1234.588
+
+        //  these lines of code are exactly the same as the ones above
+        System.out.format("%6.3f%n",  1234.587654321);	//   1234.588
+        System.out.format("%6.2f%n",  1234.587654321);	//   1234.59
+        System.out.format("%06.1f%n", 1234.587654321);	// 001235.6
+        System.out.format("%06.0f%n", 1234.587654321);	// 001235.0
+        System.out.format("%2.3f%n",  1234.587654321);	// 1234.588
     }
 }
