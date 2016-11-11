@@ -33,7 +33,7 @@ public class ExceptionsTest {
         try {
             System.out.println("Entering" + " try statement");
 
-            out = new PrintWriter(new FileWriter("OutFile.txt"));
+            out = new PrintWriter(new FileWriter("OutFile1.txt"));
             for (int i = 0; i < SIZE; i++) {
                 out.println("Value at: " + i + " = " + list.get(i));
             }
@@ -98,7 +98,7 @@ public class ExceptionsTest {
 
         try {
             System.out.println("Entering try statement");
-            out = new PrintWriter(new FileWriter("OutFile.txt"));
+            out = new PrintWriter(new FileWriter("OutFile2.txt"));
             for (int i = 0; i < SIZE; i++)
                 out.println("Value at: " + i + " = " + list.get(i));
 
@@ -134,7 +134,7 @@ public class ExceptionsTest {
         PrintWriter out = null;
         try {
             System.out.println("Entering try statement");
-            out = new PrintWriter(new FileWriter("OutFile.txt"));
+            out = new PrintWriter(new FileWriter("OutFile3.txt"));
             for (int i = 0; i < SIZE; i++)
                 out.println("Value at: " + i + " = " + list.get(i));
 
