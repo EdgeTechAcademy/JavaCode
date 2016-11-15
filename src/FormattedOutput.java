@@ -5,12 +5,12 @@ import java.util.Calendar;
  */
 public class FormattedOutput {
     public static void main(String[] args) {
-        long n = 1123458;
-        System.out.format("%d%n", n);      //  -->  "1123458"
-        System.out.format("%09d%n", n);    //  -->  "001123458"
-        System.out.format("%+9d%n", n);    //  -->  " +1123458"
-        System.out.format("%,9d%n", n);    // -->  " 1,123,458"
-        System.out.format("%+,9d%n%n", n); //  -->  "+1,123,458"
+        long n = 12345678;
+        System.out.format("%d%n", n);      //  -->  "12345678"
+        System.out.format("%010d%n", n);    //  -->  "012345678"
+        System.out.format("%+10d%n", n);    //  -->  " +12345678"
+        System.out.format("%,10d%n", n);    // -->  " 12,345,678"
+        System.out.format("%+,10d%n%n", n); //  -->  "+12,345,678"
 
         double pi = Math.PI;
 
@@ -18,6 +18,7 @@ public class FormattedOutput {
         System.out.format("%.3f%n", pi);     // -->  "3.142"
         System.out.format("%10.3f%n", pi);   // -->  "     3.142"
         System.out.format("%-10.3f%n", pi);  // -->  "3.142"
+        System.out.format("%014.10f%n", pi);  // -->  "3.1415926536"
 
         Calendar c = Calendar.getInstance();
         System.out.format("%tB %te, %tY%n", c, c, c); // -->  "May 29, 2017"

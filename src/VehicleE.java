@@ -1,7 +1,7 @@
 /**
  * Created by Edge Tech Academy on 11/10/2016.
  */
-public class VehicleE {
+public class VehicleE implements IWarpDrive {
 
     public enum WHEELS {
         TWO_WHEELS, FOUR_WHEELS, THREE_WHEELS
@@ -38,7 +38,10 @@ public class VehicleE {
     //  driver changeable fields
     private boolean     running;
     private int         currentGear;
-    private int         currentSpeed;
+    private double      currentSpeed;
+
+    //  IWarpFactor interface variables
+    private double      warpFactor;
 
     //  unchanging fields
     public WHEELS getWheels() {
@@ -91,12 +94,22 @@ public class VehicleE {
         this.running = running;
     }
 
-    public int getCurrentSpeed() {
+    public double getCurrentSpeed() {
         return currentSpeed;
     }
 
-    public void setCurrentSpeed(int currentSpeed) {
+    public void setCurrentSpeed(double currentSpeed) {
         this.currentSpeed = currentSpeed;
+    }
+
+    public void setWarpFactor(double  warpFactor)
+    {
+        this.warpFactor = warpFactor;
+        currentSpeed = LIGHT_SPEED * Math.pow(warpFactor, 3.3333);
+    }
+
+    public void engage() {
+        setWarpFactor(MAX_WARP);
     }
 
     public VehicleE(int engineSize, int gearCount, COLOR color, String model) {
@@ -130,6 +143,12 @@ public class VehicleE {
                 ", currentSpeed=" + currentSpeed +
                 "}";
     }
+
+    public void printDescription() {
+        System.out.println("The " + "Vehicle is a " +
+                getModel());
+    }
+
 
     public static void main (String[] args) {
         VehicleE acuraTLX   = new VehicleE(WHEELS.FOUR_WHEELS,  DOORS.FOUR_DOORS, 300, 8, TRANS.AUTOMATIC,  SEATS.SEATS_5, COLOR.YELLOW, "Acura TLX");
