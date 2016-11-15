@@ -2,7 +2,7 @@
  * Created by Edge Tech Academy on 11/14/2016.
  */
 public class Truck extends VehicleE {
-    private int  towingCapacity;
+    private int towingCapacity;
 
     public Truck(int engineSize, int gearCount, COLOR color, String model, int towingCapacity) {
         super(engineSize, gearCount, color, model);
@@ -27,5 +27,4 @@ public class Truck extends VehicleE {
         System.out.println("The " + "Truck has " +
                 getTowingCapacity() + " Towing Capacity.");
     }
-
 }
