@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 /**
- * Created by Edge Tech Academyon 11/9/2016.
+ * Created by Edge Tech Academy on 11/9/2016.
  */
 public class ControlFlow {
     public static int getMonthNumber(String month) {
@@ -13,45 +13,19 @@ public class ControlFlow {
         }
 
         switch (month.toLowerCase()) {
-            case "january":
-                monthNumber = 1;
-                break;
-            case "february":
-                monthNumber = 2;
-                break;
-            case "march":
-                monthNumber = 3;
-                break;
-            case "april":
-                monthNumber = 4;
-                break;
-            case "may":
-                monthNumber = 5;
-                break;
-            case "june":
-                monthNumber = 6;
-                break;
-            case "july":
-                monthNumber = 7;
-                break;
-            case "august":
-                monthNumber = 8;
-                break;
-            case "september":
-                monthNumber = 9;
-                break;
-            case "october":
-                monthNumber = 10;
-                break;
-            case "november":
-                monthNumber = 11;
-                break;
-            case "december":
-                monthNumber = 12;
-                break;
-            default:
-                monthNumber = 0;
-                break;
+            case    "january":         monthNumber = 1;        break;
+            case    "february":        monthNumber = 2;        break;
+            case    "march":           monthNumber = 3;        break;
+            case    "april":           monthNumber = 4;        break;
+            case    "may":             monthNumber = 5;        break;
+            case    "june":            monthNumber = 6;        break;
+            case    "july":            monthNumber = 7;        break;
+            case    "august":          monthNumber = 8;        break;
+            case    "september":       monthNumber = 9;        break;
+            case    "october":         monthNumber = 10;       break;
+            case    "november":        monthNumber = 11;       break;
+            case    "december":        monthNumber = 12;       break;
+            default:                   monthNumber = 0;        break;
         }
         return monthNumber;
     }

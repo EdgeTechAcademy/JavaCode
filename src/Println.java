@@ -6,8 +6,8 @@ public class Println {
     public static void main(String[] args) {
 
         String	schoolName	= "Edge Tech Academy";
-        int	find_A	= schoolName.indexOf("A");							// returns 10
-        int	find_G	= schoolName.indexOf("G");							// returns -1
+		int	find_A	= schoolName.indexOf ("A");							// returns 10
+		int	find_G	= schoolName.indexOf ("G");							// returns -1
         int	find_E	= schoolName.indexOf ("E");							// returns 0
         boolean		isEdgeThere	= schoolName.contains("Edge");			// returns true
         int			nameLength	= schoolName.length();					// returns 10
