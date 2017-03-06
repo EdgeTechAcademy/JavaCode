@@ -1,7 +1,7 @@
 /**
  * Created by Edge Tech Academy on 11/11/2016.
  */
-public interface IWarpDrive {
+public interface WarpDrive {
 
     double LIGHT_SPEED = 299_792.458;
     double MAX_WARP = 9.99;

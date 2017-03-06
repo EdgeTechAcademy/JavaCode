@@ -4,13 +4,13 @@
 public class ColorList {
 
     // Create an array
-    private final static int SIZE = 15;
+    private final static int SIZE = 30;
     private String [] arrayOfColors = new String[SIZE];
 
     public ColorList() {
         // fill the array with String color values
-        for (int i = 0; i < SIZE; i++) {
         String[] colors = {"red", "orange", "yellow", "green", "blue", "indigo", "violet", "white", "brown", "black"};
+        for (int i = 0; i < SIZE; i++) {
             arrayOfColors[i] = colors[(int)(Math.random()*colors.length)];
             System.out.print(i + "-" + arrayOfColors[i] + " ");
         }

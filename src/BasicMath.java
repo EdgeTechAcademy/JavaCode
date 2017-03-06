@@ -24,5 +24,16 @@ public class BasicMath {
         System.out.printf("pow(%.3f, %.3f) " + "is %.3f%n",  x, y, Math.pow(x, y));
         System.out.printf("sqrt(%.3f) is " + "%.3f%n",          x, Math.sqrt(x));
 
+
+        double pi = 0;
+        double one = 1;
+
+        long lps = 1_000_000_000*2;
+
+        for(long z = 1; z < lps; z += 2) {
+            pi += (one/z);
+            one = -one;    // alternate the sign each time
+        }
+        System.out.println("     PI = " + 4*pi +  "\nMath.PI = " + Math.PI + "\nPI - PI " +  (4*pi - Math.PI)); //PI=3.141592642478473 after 90000000
     }
 }

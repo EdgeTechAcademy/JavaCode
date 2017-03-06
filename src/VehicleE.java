@@ -1,7 +1,7 @@
 /**
  * Created by Edge Tech Academy on 11/10/2016.
  */
-public class VehicleE implements IWarpDrive {
+public class VehicleE implements WarpDrive {
 
     public enum WHEELS {
         TWO_WHEELS, FOUR_WHEELS, THREE_WHEELS

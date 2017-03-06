@@ -5,8 +5,7 @@ public class LocalClassExample {
 
     static String regularExpression = "[^0-9]";
 
-    public static void validatePhoneNumber(
-            String phoneNumber1, String phoneNumber2) {
+    public static void validatePhoneNumber( String phoneNumber) {
 
         int numberLength = 10;
 
@@ -16,12 +15,8 @@ public class LocalClassExample {
 
             PhoneNumber(String phoneNumber){
                 // numberLength = 7;
-                String currentNumber = phoneNumber.replaceAll(
-                        regularExpression, "");
-                if (currentNumber.length() == numberLength)
-                    formattedPhoneNumber = currentNumber;
-                else
-                    formattedPhoneNumber = null;
+                String currentNumber = phoneNumber.replaceAll(regularExpression, "");
+                formattedPhoneNumber = (currentNumber.length() == numberLength) ? currentNumber : null;
             }
 
             public String getNumber() {
@@ -29,28 +24,31 @@ public class LocalClassExample {
             }
 
             public void printOriginalNumbers() {
-                System.out.println("Original numbers are " + phoneNumber1 +
-                    " and " + phoneNumber2);
+                System.out.println("Original number was " + phoneNumber);
             }
         }
 
-        PhoneNumber myNumber1 = new PhoneNumber(phoneNumber1);
-        PhoneNumber myNumber2 = new PhoneNumber(phoneNumber2);
+        PhoneNumber myNumber = new PhoneNumber(phoneNumber);
 
-        myNumber1.printOriginalNumbers();
+        myNumber.printOriginalNumbers();
 
-        if (myNumber1.getNumber() == null)
-            System.out.println("First number is invalid");
-        else
-            System.out.println("First number is " + myNumber1.getNumber());
-        if (myNumber2.getNumber() == null)
-            System.out.println("Second number is invalid");
-        else
-            System.out.println("Second number is " + myNumber2.getNumber());
-
+        System.out.println("Number is " + ((myNumber.getNumber() == null) ? "invalid" : myNumber.getNumber()));
     }
 
     public static void main(String... args) {
-        validatePhoneNumber("123-456-7890", "456-7890");
+        validatePhoneNumber("123-456-7890");
+        validatePhoneNumber("456-7890");
+
+		char myChars[] = new char[] { '1', 't', '*', '.', ' ', '\'', 'A', '\t' };
+		for ( int i = 0; i < myChars.length; i++) {
+			System.out.print(" '" + myChars[i] + "' " );
+			if ( Character.isAlphabetic(myChars[i]) )	System.out.print(" Alphabetic");
+			if ( Character.isDigit(myChars[i]) )		System.out.print(" Digit");
+			if ( Character.isLetter(myChars[i]) )		System.out.print(" Letter");
+			if ( Character.isLowerCase(myChars[i]) )	System.out.print(" LowerCase");
+			if ( Character.isUpperCase(myChars[i]) )	System.out.print(" UpperCase");
+			if ( Character.isWhitespace(myChars[i]) )	System.out.print(" Whitespace");
+			System.out.println();
+		}
     }
 }

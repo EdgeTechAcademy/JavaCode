@@ -14,7 +14,8 @@ public class Println {
         String		newName	= schoolName.replace("e", "-");				// returns Edg- T-ch Acad-my
         String[]	phoneParts	= "682-334-5679".split("-");			// returns ["628", "334" "5679"]
         String		exchange	= "682-334-5679".substring(4,7);		// "334"
-        String		phone	= String.join("628", "334", "5679");		// "682-334-5679"
+        String		phone	= String.join("-", "628", "334", "5679");		// "682-334-5679"
+        System.out.println(phone);
 
         System.out.println(String.format("%s: is %d characters long",  schoolName, schoolName.length()));
         //	the \n inserts a carriage return

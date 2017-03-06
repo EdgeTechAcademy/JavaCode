@@ -35,5 +35,10 @@ public class HelloWorld {
         HelloWorld student2 = new HelloWorld();                //  Create your 2nd Object
         student2.setName("Benjamin");
         System.out.println("This is the name of our 2nd student " + student2.getName());
+
+        if ( args.length == 1 ) {
+            HelloWorld me = new HelloWorld(args[0]);           //  Create your me Object
+            System.out.println(me);
+        }
     }
 }
