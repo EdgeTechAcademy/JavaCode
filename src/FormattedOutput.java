@@ -5,6 +5,12 @@ import java.util.Calendar;
  */
 public class FormattedOutput {
 	public static void main(String[] args) {
+		int numberOne = Integer.valueOf ("1");
+		boolean compare1 = Integer.valueOf (1).equals (new Long (1).intValue ());
+		System.out.format ("%b%n", compare1);
+
+		boolean compare2 = Integer.valueOf (1).equals (Long.valueOf (1));
+		System.out.format ("%b%n", compare1);
 		long n = 12345678;
 		System.out.format("%d%n", n);					// --> "12345678"
 		System.out.format("%010d%n", n);				// --> "012345678"
