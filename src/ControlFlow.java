@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  * Created by Edge Tech Academy on 11/9/2016.
@@ -101,7 +102,6 @@ public class ControlFlow {
 		}
 		return  numDays;
 	}
-
 	public static ArrayList<String> getFutureMonths(int month) {
 
 		ArrayList<String> futureMonths = new ArrayList<>();
@@ -128,41 +128,71 @@ public class ControlFlow {
 	@SuppressWarnings("ConstantConditions")
 	public static void main(String[] args) {
 
-		int testScore = 76;
-		char grade = ControlFlow.getGrade(testScore);
-		System.out.println("Grade = " + grade);
-
-		int monthNumber = 8;
-		String monthString = ControlFlow.getMonthName(monthNumber);
-		System.out.println(monthString);
-
+		int 		testScore, monthNum, year, numDays;
+		String 		checkMonth;
 		ArrayList<String> futureMonths;
+		Scanner sc = new Scanner(System.in);
 
-		int month = 8;
-		futureMonths = ControlFlow.getFutureMonths(month);
+		System.out.println("Enter:\n      name\n      num\n      grade\n      days\n      future\n      exit");
 
-		if (futureMonths.isEmpty()) {
-			System.out.println("Invalid month number");
-		} else {
-			for (String monthName : futureMonths) {
-				System.out.println(monthName);
+		while (true) {
+			String what = sc.nextLine();
+			switch (what.toLowerCase()) {
+				case "name":
+					System.out.print("Enter month number: ");
+					monthNum = Integer.parseInt(sc.nextLine());
+					String monthString = ControlFlow.getMonthName(monthNum);
+					System.out.println(monthString);
+
+					break;
+				case "num":
+					System.out.print("Enter month name: ");
+					checkMonth = sc.nextLine();
+					int returnedMonthNumber = ControlFlow.getMonthNumber(checkMonth);
+					if (returnedMonthNumber == 0) {
+						System.out.println("Invalid month");
+					} else {
+						System.out.println(checkMonth + " is the " + returnedMonthNumber + " month");
+					}
+					break;
+
+				case "grade":
+					System.out.print("Enter score: ");
+					testScore = Integer.parseInt(sc.nextLine());
+					char grade = ControlFlow.getGrade(testScore);
+					System.out.println("Grade = " + grade);
+					break;
+
+				case "days":
+					System.out.print("Enter month number: ");
+					monthNum = Integer.parseInt(sc.nextLine());
+
+					System.out.print("Enter year number: ");
+					year = Integer.parseInt(sc.nextLine());
+					numDays = ControlFlow.daysInMonth(monthNum, year);
+					System.out.println("Number of Days = " + numDays);
+					break;
+
+				case "future":
+					System.out.print("Enter month number: ");
+					monthNum = Integer.parseInt(sc.nextLine());
+					futureMonths = ControlFlow.getFutureMonths(monthNum);
+
+					if (futureMonths.isEmpty()) {
+						System.out.println("Invalid month number");
+					} else {
+						for (String monthName : futureMonths) {
+							System.out.println(monthName);
+						}
+					}
+					break;
+				case "exit"	:
+					return;
+
+				default:
+					System.out.println("Enter:\n      name\n      num\n      grade\n      days\n      future\n      exit");
+					break;
 			}
-		}
-
-		month = 2;
-		int year = 2000;
-		int numDays = 0;
-		ControlFlow.daysInMonth(month, year);
-
-		System.out.println("Number of Days = " + numDays);
-
-		String checkMonth = "August";
-		int returnedMonthNumber = ControlFlow.getMonthNumber(checkMonth);
-
-		if (returnedMonthNumber == 0) {
-			System.out.println("Invalid month");
-		} else {
-			System.out.println(checkMonth + " is the " + returnedMonthNumber + " month");
 		}
 	}
 }
