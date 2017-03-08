@@ -19,10 +19,16 @@ public class VehicleE implements WarpDrive {
         RED, ORANGE, YELLOW, GREEN, BLUE, PURPLE, BROWN, BLACK, SILVER
     }
 
-    public enum TRANS{
+    public enum TRANS {
         AUTOMATIC(true), STICK(false);
         private boolean value;
         TRANS(boolean value) { this.value = value; }
+    }
+
+    public enum VARIETY {
+        SO_TRUE("Ture"), NOT_TRUE("False"), POSSIBLE("Possible");
+        private String value;
+        VARIETY(String value) { this.value = value; }
     }
 
     //  unchanging fields
@@ -162,5 +168,7 @@ public class VehicleE implements WarpDrive {
         if ( FordF150.getTransmission() == TRANS.AUTOMATIC)
             System.out.println("Yes it is");
         spider.setCurrentGear(3);
+
+		QUOTES.GODFATHER.main(args);
     }
 }

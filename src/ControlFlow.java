@@ -133,11 +133,12 @@ public class ControlFlow {
 		ArrayList<String> futureMonths;
 		Scanner sc = new Scanner(System.in);
 
-		System.out.println("Enter:\n      name\n      num\n      grade\n      days\n      future\n      exit");
-
 		while (true) {
+			System.out.println("\n1 name   2 num     3 grade\n" +
+							     "4 days   5 future    exit");
 			String what = sc.nextLine();
 			switch (what.toLowerCase()) {
+				case "1":
 				case "name":
 					System.out.print("Enter month number: ");
 					monthNum = Integer.parseInt(sc.nextLine());
@@ -145,6 +146,8 @@ public class ControlFlow {
 					System.out.println(monthString);
 
 					break;
+
+				case "2":
 				case "num":
 					System.out.print("Enter month name: ");
 					checkMonth = sc.nextLine();
@@ -156,6 +159,7 @@ public class ControlFlow {
 					}
 					break;
 
+				case "3":
 				case "grade":
 					System.out.print("Enter score: ");
 					testScore = Integer.parseInt(sc.nextLine());
@@ -163,6 +167,7 @@ public class ControlFlow {
 					System.out.println("Grade = " + grade);
 					break;
 
+				case "4":
 				case "days":
 					System.out.print("Enter month number: ");
 					monthNum = Integer.parseInt(sc.nextLine());
@@ -173,6 +178,7 @@ public class ControlFlow {
 					System.out.println("Number of Days = " + numDays);
 					break;
 
+				case "5":
 				case "future":
 					System.out.print("Enter month number: ");
 					monthNum = Integer.parseInt(sc.nextLine());
@@ -186,12 +192,9 @@ public class ControlFlow {
 						}
 					}
 					break;
+
 				case "exit"	:
 					return;
-
-				default:
-					System.out.println("Enter:\n      name\n      num\n      grade\n      days\n      future\n      exit");
-					break;
 			}
 		}
 	}

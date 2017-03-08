@@ -7,6 +7,7 @@ public enum Planet {
     SATURN  (5.688e+26, 6.0268e7),
     URANUS  (8.686e+25, 2.5559e7),
     NEPTUNE (1.024e+26, 2.4746e7);
+//  PLUTO   (1.303e+22, 1187);         // sorry pluto. Moved to MinorPlanet enum
 
     private final double mass;   // in kilograms
     private final double radius; // in meters
@@ -37,9 +38,9 @@ public enum Planet {
         double earthWeight = Double.parseDouble(args[0]);
         double mass = earthWeight/EARTH.surfaceGravity();
         for (Planet p : Planet.values()) {
-            System.out.printf("Your weight on %8s is %f%n", p, p.surfaceWeight(mass));
+            System.out.printf("    Your weight on %8s is %f%n", p, p.surfaceWeight(mass));
             if (p == MERCURY)
-                System.out.printf("%s's radius is %e%n", p, p.radius());
+                System.out.printf("    %s's radius is %e%n", p, p.radius());
         }
     }
 }
