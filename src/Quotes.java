@@ -1,7 +1,7 @@
 /**
  * Created by gjames on 3/8/2017.
  */
-public enum QUOTES {
+public enum Quotes {
 
 	GODFATHER     ("Marlon Brando",   "The Godfather",    1972, "I'm gonna make him an offer he can't refuse." ),
 	WIZARD_OF_OZ  ("Judy Garland",    "The Wizard of Oz", 1939, "Toto, I've a feeling we're not in Kansas anymore." ),
@@ -14,7 +14,7 @@ public enum QUOTES {
 	private int year;
 	private String quote;
 
-	QUOTES(String actor, String movie, int year, String quote) {
+	Quotes(String actor, String movie, int year, String quote) {
 		this.actor = actor;
 		this.movie = movie;
 		this.year  = year;
@@ -32,7 +32,7 @@ public enum QUOTES {
 	public String whatDidTheySay   () { return quote; }
 
 	static public void main(String[] args) {
-		for (QUOTES q : QUOTES.values()) {
+		for (Quotes q : Quotes.values()) {
 			System.out.println(q);
 		}
 		System.out.println ("Who said? '" + CASABLANCA.whatDidTheySay() + "' in \"" + CASABLANCA.whereDidTheySayIt() + "\"");

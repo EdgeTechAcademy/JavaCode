@@ -168,7 +168,5 @@ public class VehicleE implements WarpDrive {
         if ( FordF150.getTransmission() == TRANS.AUTOMATIC)
             System.out.println("Yes it is");
         spider.setCurrentGear(3);
-
-		QUOTES.GODFATHER.main(args);
     }
 }
