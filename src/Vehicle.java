@@ -15,8 +15,8 @@ public class Vehicle {
 
     //  driver changeable fields
     private boolean     running;
-    private int         currentGear;
-    private int         currentSpeed;
+    private int         gear;
+    private int         speed;
 
     //  unchanging fields
     public int getWheels() {
@@ -53,12 +53,12 @@ public class Vehicle {
 
 
     //  driver changeable fields
-    public int getCurrentGear() {
-        return currentGear;
+    public int getGear() {
+        return gear;
     }
 
-    public void setCurrentGear(int currentGear) {
-        this.currentGear = currentGear;
+    public void setGear(int gear) {
+        this.gear = gear;
     }
 
     public boolean isRunning() {
@@ -69,12 +69,12 @@ public class Vehicle {
         this.running = running;
     }
 
-    public int getCurrentSpeed() {
-        return currentSpeed;
+    public int getSpeed() {
+        return speed;
     }
 
-    public void setCurrentSpeed(int currentSpeed) {
-        this.currentSpeed = currentSpeed;
+    public void setspeed(int speed) {
+        this.speed = speed;
     }
 
     public Vehicle(int engineSize, int gearCount, String color, String model) {
@@ -98,14 +98,14 @@ public class Vehicle {
                 "wheels=" + wheels +
                 ", engineSize=" + engineSize +
                 ", doors=" + doors +
-                ", currentGear=" + currentGear +
+                ", gear=" + gear +
                 ", gearCount=" + gearCount +
                 ", automatic=" + automatic +
                 ", seatingCapacity=" + seatingCapacity +
                 ", running=" + running +
                 ", model='" + model + '\'' +
                 ", color=" + color +
-                ", currentSpeed=" + currentSpeed +
+                ", speed=" + speed +
                 "}";
     }
 
@@ -118,6 +118,6 @@ public class Vehicle {
         Vehicle indian     = new Vehicle(2, 0, 450, 4, false, 2, "Yellow",  "Indian!");
 
         System.out.println(spider);
-        spider.setCurrentGear(3);
+        spider.setGear(3);
     }
 }

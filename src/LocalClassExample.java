@@ -5,7 +5,7 @@ public class LocalClassExample {
 
     static String regularExpression = "[^0-9]";
 
-    public static void validatePhoneNumber( String phoneNumber) {
+    public static void validatePhoneNumber(String phoneNumber) {
 
         int numberLength = 10;
 
@@ -23,14 +23,14 @@ public class LocalClassExample {
                 return formattedPhoneNumber;
             }
 
-            public void printOriginalNumbers() {
+            public void printOriginalNumber() {
                 System.out.println("Original number was " + phoneNumber);
             }
         }
 
         PhoneNumber myNumber = new PhoneNumber(phoneNumber);
 
-        myNumber.printOriginalNumbers();
+        myNumber.printOriginalNumber();
 
         System.out.println("Number is " + ((myNumber.getNumber() == null) ? "invalid" : myNumber.getNumber()));
     }

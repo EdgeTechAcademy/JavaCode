@@ -33,7 +33,6 @@ public class ColorList {
     // which extends the Iterator<String> interface
 
     private class ColorIterator implements ColorListIterator {
-
         // Start stepping through the array from the beginning
         private int nextIndex = 0;
         private String color;
@@ -48,13 +47,11 @@ public class ColorList {
         }
 
         public boolean hasNext() {
-
             // Check if the current element is the last in the array
             return (nextIndex < SIZE);
         }
 
         public String next() {
-
             // Record a value of an even index of the array
             String retValue = String.valueOf(arrayOfColors[nextIndex]);
 
@@ -69,7 +66,6 @@ public class ColorList {
     }
 
     public static void main(String s[]) {
-
         // Fill the array with String color values and
         // print out only values of one color
         ColorList color = new ColorList();

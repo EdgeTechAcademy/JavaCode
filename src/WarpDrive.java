@@ -9,14 +9,14 @@ public interface WarpDrive {
     void setWarpFactor(double warpFactor);
     void engage();
 
-    default double getTimeDilationFactor(int currentSpeed)
+    default double getTimeDilationFactor(int speed)
     {
-        return 1/getLorentzFactor(currentSpeed);
+        return 1/getLorentzFactor(speed);
     }
 
-    default double getLorentzFactor(int currentSpeed)
+    default double getLorentzFactor(int speed)
     {
-        double velocityLightRatio = Math.pow(currentSpeed,2)/Math.pow(LIGHT_SPEED,2);
+        double velocityLightRatio = Math.pow(speed,2)/Math.pow(LIGHT_SPEED,2);
         if (velocityLightRatio > 1)
             velocityLightRatio = 0;
 

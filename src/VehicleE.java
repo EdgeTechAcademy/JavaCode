@@ -40,13 +40,14 @@ public class VehicleE implements WarpDrive {
     private SEATS       seatingCapacity;
     private COLOR       color;
     private String      model;
+	private int			rpm;
 
-    //  driver changeable fields
+	//  driver changeable fields
     private boolean     running;
-    private int         currentGear;
-    private double      currentSpeed;
+    private int			gear;
+    private double 		speed;
 
-    //  IWarpFactor interface variables
+    //  WarpFactor interface variables
     private double      warpFactor;
 
     //  unchanging fields
@@ -82,14 +83,21 @@ public class VehicleE implements WarpDrive {
         return transmission;
     }
 
+	public int getRpm() {
+		return rpm;
+	}
 
-    //  driver changeable fields
-    public int getCurrentGear() {
-        return currentGear;
+	public void setRpm(int rpm) {
+		this.rpm = rpm;
+	}
+
+	//  driver changeable fields
+    public int getGear() {
+        return gear;
     }
 
-    public void setCurrentGear(int currentGear) {
-        this.currentGear = currentGear;
+    public void setGear(int gear) {
+        this.gear = gear;
     }
 
     public boolean isRunning() {
@@ -100,19 +108,38 @@ public class VehicleE implements WarpDrive {
         this.running = running;
     }
 
-    public double getCurrentSpeed() {
-        return currentSpeed;
+    public double getSpeed() {
+        return speed;
     }
 
-    public void setCurrentSpeed(double currentSpeed) {
-        this.currentSpeed = currentSpeed;
+    public void setSpeed(double speed) {
+        this.speed = speed;
     }
 
     public void setWarpFactor(double  warpFactor)
     {
         this.warpFactor = warpFactor;
-        currentSpeed = LIGHT_SPEED * Math.pow(warpFactor, 3.3333);
+        speed = LIGHT_SPEED * Math.pow(warpFactor, 3.3333);
     }
+
+    public void accelerate (int deltaVelocity) {
+    	speed += deltaVelocity;
+		rpm += (deltaVelocity > 0) ? 350 : -350;
+		if (rpm > 2700) {
+			if (gear < gearCount) {
+				gear++;
+				rpm = 2600;
+			} else if (gear == gearCount && rpm > 2900) {
+				System.out.print("Slow Down!   ");
+			}
+		} else if (rpm < 2300) {
+			if (gear > 1) {
+				gear--;
+				rpm = 2600;
+			}
+		}
+		System.out.println(getSpeed() + " " + getGear() + " " + getRpm());
+	}
 
     public void engage() {
         setWarpFactor(MAX_WARP);
@@ -145,8 +172,8 @@ public class VehicleE implements WarpDrive {
                 ", color=" + color +
                 ", model='" + model + '\'' +
                 ", running=" + running +
-                ", currentGear=" + currentGear +
-                ", currentSpeed=" + currentSpeed +
+                ", gear=" + gear +
+                ", speed=" + speed +
                 "}";
     }
 
@@ -167,6 +194,16 @@ public class VehicleE implements WarpDrive {
         System.out.println(spider);
         if ( FordF150.getTransmission() == TRANS.AUTOMATIC)
             System.out.println("Yes it is");
-        spider.setCurrentGear(3);
+        spider.setGear(2);
+		spider.setSpeed(100);
+		spider.setRpm(2900);
+		System.out.println(spider.getSpeed() + " " + spider.getGear() + " " + spider.getRpm());
+		spider.accelerate(20);
+		spider.accelerate(20);
+		spider.accelerate(20);
+		spider.accelerate(-40);
+		spider.accelerate(-40);
+		spider.accelerate(-40);
+		spider.accelerate(-40);
     }
 }

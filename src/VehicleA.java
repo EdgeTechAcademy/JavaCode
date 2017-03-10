@@ -37,8 +37,8 @@ public class VehicleA implements WarpDrive {
 
     //  driver changeable fields
     private boolean     running;
-    private int         currentGear;
-    private double      currentSpeed;
+    private int         gear;
+    private double      speed;
 
     //  IWarpFactor interface variables
     private double      warpFactor;
@@ -78,12 +78,12 @@ public class VehicleA implements WarpDrive {
 
 
     //  driver changeable fields
-    public int getCurrentGear() {
-        return currentGear;
+    public int getGear() {
+        return gear;
     }
 
-    public void setCurrentGear(int currentGear) {
-        this.currentGear = currentGear;
+    public void setGear(int gear) {
+        this.gear = gear;
     }
 
     public boolean isRunning() {
@@ -94,18 +94,18 @@ public class VehicleA implements WarpDrive {
         this.running = running;
     }
 
-    public double getCurrentSpeed() {
-        return currentSpeed;
+    public double getSpeed() {
+        return speed;
     }
 
-    public void setCurrentSpeed(double currentSpeed) {
-        this.currentSpeed = currentSpeed;
+    public void setspeed(double speed) {
+        this.speed = speed;
     }
 
     public void setWarpFactor(double  warpFactor)
     {
         this.warpFactor = warpFactor;
-        currentSpeed = LIGHT_SPEED * Math.pow(warpFactor, 3.3333);
+        speed = LIGHT_SPEED * Math.pow(warpFactor, 3.3333);
     }
 
     public void engage() {
@@ -139,8 +139,8 @@ public class VehicleA implements WarpDrive {
                 ", color=" + color +
                 ", model='" + model + '\'' +
                 ", running=" + running +
-                ", currentGear=" + currentGear +
-                ", currentSpeed=" + currentSpeed +
+                ", gear=" + gear +
+                ", speed=" + speed +
                 "}";
     }
 
