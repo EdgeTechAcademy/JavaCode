@@ -21,22 +21,33 @@ public class LambdaTester {
 		System.out.println(" 10 ^    5 = " + tester.operate( 10,   5, pow));
 		System.out.println("672 x 2^-4 = " + tester.operate(672,   4, (a, b) -> a >> b));
 
-		//without parenthesis
-		Greeter greeting1 =  message  -> System.out.println("Hello " + message);
+		//without parentheses
+		Greeter greeting1 =  (message)  -> System.out.println("Hello " + message);
 
-		//with parenthesis
+		//with parentheses
 		Greeter greeting2 = (message) -> System.out.println("Hello " + message);
+
+		greeting1.sayMessage("Edge Tech Academy");
+		greeting2.sayMessage("Let's Learn Lambda Expressions");
+
 		TimeOfDay time = () -> {
 			Calendar cal = Calendar.getInstance();
 			SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
 			System.out.println( sdf.format(cal.getTime()) );
 		};
 
-		greeting1.sayMessage("Edge Tech Academy");
-		greeting2.sayMessage("Let's Learn Lambda Expressions");
 		time.getTime();
 	}
 
+	private int operate(int a, int b, MathOperation mathOperation){
+		return mathOperation.operation(a, b);
+	}
+
+	/*
+	 *	Interface definitions used in our application.
+	 *	Some are finished some are not.
+	 *	You get to finish them off.
+	 */
 	interface MathOperation {
 		int operation(int a, int b);
 	}
@@ -47,9 +58,5 @@ public class LambdaTester {
 
 	interface TimeOfDay {
 		void getTime();
-	}
-
-	private int operate(int a, int b, MathOperation mathOperation){
-		return mathOperation.operation(a, b);
 	}
 }
