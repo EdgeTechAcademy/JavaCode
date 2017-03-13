@@ -2,11 +2,12 @@
  * Created by Edge Tech Academy on 3/10/2017.
  */
 
-import java.util.List;
+import java.util.*;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.lang.Iterable;
+import java.util.stream.Collectors;
 
 
 public class RosterTest {
@@ -251,7 +252,7 @@ public class RosterTest {
 
 
 		System.out.println("Show programmers names:");
-		roster.forEach((p) -> System.out.printf("%s %s; ", p.getName()));
+		roster.forEach((p) -> System.out.printf("%s; ", p.getName()));
 
 		System.out.println("Increase salary by 5% to programmers:");
 		Consumer<Person> giveRaise = e -> e.setSalary(e.getSalary() / 100 * 5 + e.getSalary());
@@ -298,7 +299,7 @@ public class RosterTest {
 													 .stream()
 													 .sorted((p, p2) -> (p.getName().compareTo(p2.getName())))
 													 .limit(5)
-													 .collect(toList());
+													 .collect(Collectors.toList());
 
 		sortedroster.forEach((p) -> System.out.printf("%s; %n", p.getName()));
 
@@ -306,7 +307,7 @@ public class RosterTest {
 		sortedroster = roster
 										.stream()
 										.sorted((p, p2) -> (p.getSalary() - p2.getSalary()))
-										.collect(toList());
+										.collect(Collectors.toList());
 
 		sortedroster.forEach((p) -> System.out.printf("%s; %n", p.getName()));
 
@@ -316,7 +317,7 @@ public class RosterTest {
 							  .min((p1, p2) -> (p1.getSalary() - p2.getSalary()))
 							  .get();
 
-		System.out.printf("Name: %s; Salary: $%,d.", pers.getName, pers.getSalary())
+		System.out.printf("Name: %s; Salary: $%,d.", pers.getName(), pers.getSalary());
 
 		System.out.println("Get the highest Java programmer salary:");
 		Person person = roster
@@ -324,25 +325,25 @@ public class RosterTest {
 								.max((p, p2) -> (p.getSalary() - p2.getSalary()))
 								.get();
 
-		System.out.printf("Name: %s; Salary: $%,d.", person.getName(), person.getSalary())
+		System.out.printf("Name: %s; Salary: $%,d.", person.getName(), person.getSalary());
 
 		System.out.println("Get PHP programmers first name to String:");
 		String phpDevelopers = roster
 									   .stream()
-									   .map(Person::getFirstName)
-									   .collect(joining(" ; "));    // this can be used as a token in further operations
+									   .map(Person::getName)
+									   .collect(Collectors.joining(" ; "));    // this can be used as a token in further operations
 
 		System.out.println("Get Java programmers first name to Set:");
 		Set<String> javaDevFirstName = roster
 											   .stream()
 											   .map(Person::getName)
-											   .collect(toSet());
+											   .collect(Collectors.toSet());
 
 		System.out.println("Get Java programmers last name to TreeSet:");
 		TreeSet<String> javaDevLastName = roster
 												  .stream()
 												  .map(Person::getName)
-												  .collect(toCollection(TreeSet::new));
+												  .collect(Collectors.toCollection(TreeSet::new));
 
 		System.out.println("Calculate total money spent for paying Java programmers:");
 		int totalSalary = roster
@@ -360,6 +361,6 @@ public class RosterTest {
 		System.out.println("Highest number in List : " + stats.getMax());
 		System.out.println("Lowest number in List : " + stats.getMin());
 		System.out.println("Sum of all numbers : " + stats.getSum());
-		System.out.println("Average of all numbers : " + stats.getAverage())
+		System.out.println("Average of all numbers : " + stats.getAverage());
 	}
 }
