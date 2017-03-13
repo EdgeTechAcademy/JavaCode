@@ -245,5 +245,121 @@ public class RosterTest {
 									 && p.getAge() <= 25)
 				.map(p -> p.getEmail())
 				.forEach(email -> System.out.println(email));
+
+
+
+
+
+		System.out.println("Show programmers names:");
+		roster.forEach((p) -> System.out.printf("%s %s; ", p.getName()));
+
+		System.out.println("Increase salary by 5% to programmers:");
+		Consumer<Person> giveRaise = e -> e.setSalary(e.getSalary() / 100 * 5 + e.getSalary());
+
+		roster.forEach(giveRaise);
+
+		System.out.println("Show PHP programmers that earn more than $1,400:");
+		roster.stream()
+				.filter((p) -> (p.getSalary() > 1400))
+				.forEach((p) -> System.out.printf("%s; ", p.getName()));
+
+		// Define some filters
+		Predicate<Person> ageFilter = (p) -> (p.getAge() > 25);
+		Predicate<Person> salaryFilter = (p) -> (p.getSalary() > 1400);
+		Predicate<Person> genderFilter = (p) -> ("female".equals(p.getGender()));
+
+		System.out.println("Show female PHP programmers that earn more than $1,400 and are older than 24 years:");
+		roster.stream()
+				.filter(ageFilter)
+				.filter(salaryFilter)
+				.filter(genderFilter)
+				.forEach((p) -> System.out.printf("%s; ", p.getName()));
+
+// Reuse filters
+		System.out.println("Show female Java programmers older than 24 years:");
+		roster.stream()
+				.filter(ageFilter)
+				.filter(genderFilter)
+				.forEach((p) -> System.out.printf("%s; ", p.getName()));
+
+		System.out.println("Show first 3 Java programmers:");
+		roster.stream()
+				.limit(3)
+				.forEach((p) -> System.out.printf("%s; ", p.getName()));
+
+		System.out.println("Show first 3 female Java programmers:");
+		roster.stream()
+				.filter(genderFilter)
+				.limit(3)
+				.forEach((p) -> System.out.printf("%s; ", p.getName()));
+
+		System.out.println("Sort and show the first 5 Java programmers by name:");
+		List<Person> sortedroster = roster
+													 .stream()
+													 .sorted((p, p2) -> (p.getName().compareTo(p2.getName())))
+													 .limit(5)
+													 .collect(toList());
+
+		sortedroster.forEach((p) -> System.out.printf("%s; %n", p.getName()));
+
+		System.out.println("Sort and show Java programmers by salary:");
+		sortedroster = roster
+										.stream()
+										.sorted((p, p2) -> (p.getSalary() - p2.getSalary()))
+										.collect(toList());
+
+		sortedroster.forEach((p) -> System.out.printf("%s; %n", p.getName()));
+
+		System.out.println("Get the lowest Java programmer salary:");
+		Person pers = roster
+							  .stream()
+							  .min((p1, p2) -> (p1.getSalary() - p2.getSalary()))
+							  .get();
+
+		System.out.printf("Name: %s; Salary: $%,d.", pers.getName, pers.getSalary())
+
+		System.out.println("Get the highest Java programmer salary:");
+		Person person = roster
+								.stream()
+								.max((p, p2) -> (p.getSalary() - p2.getSalary()))
+								.get();
+
+		System.out.printf("Name: %s; Salary: $%,d.", person.getName(), person.getSalary())
+
+		System.out.println("Get PHP programmers first name to String:");
+		String phpDevelopers = roster
+									   .stream()
+									   .map(Person::getFirstName)
+									   .collect(joining(" ; "));    // this can be used as a token in further operations
+
+		System.out.println("Get Java programmers first name to Set:");
+		Set<String> javaDevFirstName = roster
+											   .stream()
+											   .map(Person::getName)
+											   .collect(toSet());
+
+		System.out.println("Get Java programmers last name to TreeSet:");
+		TreeSet<String> javaDevLastName = roster
+												  .stream()
+												  .map(Person::getName)
+												  .collect(toCollection(TreeSet::new));
+
+		System.out.println("Calculate total money spent for paying Java programmers:");
+		int totalSalary = roster
+								  .parallelStream()
+								  .mapToInt(p -> p.getSalary())
+								  .sum();
+
+		//Get count, min, max, sum, and average for numbers
+		List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+		IntSummaryStatistics stats = numbers
+											 .stream()
+											 .mapToInt((x) -> x)
+											 .summaryStatistics();
+
+		System.out.println("Highest number in List : " + stats.getMax());
+		System.out.println("Lowest number in List : " + stats.getMin());
+		System.out.println("Sum of all numbers : " + stats.getSum());
+		System.out.println("Average of all numbers : " + stats.getAverage())
 	}
 }
