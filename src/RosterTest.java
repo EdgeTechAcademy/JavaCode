@@ -21,7 +21,8 @@ public class RosterTest {
 
 	public static void printPersonsOlderThan(List<Person> roster, int age) {
 		for (Person p : roster) {
-			if (p.getAge() >= age) {
+			if (p.getGender() == Person.Sex.MALE
+				&& p.getAge() >= age) {
 				p.printPerson();
 			}
 		}
@@ -29,9 +30,10 @@ public class RosterTest {
 
 	// Approach 2: Create More Generalized Search Methods
 
-	public static void printPersonsWithinAgeRange(List<Person> roster, int low, int high) {
+	public static void printPersonsWithinAgeRange(List<Person> roster, int lo, int hi) {
 		for (Person p : roster) {
-			if (low <= p.getAge() && p.getAge() < high) {
+			if (p.getGender() == Person.Sex.MALE
+						&& lo <= p.getAge() && p.getAge() < hi) {
 				p.printPerson();
 			}
 		}
@@ -127,8 +129,8 @@ public class RosterTest {
 		class CheckPersonEligibleForSelectiveService implements CheckPerson {
 			public boolean test(Person p) {
 				return p.getGender() == Person.Sex.MALE
-							   && p.getAge() >= 18
-							   && p.getAge() <= 25;
+					   && p.getAge() >= 18
+					   && p.getAge() <= 25;
 			}
 		}
 
@@ -148,8 +150,8 @@ public class RosterTest {
 				new CheckPerson() {
 					public boolean test(Person p) {
 						return p.getGender() == Person.Sex.MALE
-									   && p.getAge() >= 18
-									   && p.getAge() <= 25;
+							   && p.getAge() >= 18
+							   && p.getAge() <= 25;
 					}
 				}
 		);
@@ -164,8 +166,8 @@ public class RosterTest {
 		printPersons(
 				roster,
 				(Person p) -> p.getGender() == Person.Sex.MALE
-									  && p.getAge() >= 18
-									  && p.getAge() <= 25
+							  && p.getAge() >= 18
+							  && p.getAge() <= 25
 		);
 
 		System.out.println();
@@ -179,8 +181,8 @@ public class RosterTest {
 		printPersonsWithPredicate(
 				roster,
 				p -> p.getGender() == Person.Sex.MALE
-							 && p.getAge() >= 18
-							 && p.getAge() <= 25
+					 && p.getAge() >= 18
+					 && p.getAge() <= 25
 		);
 
 		System.out.println();
@@ -193,8 +195,8 @@ public class RosterTest {
 		processPersons(
 				roster,
 				p -> p.getGender() == Person.Sex.MALE
-							 && p.getAge() >= 18
-							 && p.getAge() <= 25,
+					 && p.getAge() >= 18
+					 && p.getAge() <= 25,
 				p -> p.printPerson()
 		);
 
@@ -208,8 +210,8 @@ public class RosterTest {
 		processPersonsWithFunction(
 				roster,
 				p -> p.getGender() == Person.Sex.MALE
-							 && p.getAge() >= 18
-							 && p.getAge() <= 25,
+					 && p.getAge() >= 18
+					 && p.getAge() <= 25,
 				p -> p.getEmail(),
 				email -> System.out.println(email)
 		);
@@ -224,8 +226,8 @@ public class RosterTest {
 		processElements(
 				roster,
 				p -> p.getGender() == Person.Sex.MALE
-							 && p.getAge() >= 18
-							 && p.getAge() <= 25,
+					 && p.getAge() >= 18
+					 && p.getAge() <= 25,
 				p -> p.getEmail(),
 				email -> System.out.println(email)
 		);
@@ -242,14 +244,14 @@ public class RosterTest {
 				.stream()
 				.filter(
 						p -> p.getGender() == Person.Sex.MALE
-									 && p.getAge() >= 18
-									 && p.getAge() <= 25)
+							 && p.getAge() >= 18
+							 && p.getAge() <= 25)
 				.map(p -> p.getEmail())
 				.forEach(email -> System.out.println(email));
 
-
+//---------------------------------------------------------------------------------------------------
 //	Other examples using the wonderful Lambda expressions
-
+//---------------------------------------------------------------------------------------------------
 
 		System.out.println("Show programmers names:");
 		roster.forEach((p) -> System.out.printf("%s %s; ", p.getFirstName(), p.getLastName()));
@@ -273,57 +275,60 @@ public class RosterTest {
 
 		System.out.println("Show female PHP programmers that earn more than $1,400 and are older than 24 years:");
 		roster.stream()
-				.filter(ageFilter)
-				.filter(salaryFilter)
-				.filter(genderFilter)
-				.forEach((p) -> System.out.printf("%s %s; ", p.getFirstName(), p.getLastName()));
+							.filter(ageFilter)
+							.filter(salaryFilter)
+							.filter(genderFilter)
+							.forEach((p) -> System.out.printf("%s %s; ", p.getFirstName(), p.getLastName()));
 
 // Reuse filters
 		System.out.println("Show female Java programmers older than 24 years:");
 		roster.stream()
-				.filter(ageFilter)
-				.filter(genderFilter)
-				.forEach((p) -> System.out.printf("%s %s; ", p.getFirstName(), p.getLastName()));
+							.filter(ageFilter)
+							.filter(genderFilter)
+							.forEach((p) -> System.out.printf("%s %s; ", p.getFirstName(), p.getLastName()));
 
 		System.out.println("Show first 3 Java programmers:");
-		roster.stream()
-				.limit(3)
-				.forEach((p) -> System.out.printf("%s %s; ", p.getFirstName(), p.getLastName()));
+		roster				.stream()
+							.limit(3)
+							.forEach((p) -> System.out.printf("%s %s; ", p.getFirstName(), p.getLastName()));
 
 		System.out.println("Show first 3 female Java programmers:");
 		roster.stream()
-				.filter(genderFilter)
-				.limit(3)
-				.forEach((p) -> System.out.printf("%s %s; ", p.getFirstName(), p.getLastName()));
+							.filter(genderFilter)
+							.limit(3)
+							.forEach((p) -> System.out.printf("%s %s; ", p.getFirstName(), p.getLastName()));
 
 		System.out.println("Sort and show the first 5 Java programmers by name:");
 		List<Person> sortedroster = roster
-										 .stream()
-										 .sorted((p, p2) -> (p.getLastName().compareTo(p2.getLastName())))
-										 .limit(5)
-										 .collect(Collectors.toList());
+							.stream()
+							.sorted((p, p2) -> (p.getLastName().compareTo(p2.getLastName())))
+							.limit(5)
+							.collect(Collectors.toList());
 
 		sortedroster.forEach((p) -> System.out.printf("%s %s; %n", p.getFirstName(), p.getLastName()));
 
 		System.out.println("Sort and show Java programmers by salary:");
 		sortedroster = roster
-										.stream()
-										.sorted((p, p2) -> (p.getSalary() - p2.getSalary()))
-										.collect(Collectors.toList());
+							.stream()
+							.filter(JavaFilter)
+							.sorted((p, p2) -> (p.getSalary() - p2.getSalary()))
+							.collect(Collectors.toList());
 
 		sortedroster.forEach((p) -> System.out.printf("%s %s; %n", p.getFirstName(), p.getLastName()));
 
 		System.out.println("Get the lowest Java programmer salary:");
 		Person pers = roster
-							  .stream()
-							  .min((p1, p2) -> (p1.getSalary() - p2.getSalary()))
-							  .get();
+							.stream()
+							.filter(JavaFilter)
+							.min((p1, p2) -> (p1.getSalary() - p2.getSalary()))
+							.get();
 
 		System.out.printf("Name: %s %s; Salary: $%,d.", pers.getFirstName(), pers.getLastName(), pers.getSalary());
 
 		System.out.println("Get the highest Java programmer salary:");
 		Person person = roster
 							.stream()
+							.filter(JavaFilter)
 							.max((p, p2) -> (p.getSalary() - p2.getSalary()))
 							.get();
 
@@ -331,39 +336,42 @@ public class RosterTest {
 
 		System.out.println("Get PHP programmers first name to String:");
 		String phpDevelopers = roster
-								   .stream()
-								   .map(Person::getFirstName)
-								   .collect(Collectors.joining(" ; "));    // this can be used as a token in further operations
+							.stream()
+							.filter(PHPFilter)
+							.map(Person::getFirstName)
+							.collect(Collectors.joining(" ; "));    // this can be used as a token in further operations
 
 		System.out.println("Get Java programmers first name to Set:");
 		Set<String> javaDevFirstName = roster
-										   .stream()
-										   .map(Person::getFirstName)
-										   .collect(Collectors.toSet());
+							.stream()
+							.filter(JavaFilter)
+							.map(Person::getFirstName)
+							.collect(Collectors.toSet());
 
 		System.out.println("Get Java programmers last name to TreeSet:");
 		TreeSet<String> javaDevLastName = roster
-											  .stream()
-											  .map(Person::getFirstName)
-											  .collect(Collectors.toCollection(TreeSet::new));
+							.stream()
+							.filter(JavaFilter)
+							.map(Person::getLastName)
+							.collect(Collectors.toCollection(TreeSet::new));
 
 		System.out.println("Calculate total money spent for paying Java programmers:");
 		int totalSalary = roster
-							  .parallelStream()
-							  .mapToInt(p -> p.getSalary())
-							  .sum();
+							.parallelStream()
+							.filter(JavaFilter)
+							.mapToInt(p -> p.getSalary())
+							.sum();
 
-		//Get count, min, max, sum, and average for numbers
-		List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
-		IntSummaryStatistics stats = numbers
-										 .stream()
-										 .mapToInt((x) -> x)
-										 .summaryStatistics();
+		IntSummaryStatistics salaryStats = roster
+							.stream()
+							.mapToInt(Person::getSalary)
+							.summaryStatistics();
 
-		System.out.println("Highest number in List : " + stats.getMax());
-		System.out.println("Lowest  number in List : " + stats.getMin());
-		System.out.println("Count   of all numbers : " + stats.getCount());
-		System.out.println("Sum     of all numbers : " + stats.getSum());
-		System.out.println("Average of all numbers : " + stats.getAverage());
+		//Get count, min, max, sum, and average for Salaries
+		System.out.println("Highest Salary : " + salaryStats.getMax());
+		System.out.println("Lowest  Salary : " + salaryStats.getMin());
+		System.out.println("Count   of all Salaries : " + salaryStats.getCount());
+		System.out.println("Sum     of all Salaries : " + salaryStats.getSum());
+		System.out.println("Average of all Salaries : " + salaryStats.getAverage());
 	}
 }
