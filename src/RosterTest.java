@@ -257,121 +257,169 @@ public class RosterTest {
 		roster.forEach((p) -> System.out.printf("%s %s; ", p.getFirstName(), p.getLastName()));
 
 		System.out.println("Increase salary by 5% to programmers:");
-		Consumer<Person> giveRaise = e -> e.setSalary(e.getSalary() / 100 * 5 + e.getSalary());
-
+		Consumer<Person> giveRaise = e -> e.setSalary((int)((float)e.getSalary() * 1.05));
 		roster.forEach(giveRaise);
 
-		System.out.println("Show PHP programmers that earn more than $1,400:");
-		roster.stream()
-				.filter((p) -> (p.getSalary() > 1400))
+		System.out.println("Show PHP programmers that earn more than $50_000:");
+		roster	.stream()
+				.filter((p) -> (p.getSalary() > 50000))
 				.forEach((p) -> System.out.printf("%s %s; ", p.getFirstName(), p.getLastName()));
 
 		// Define some filters
 		Predicate<Person> ageFilter		= (p) -> (p.getAge() > 25);
-		Predicate<Person> salaryFilter	= (p) -> (p.getSalary() > 1400);
-		Predicate<Person> genderFilter	= (p) -> ("female".equals(p.getGender()));
+		Predicate<Person> salaryFilter	= (p) -> (p.getSalary() > 50_000);
+		Predicate<Person> genderFilter	= (p) -> (Person.Sex.FEMALE.equals(p.getGender()));
 		Predicate<Person> JavaFilter	= (p) -> ("Java programmer".equals(p.getJob()));
 		Predicate<Person> PHPFilter		= (p) -> ("PHP programmer".equals(p.getJob()));
 
-		System.out.println("Show female PHP programmers that earn more than $1,400 and are older than 24 years:");
+		System.out.println("\n\nShow female Programmers");
 		roster.stream()
-							.filter(ageFilter)
-							.filter(salaryFilter)
-							.filter(genderFilter)
-							.forEach((p) -> System.out.printf("%s %s; ", p.getFirstName(), p.getLastName()));
+				.filter(genderFilter)
+				.forEach((p) -> System.out.printf("%s; ", p.getFirstName()));
+
+		System.out.println("\n\nShow male Programmers");
+		roster.stream()
+				.filter(genderFilter.negate())
+				.forEach((p) -> System.out.printf("%s; ", p.getFirstName()));
+
+		System.out.println("\n\nShow female PHP programmers that earn more than $50,000 and are older than 25 years:");
+		roster.stream()
+					.filter(ageFilter)
+					.filter(salaryFilter)
+					.filter(genderFilter)
+					.forEach((p) -> System.out.printf("%s %s; ", p.getFirstName(), p.getLastName()));
 
 // Reuse filters
-		System.out.println("Show female Java programmers older than 24 years:");
+		System.out.println("\n\nShow female Java programmers older than 25 years:");
 		roster.stream()
-							.filter(ageFilter)
-							.filter(genderFilter)
-							.forEach((p) -> System.out.printf("%s %s; ", p.getFirstName(), p.getLastName()));
+					.filter(ageFilter)
+					.filter(genderFilter)
+					.forEach((p) -> System.out.printf("%s %s; ", p.getFirstName(), p.getLastName()));
 
-		System.out.println("Show first 3 Java programmers:");
-		roster				.stream()
-							.limit(3)
-							.forEach((p) -> System.out.printf("%s %s; ", p.getFirstName(), p.getLastName()));
+		System.out.println("\n\nShow first 3 Java programmers:");
+		roster		.stream()
+					.limit(3)
+					.forEach((p) -> System.out.printf("%s %s; ", p.getFirstName(), p.getLastName()));
 
-		System.out.println("Show first 3 female Java programmers:");
+		System.out.println("\n\nShow first 3 female Java programmers:");
 		roster.stream()
-							.filter(genderFilter)
-							.limit(3)
-							.forEach((p) -> System.out.printf("%s %s; ", p.getFirstName(), p.getLastName()));
+					.filter(genderFilter)
+					.limit(3)
+					.forEach((p) -> System.out.printf("%s %s; ", p.getFirstName(), p.getLastName()));
 
-		System.out.println("Sort and show the first 5 Java programmers by name:");
+		System.out.println("\n\nSort and show the first 5 Java programmers by last name:");
 		List<Person> sortedroster = roster
-							.stream()
-							.sorted((p, p2) -> (p.getLastName().compareTo(p2.getLastName())))
-							.limit(5)
-							.collect(Collectors.toList());
-
+					.stream()
+					.sorted((p, p2) -> (p.getLastName().compareTo(p2.getLastName())))
+					.limit(5)
+					.collect(Collectors.toList());
 		sortedroster.forEach((p) -> System.out.printf("%s %s; %n", p.getFirstName(), p.getLastName()));
 
-		System.out.println("Sort and show Java programmers by salary:");
+		System.out.println("\n\nSort and show Java programmers by salary:");
 		sortedroster = roster
-							.stream()
-							.filter(JavaFilter)
-							.sorted((p, p2) -> (p.getSalary() - p2.getSalary()))
-							.collect(Collectors.toList());
-
+					.stream()
+					.filter(JavaFilter)
+					.sorted((p, p2) -> (p.getSalary() - p2.getSalary()))
+					.collect(Collectors.toList());
 		sortedroster.forEach((p) -> System.out.printf("%s %s; %n", p.getFirstName(), p.getLastName()));
 
-		System.out.println("Get the lowest Java programmer salary:");
-		Person pers = roster
-							.stream()
-							.filter(JavaFilter)
-							.min((p1, p2) -> (p1.getSalary() - p2.getSalary()))
-							.get();
-
-		System.out.printf("Name: %s %s; Salary: $%,d.", pers.getFirstName(), pers.getLastName(), pers.getSalary());
-
-		System.out.println("Get the highest Java programmer salary:");
+		System.out.println("\n\nGet the lowest Java programmer salary:");
 		Person person = roster
-							.stream()
-							.filter(JavaFilter)
-							.max((p, p2) -> (p.getSalary() - p2.getSalary()))
-							.get();
+					.stream()
+					.filter(JavaFilter)
+					.min((p1, p2) -> (p1.getSalary() - p2.getSalary()))
+					.get();
+		System.out.printf("\n\nName: %s %s; Salary: $%,d.", person.getFirstName(), person.getLastName(), person.getSalary());
 
-		System.out.printf("Name: %s %s; Salary: $%,d.", person.getFirstName(), pers.getLastName(), person.getSalary());
+		System.out.println("\n\nGet the highest Java programmer salary:");
+		person = roster
+					.stream()
+					.filter(JavaFilter)
+					.max((p, p2) -> (p.getSalary() - p2.getSalary()))
+					.get();
+		System.out.printf("\n\nName: %s %s; Salary: $%,d.", person.getFirstName(), person.getLastName(), person.getSalary());
 
-		System.out.println("Get PHP programmers first name to String:");
-		String phpDevelopers = roster
-							.stream()
-							.filter(PHPFilter)
-							.map(Person::getFirstName)
-							.collect(Collectors.joining(" ; "));    // this can be used as a token in further operations
+		System.out.println("\n\nGet PHP programmers first name to String:");
+		String developers = roster
+					.stream()
+					.filter(PHPFilter)
+					.map(Person::getFirstName)
+					.collect(Collectors.joining(" ; "));    // this can be used as a token in further operations
+		System.out.println("\n\nPHP programmers Developers: " + developers);
 
-		System.out.println("Get Java programmers first name to Set:");
-		Set<String> javaDevFirstName = roster
-							.stream()
-							.filter(JavaFilter)
-							.map(Person::getFirstName)
-							.collect(Collectors.toSet());
+		System.out.println("\n\nGet Java programmers first name to Set:");
+		Set<String> firstNames = roster
+					.stream()
+					.filter(JavaFilter)
+					.map(Person::getFirstName)
+					.collect(Collectors.toSet());
+		System.out.println("First names:" + firstNames);
 
-		System.out.println("Get Java programmers last name to TreeSet:");
+		System.out.println("\n\nGet Java programmers last name to TreeSet:");
 		TreeSet<String> javaDevLastName = roster
-							.stream()
-							.filter(JavaFilter)
-							.map(Person::getLastName)
-							.collect(Collectors.toCollection(TreeSet::new));
+					.stream()
+					.filter(JavaFilter)
+					.map(Person::getLastName)
+					.collect(Collectors.toCollection(TreeSet::new));
 
-		System.out.println("Calculate total money spent for paying Java programmers:");
+		System.out.println("\n\nCalculate total money spent for paying Java programmers:");
 		int totalSalary = roster
-							.parallelStream()
-							.filter(JavaFilter)
-							.mapToInt(p -> p.getSalary())
-							.sum();
+					.parallelStream()
+					.filter(JavaFilter)
+					.mapToInt(p -> p.getSalary())				//	this Lambda can be replaced by Person::getSalary method reference
+					.sum();
+		System.out.println("Java Total Salary : " + totalSalary);
+
+		//	calc the total PHP developer salary using the PHP Filter and instead of a Lambda use the method reference
+		totalSalary = roster
+					.parallelStream()
+					.filter(PHPFilter)
+					.mapToInt(Person::getSalary)
+					.sum();
+		System.out.println("\n\nPHP  Total Salary : " + totalSalary);
 
 		IntSummaryStatistics salaryStats = roster
-							.stream()
-							.mapToInt(Person::getSalary)
-							.summaryStatistics();
+					.stream()
+					.mapToInt(Person::getSalary)
+					.summaryStatistics();
 
 		//Get count, min, max, sum, and average for Salaries
-		System.out.println("Highest Salary : " + salaryStats.getMax());
-		System.out.println("Lowest  Salary : " + salaryStats.getMin());
+		System.out.println("Highest Salary : " 			+ salaryStats.getMax());
+		System.out.println("Lowest  Salary : " 			+ salaryStats.getMin());
 		System.out.println("Count   of all Salaries : " + salaryStats.getCount());
 		System.out.println("Sum     of all Salaries : " + salaryStats.getSum());
 		System.out.println("Average of all Salaries : " + salaryStats.getAverage());
+
+		System.out.println("Names longer than 6 " + roster.stream().filter(x -> x.getLastName().length() >6).count());
+
+			List numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25);
+			List primeNumbers = RosterTest.findPrimeNumbers(numbers,
+					(number) -> RosterTest.isPrime((int) number));
+
+			System.out.println("Prime Numbers are " + primeNumbers);
+		}
+
+		public static boolean isPrime(int number) {
+			if (number == 1) {
+				return false;
+			}
+			for (int i = 2; i <= Math.floor(Math.sqrt(number)); i++) {
+				if (number % i == 0) {
+					return false;
+				}
+			}
+			return true;
+		}
+
+		public static List findPrimeNumbers(List list, Predicate predicate) {
+			List sortedNumbers = new ArrayList();
+			list.stream()
+					.filter((i) -> (predicate.test(i)))
+					.forEach((i) -> {
+						System.out.println(i);
+						sortedNumbers.add(i);
+					});
+			return sortedNumbers;
+
+		}
 	}
-}

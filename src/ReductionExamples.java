@@ -66,7 +66,7 @@ public class ReductionExamples {
 		List<String> namesOfMaleMembersCollect = roster
 														 .stream()
 														 .filter(p -> p.getGender() == Person.Sex.MALE)
-														 .map(p -> p.getName())
+														 .map(p -> p.getLastName())
 														 .collect(Collectors.toList());
 
 		namesOfMaleMembersCollect
@@ -91,7 +91,7 @@ public class ReductionExamples {
 						System.out.println("Gender: " + e.getKey());
 						e.getValue()
 							.stream()
-							.map(Person::getName)
+							.map(Person::getLastName)
 							.forEach(f -> System.out.println(f));
 					});
 
@@ -102,7 +102,7 @@ public class ReductionExamples {
 				roster.stream()
 					  .collect(Collectors.groupingBy(
 										Person::getGender,
-										Collectors.mapping(Person::getName,Collectors.toList()))
+										Collectors.mapping(Person::getLastName,Collectors.toList()))
 					  );
 
 		List<Map.Entry<Person.Sex, List<String>>>
