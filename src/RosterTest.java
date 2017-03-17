@@ -268,32 +268,32 @@ public class RosterTest {
 		// Define some filters
 		Predicate<Person> ageFilter		= (p) -> (p.getAge() > 25);
 		Predicate<Person> salaryFilter	= (p) -> (p.getSalary() > 50_000);
-		Predicate<Person> genderFilter	= (p) -> (Person.Sex.FEMALE.equals(p.getGender()));
+		Predicate<Person> femaleFilter	= (p) -> (Person.Sex.FEMALE.equals(p.getGender()));
 		Predicate<Person> JavaFilter	= (p) -> ("Java programmer".equals(p.getJob()));
 		Predicate<Person> PHPFilter		= (p) -> ("PHP programmer".equals(p.getJob()));
 
 		System.out.println("\n\nShow female Programmers");
 		roster.stream()
-				.filter(genderFilter)
+				.filter(femaleFilter)
 				.forEach((p) -> System.out.printf("%s; ", p.getFirstName()));
 
 		System.out.println("\n\nShow male Programmers");
 		roster.stream()
-				.filter(genderFilter.negate())
+				.filter(femaleFilter.negate())
 				.forEach((p) -> System.out.printf("%s; ", p.getFirstName()));
 
 		System.out.println("\n\nShow female PHP programmers that earn more than $50,000 and are older than 25 years:");
 		roster.stream()
 					.filter(ageFilter)
 					.filter(salaryFilter)
-					.filter(genderFilter)
+					.filter(femaleFilter)
 					.forEach((p) -> System.out.printf("%s %s; ", p.getFirstName(), p.getLastName()));
 
 // Reuse filters
 		System.out.println("\n\nShow female Java programmers older than 25 years:");
 		roster.stream()
 					.filter(ageFilter)
-					.filter(genderFilter)
+					.filter(femaleFilter)
 					.forEach((p) -> System.out.printf("%s %s; ", p.getFirstName(), p.getLastName()));
 
 		System.out.println("\n\nShow first 3 Java programmers:");
@@ -303,7 +303,7 @@ public class RosterTest {
 
 		System.out.println("\n\nShow first 3 female Java programmers:");
 		roster.stream()
-					.filter(genderFilter)
+					.filter(femaleFilter)
 					.limit(3)
 					.forEach((p) -> System.out.printf("%s %s; ", p.getFirstName(), p.getLastName()));
 
