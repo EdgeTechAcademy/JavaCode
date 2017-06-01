@@ -26,7 +26,7 @@ public class VehicleE implements WarpDrive {
     }
 
     public enum VARIETY {
-        SO_TRUE("Ture"), NOT_TRUE("False"), POSSIBLE("Possible");
+        SO_TRUE("True"), NOT_TRUE("False"), POSSIBLE("Possible");
         private String value;
         VARIETY(String value) { this.value = value; }
     }

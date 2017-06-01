@@ -22,7 +22,7 @@ public class LambdaTester {
 		System.out.println("672 x 2^-4 = " + tester.operate(672,   4, (a, b) -> a >> b));
 
 		//without parentheses
-		Greeter greeting1 =  (message)  -> System.out.println("Hello " + message);
+		Greeter greeting1 =  message  -> System.out.println("Hello " + message);
 
 		//with parentheses
 		Greeter greeting2 = (message) -> System.out.println("Hello " + message);

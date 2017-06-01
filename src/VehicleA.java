@@ -40,7 +40,7 @@ public class VehicleA implements WarpDrive {
     private int         gear;
     private double      speed;
 
-    //  IWarpFactor interface variables
+    //  WarpFactor interface variables
     private double      warpFactor;
 
     //  unchanging fields

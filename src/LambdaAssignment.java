@@ -6,7 +6,7 @@ public class LambdaAssignment {
 		LambdaAssignment tester = new LambdaAssignment();
 
 		MathOperation add      = (int a, int b) -> { return a + b; };	// with type declaration, return, and braces
-//		TODO:	MathOperation subtract = make a Lambda expresson for subtract
+//		TODO:	MathOperation subtract = make a Lambda expression for subtract
 //		TODO:	add the others here: subtract, multiply, divide and mod, pow
 
 		System.out.println(" 40 +    2 = " + tester.operate( 40,   2, add));
