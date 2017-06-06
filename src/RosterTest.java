@@ -21,7 +21,7 @@ public class RosterTest {
 
 	public static void printPersonsOlderThan(List<Person> roster, int age) {
 		for (Person p : roster) {
-			if (p.getGender() == Person.Sex.MALE
+			if (p.getGender() == Person.Gender.MALE
 				&& p.getAge() >= age) {
 				p.printPerson();
 			}
@@ -32,7 +32,7 @@ public class RosterTest {
 
 	public static void printPersonsWithinAgeRange(List<Person> roster, int lo, int hi) {
 		for (Person p : roster) {
-			if (p.getGender() == Person.Sex.MALE
+			if (p.getGender() == Person.Gender.MALE
 						&& lo <= p.getAge() && p.getAge() < hi) {
 				p.printPerson();
 			}
@@ -128,7 +128,7 @@ public class RosterTest {
 
 		class CheckPersonEligibleForSelectiveService implements CheckPerson {
 			public boolean test(Person p) {
-				return p.getGender() == Person.Sex.MALE
+				return p.getGender() == Person.Gender.MALE
 					   && p.getAge() >= 18
 					   && p.getAge() <= 25;
 			}
@@ -149,7 +149,7 @@ public class RosterTest {
 				roster,
 				new CheckPerson() {
 					public boolean test(Person p) {
-						return p.getGender() == Person.Sex.MALE
+						return p.getGender() == Person.Gender.MALE
 							   && p.getAge() >= 18
 							   && p.getAge() <= 25;
 					}
@@ -165,7 +165,7 @@ public class RosterTest {
 
 		printPersons(
 				roster,
-				(Person p) -> p.getGender() == Person.Sex.MALE
+				(Person p) -> p.getGender() == Person.Gender.MALE
 							  && p.getAge() >= 18
 							  && p.getAge() <= 25
 		);
@@ -180,7 +180,7 @@ public class RosterTest {
 
 		printPersonsWithPredicate(
 				roster,
-				p -> p.getGender() == Person.Sex.MALE
+				p -> p.getGender() == Person.Gender.MALE
 					 && p.getAge() >= 18
 					 && p.getAge() <= 25
 		);
@@ -194,7 +194,7 @@ public class RosterTest {
 
 		processPersons(
 				roster,
-				p -> p.getGender() == Person.Sex.MALE
+				p -> p.getGender() == Person.Gender.MALE
 					 && p.getAge() >= 18
 					 && p.getAge() <= 25,
 				p -> p.printPerson()
@@ -209,7 +209,7 @@ public class RosterTest {
 
 		processPersonsWithFunction(
 				roster,
-				p -> p.getGender() == Person.Sex.MALE
+				p -> p.getGender() == Person.Gender.MALE
 					 && p.getAge() >= 18
 					 && p.getAge() <= 25,
 				p -> p.getEmail(),
@@ -225,7 +225,7 @@ public class RosterTest {
 
 		processElements(
 				roster,
-				p -> p.getGender() == Person.Sex.MALE
+				p -> p.getGender() == Person.Gender.MALE
 					 && p.getAge() >= 18
 					 && p.getAge() <= 25,
 				p -> p.getEmail(),
@@ -243,7 +243,7 @@ public class RosterTest {
 		roster
 				.stream()
 				.filter(
-						p -> p.getGender() == Person.Sex.MALE
+						p -> p.getGender() == Person.Gender.MALE
 							 && p.getAge() >= 18
 							 && p.getAge() <= 25)
 				.map(p -> p.getEmail())
@@ -268,7 +268,7 @@ public class RosterTest {
 		// Define some filters
 		Predicate<Person> ageFilter		= (p) -> (p.getAge() > 25);
 		Predicate<Person> salaryFilter	= (p) -> (p.getSalary() > 50_000);
-		Predicate<Person> femaleFilter	= (p) -> (Person.Sex.FEMALE.equals(p.getGender()));
+		Predicate<Person> femaleFilter	= (p) -> (Person.Gender.FEMALE.equals(p.getGender()));
 		Predicate<Person> JavaFilter	= (p) -> ("Java programmer".equals(p.getJob()));
 		Predicate<Person> PHPFilter		= (p) -> ("PHP programmer".equals(p.getJob()));
 
@@ -392,34 +392,34 @@ public class RosterTest {
 
 		System.out.println("Names longer than 6 " + roster.stream().filter(x -> x.getLastName().length() >6).count());
 
-			List numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25);
-			List primeNumbers = RosterTest.findPrimeNumbers(numbers,
-					(number) -> RosterTest.isPrime((int) number));
+		List numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25);
+		List primeNumbers = RosterTest.findPrimeNumbers(numbers,
+				(number) -> RosterTest.isPrime((int) number));
 
-			System.out.println("Prime Numbers are " + primeNumbers);
+		System.out.println("Prime Numbers are " + primeNumbers);
+	}
+
+	public static boolean isPrime(int number) {
+		if (number == 1) {
+			return false;
 		}
-
-		public static boolean isPrime(int number) {
-			if (number == 1) {
+		for (int i = 2; i <= Math.floor(Math.sqrt(number)); i++) {
+			if (number % i == 0) {
 				return false;
 			}
-			for (int i = 2; i <= Math.floor(Math.sqrt(number)); i++) {
-				if (number % i == 0) {
-					return false;
-				}
-			}
-			return true;
 		}
-
-		public static List findPrimeNumbers(List list, Predicate predicate) {
-			List sortedNumbers = new ArrayList();
-			list.stream()
-					.filter((i) -> (predicate.test(i)))
-					.forEach((i) -> {
-						System.out.println(i);
-						sortedNumbers.add(i);
-					});
-			return sortedNumbers;
-
-		}
+		return true;
 	}
+
+	public static List findPrimeNumbers(List list, Predicate predicate) {
+		List sortedNumbers = new ArrayList();
+		list.stream()
+			.filter((i) -> (predicate.test(i)))
+			.forEach((i) -> {
+				System.out.println(i);
+				sortedNumbers.add(i);
+			});
+		return sortedNumbers;
+
+	}
+}
