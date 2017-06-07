@@ -23,17 +23,17 @@ public class Println {
         System.out.println(String.format("Find the A: %d\nFind the G: %d\nFind the D: %d",  find_A, find_G, find_E));	// 1234.588
         System.out.println(String.format("%2.3f",  1234.587654321));	// 1234.588
 
-        System.out.println(String.format("%6.3f",  1234.587654321));	//   1234.588
-        System.out.println(String.format("%6.2f",  1234.587654321));	//   1234.59
+        System.out.println(String.format("%6.3f",  1234.587654321));	// __1234.588
+        System.out.println(String.format("%6.2f",  1234.587654321));	// __1234.59
         System.out.println(String.format("%06.1f", 1234.587654321));	// 001235.6
         System.out.println(String.format("%06.0f", 1234.587654321));	// 001235.0
         System.out.println(String.format("%2.3f",  1234.587654321));	// 1234.588
 
         //  these lines of code are exactly the same as the ones above
-        System.out.format("%6.3f%n",  1234.587654321);	//   1234.588
-        System.out.format("%6.2f%n",  1234.587654321);	//   1234.59
+        System.out.format("%6.3f%n",  1234.587654321);	// 1234.588
+        System.out.format("%6.2f%n",  1234.587654321);	// 1234.59
         System.out.format("%06.1f%n", 1234.587654321);	// 001235.6
-        System.out.format("%06.0f%n", 1234.587654321);	// 001235.0
-        System.out.format("%2.3f%n",  1234.587654321);	// 1234.588
+        System.out.format("% 9.0f%n", 1234.587654321);	// 001235.0
+        System.out.format("%.3f%n",  1234.587654321);	// 1234.588
     }
 }

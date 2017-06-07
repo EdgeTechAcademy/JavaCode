@@ -23,7 +23,7 @@ public class QuickTests {
 		System.out.println(daysInTheYear[0][2] + daysInTheYear[1][1]);
 
 		int sum = IntStream.of(1, 2, 3, 4).reduce(0, (a, b) -> a + b);
-		System.out.println("Sum : " + sum);
+		System.out.println("Sum : " + sum + " size " + daysInTheYear.length);
 
 		int[] numbers = {123, 456, 789, 246, 135, 802, 791};
 
@@ -46,8 +46,8 @@ public class QuickTests {
 		System.out.println(byGender.get(Person.Gender.MALE));
 
 		long totalMale	= people.stream()
-									.filter	(p -> p.getGender().equals(Person.Gender.MALE))
-									.count();
+								.filter	(p -> p.getGender().equals(Person.Gender.MALE))
+								.count();
 
 		people.stream()
 				.filter	(p -> p.getGender().equals(Person.Gender.MALE))
