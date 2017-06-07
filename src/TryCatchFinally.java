@@ -7,12 +7,12 @@ import java.io.*;
 import java.util.List;
 import java.util.ArrayList;
 
-public class ListOfNumbers {
+public class TryCatchFinally {
 
 	private List<Integer> list;
 	private static final int SIZE = 10;
 
-	public ListOfNumbers () {
+	public TryCatchFinally() {
 		list = new ArrayList<Integer>(SIZE);
 		for (int i = 0; i < SIZE; i++) {
 			list.add(new Integer(i));
@@ -20,7 +20,7 @@ public class ListOfNumbers {
 	}
 
 	public static void main(String... args) {
-		ListOfNumbers lon = new ListOfNumbers();
+		TryCatchFinally lon = new TryCatchFinally();
 		lon.writeList();
 	}
 	public void writeList() {
