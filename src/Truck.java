@@ -24,7 +24,7 @@ public class Truck extends VehicleE {
 
     public void printDescription() {
         super.printDescription();
-        System.out.println("The " + getModel() + " has a " + getTowingCapacity() + " pound Towing Capacity.");
+        System.out.println("Truck: it has a " + getTowingCapacity() + " pound Towing Capacity.");
     }
 
 	@Override
@@ -33,19 +33,7 @@ public class Truck extends VehicleE {
 	}
 
 	public static void main(String[] args) {
-        Truck truck = new Truck(300,6,COLOR.BLUE, "Titan", 5000);
-        truck.printDescription();
-//        System.out.println(truck);
-  //      System.out.println(truck.super.toString());
-
-		Integer i = new Integer(10);
-		Integer j = new Integer(20);
- 		swap(i, j);
-		System.out.println("i = " + i + ", j = " + j);
-	}
-	public static void swap(Integer i, Integer j) {
-		Integer temp = new Integer(i);
-		i = j;
-		j = temp;
+		Truck truck = new Truck(300, 6, COLOR.BLUE, "Titan", 5000);
+		truck.printDescription();
 	}
 }

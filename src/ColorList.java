@@ -1,3 +1,5 @@
+import java.util.stream.Stream;
+
 /**
  * Created by Edge Tech Academy on 11/16/2016.
  */
@@ -19,7 +21,7 @@ public class ColorList {
 
     public void printColor(String color) {
 
-        // Print out values of even indices of the array
+        // Print out values of the selected color of the array
         ColorListIterator iterator = this.new ColorIterator(color);
         while (iterator.hasNext()) {
             System.out.print(iterator.next() + " ");
@@ -31,7 +33,6 @@ public class ColorList {
 
     // Inner class implements the ColorStructureIterator interface,
     // which extends the Iterator<String> interface
-
     private class ColorIterator implements ColorListIterator {
         // Start stepping through the array from the beginning
         private int nextIndex = 0;
@@ -52,10 +53,10 @@ public class ColorList {
         }
 
         public String next() {
-            // Record a value of an even index of the array
+            // Find the next value of the selected color of the array
             String retValue = String.valueOf(arrayOfColors[nextIndex]);
 
-            // Get the next color element defined for this interation
+            // Get the next color element defined for this iteration
             for (nextIndex++; nextIndex < SIZE; nextIndex++) {
                 if (arrayOfColors[nextIndex].equals(color)) {
                     break;
@@ -73,5 +74,10 @@ public class ColorList {
         color.printColor("yellow");
         color.printColor("blue");
         color.printColor("green");
-    }
+
+        //	Or you could replace everything from printColor to the end of the ColorIterator with one Lambda Expression
+        Stream.of(color.arrayOfColors)
+				.filter (c -> c.equals("red"))
+				.forEach(c -> System.out.print(c + " "));
+	}
 }

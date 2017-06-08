@@ -178,8 +178,7 @@ public class VehicleE implements WarpDrive {
     }
 
     public void printDescription() {
-        System.out.println("The " + "Vehicle is a " +
-                getModel());
+        System.out.println("VehicleE: The " + "Vehicle is a " + getModel());
     }
 
 

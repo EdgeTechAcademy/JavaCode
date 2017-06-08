@@ -78,4 +78,3 @@ public class QuickTests {
 				.forEach(System.out::println);
 	}
 }
-
