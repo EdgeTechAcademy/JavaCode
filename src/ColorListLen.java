@@ -19,16 +19,6 @@ public class ColorListLen {
 		System.out.println();
 	}
 
-	public void printColor(String color) {
-
-		// Print out values of the selected color of the array
-		ColorListIterator iterator = this.new ColorIterator(color);
-		while (iterator.hasNext()) {
-			System.out.print(iterator.next() + " ");
-		}
-		System.out.println();
-	}
-
 	public void printColorLen(int len) {
 
 		// Print out values of the selected color of the array
@@ -38,43 +28,6 @@ public class ColorListLen {
 			System.out.print(iterator.next() + " ");
 		}
 		System.out.println();
-	}
-
-	interface ColorListIterator extends java.util.Iterator<String> { }
-
-	// Inner class implements the ColorStructureIterator interface,
-	// which extends the Iterator<String> interface
-	private class ColorIterator implements ColorListIterator {
-		// Start stepping through the array from the beginning
-		private int nextIndex = 0;
-		private String color;
-
-		public ColorIterator(String color) {
-			this.color = color;
-			for (; nextIndex < SIZE; nextIndex++) {
-				if (arrayOfColors[nextIndex].equals(color)) {
-					break;
-				}
-			}
-		}
-
-		public boolean hasNext() {
-			// Check if the current element is the last in the array
-			return (nextIndex < SIZE);
-		}
-
-		public String next() {
-			// Find the next value of the selected color of the array
-			String retValue = String.valueOf(arrayOfColors[nextIndex]);
-
-			// Get the next color element defined for this iteration
-			for (nextIndex++; nextIndex < SIZE; nextIndex++) {
-				if (arrayOfColors[nextIndex].equals(color)) {
-					break;
-				}
-			}
-			return retValue;
-		}
 	}
 
 	interface ColorLenIterator extends java.util.Iterator<String> { }
@@ -116,21 +69,14 @@ public class ColorListLen {
 
 	public static void main(String s[]) {
 		// Fill the array with String color values and
-		// print out only values of one color
+		// print out only values of one length
 		ColorListLen color = new ColorListLen();
-		color.printColor("red");
-		color.printColor("yellow");
-		color.printColor("blue");
-		color.printColor("green");
 
 		color.printColorLen(3);
 		color.printColorLen(4);
 		color.printColorLen(5);
 		color.printColorLen(6);
 		//	Or you could replace everything from printColor to the end of the ColorIterator with one Lambda Expression
-		Stream.of(color.arrayOfColors)
-				.filter (c -> c.equals("red"))
-				.forEach(c -> System.out.print(c + " "));
 		Stream.of(color.arrayOfColors)
 				.filter (c -> c.length() == 5)
 				.forEach(c -> System.out.print(c + " "));
