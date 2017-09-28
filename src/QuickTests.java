@@ -1,15 +1,13 @@
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
-import java.util.stream.Stream;
 
 
 /**
- * Created by gjames on 5/31/2017.
+ * Created by EdgeTech Academy on 5/31/2017.
  */
 public class QuickTests {
 	public static void main(String[] args) {
-
 		int [][] daysInTheYear = {
 				{0, 1, 2, 3},
 				{4, 5},
@@ -32,6 +30,11 @@ public class QuickTests {
 //		sum = Arrays.stream(numbers).reduce(0, Integer::sum);
 		System.out.println("sum = " + sum);
 
+		List<Integer> nums = Arrays.asList(1,2,3,4,5,6,7);
+
+		System.out.println(nums.stream()
+								   .map(number -> String.valueOf(number))
+								   .collect(Collectors.joining(", ")));
 //------------------------	Person data examples	---------------------------
 
 		List<Person> people = Person.createRoster();
@@ -48,6 +51,7 @@ public class QuickTests {
 		long totalMale	= people.stream()
 								.filter	(p -> p.getGender().equals(Person.Gender.MALE))
 								.count();
+		System.out.println("There are " + totalMale + " men");
 
 		people.stream()
 				.filter	(p -> p.getGender().equals(Person.Gender.MALE))
