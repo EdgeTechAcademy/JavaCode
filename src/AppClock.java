@@ -64,7 +64,7 @@ public class AppClock extends Applet implements Runnable {
 					}
 				}
 				repaint();
-				//		TODO:		#7 the clock wakes up every second (1000 milliseconds). Change it to 200. Wake every 1/5 of a second
+				//		TODO:		#7 the clock wakes up every second (1000 milliseconds). Change it to 50. Wake every 1/20 of a second
 				Thread.sleep( 1000 );  // interval given in milliseconds
 			}
 		}
@@ -114,7 +114,7 @@ public class AppClock extends Applet implements Runnable {
 		//	make the lines we draw a little fatter
 		Graphics2D g2 = (Graphics2D) g;
 		//		TODO:	#1 the lines in our clock are too small try a fatter line size
-		g2.setStroke(new BasicStroke(1));
+		g2.setStroke(new BasicStroke(4));
 
 		//	get the size of the window and find the smallest dimension.
 		//	resize the window to keep our clock nice and round
@@ -124,44 +124,44 @@ public class AppClock extends Applet implements Runnable {
 		//	draw an outer white ring and a dark gray inner ring
 		//		TODO:	#2 what do you think of the colors for the outing ring of the clock? try something jazzier than gray
 		//				delete the word lightGray and type the letter B and wait, 'intellisense' will help you find the color blue,
-		//				don't type blue just do a down arrow to 'blue' and hit tab?
-		g.setColor( Color.lightGray );
+		//				don't type blue just do a down arrow to 'blue' and hit tab!
+		g.setColor( Color.blue );
 		g.drawArc(0, 0, width, height, 0, 360);
-		g.setColor( Color.gray );
+		g.setColor( Color.yellow );
 		g.drawArc(3, 3, width-6, height-6, 0, 360);
 
 		//		TODO:	#3 let's color in the area between 12 and the minute hand with a color
 		//				This code will color the area swept out by the minute hand with the color of your choosing
-		g.setColor( Color.black );
+		g.setColor( Color.lightGray );
 		int handRadius = width/3;
 		int handInset = width/2 - handRadius;
 		g.fillArc(handInset, handInset, width-2*handInset, width-2*handInset, 90, -minutes*6);
 
 		//		TODO:	#4 let's color in the area between 12 and the hour hand with another color
 		//				This code will color the area swept out by the hour hand with the color of your choosing
-		g.setColor( Color.black );
+		g.setColor( Color.gray );
 		handRadius = width/5;
 		handInset = width/2 - handRadius;
 		g.fillArc(handInset, handInset, width-2*handInset, width-2*handInset, 90, -(hours%12)*30);
 
 		//	draw the hour, minute and second hands
 		//	this uses painting methods to draw a wedge shaped clock hand for th hour and minute
-		//		TODO:	#5 This clock hands are not very attractive. Change their colors
-		drawWedge( 2*Math.PI * hours   / 12, 						width/5, 	g, Color.white );
-		drawWedge( 2*Math.PI * minutes / 60, 						width/3, 	g, Color.white );
-		drawHand ( 2*Math.PI * (seconds / 60.0),				 	width/2,	g, Color.red );
+		//		TODO:	#5 The clock hands are not very attractive. Change their colors
+		drawWedge( 2*Math.PI * hours   / 12, 						width/5, 	g, Color.yellow );
+		drawWedge( 2*Math.PI * minutes / 60, 						width/3, 	g, Color.cyan );
+		//drawHand ( 2*Math.PI * (seconds / 60.0),				 	width/2,	g, Color.red );
 		//		TODO:	#6 The clock hand jerks along once per second. If we want a smoother second hand
 		//				comment out the line of code above (add // to the front of the line)
 		//				and uncomment out the line below (remove the // from the front of the line)
 		//				now go up to TODO: #7 and change it
-//		drawHand ( 2*Math.PI * (seconds / 60.0 + milli/60000.0 ), 	width/2,	g, Color.red );
+		drawHand ( 2*Math.PI * (seconds / 60.0 + milli/60000.0 ), 	width/2,	g, Color.red );
 
 		//	let's put the hours on the clock
 		//	Here we will put some of the Trigonometry we 'learned' in high school to good use.
 		//	we will spread the numbers 1-12 around the face of the clock. One number every 30 degrees
 		//		TODO:	#8 the clock numbers are too small and unattractive. See if you can come up with something more interesting
-		g.setColor( Color.white );
-		g.setFont(new Font("TimesRoman", Font.ITALIC|Font.BOLD, 10));
+		g.setColor( Color.pink );
+		g.setFont(new Font("TimesRoman", Font.ITALIC|Font.BOLD, 25));
 		for ( int hr = 1; hr <= 12; hr++) {
 			double angle = (2*Math.PI*hr/12) - 0.5*Math.PI;
 			int radius = Math.min(height, width)/2-20;
