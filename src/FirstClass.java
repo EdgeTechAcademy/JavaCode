@@ -14,7 +14,7 @@ public class FirstClass {
 		double pi = Math.PI;
 		System.out.println("The famous number PI " + pi);
 
-		for ( char x = 'A'; x < 'Z'; x++)
+		for ( char x = '0'; x < '9'; x++)
 			System.out.println("This is the character " + x + " This is the value of x " + (byte)x);
 	}
 }
