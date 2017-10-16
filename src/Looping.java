@@ -6,23 +6,23 @@ import java.util.Scanner;
 public class Looping {
 
     public static int lookingFor(int searchFor) {
-        int[] arrayOfInts =
+        int[] arrayOfInts =											// just an array of random numbers
                 { 32, 87, 3, 589, 12, 1076, 2000, 8, 622, 127 };
 
         int i;
         int foundIt = -1;
 
-        for (i = 0; i < arrayOfInts.length; i++) {
-            if (arrayOfInts[i] == searchFor) {
-                foundIt = i;
-                break;
+        for (i = 0; i < arrayOfInts.length; i++) {					//	loop through the array looking
+            if (arrayOfInts[i] == searchFor) {						//	looking for a particular number
+                foundIt = i;										//	if we found it save the index value
+                break;												//	and get out
             }
         }
-        return foundIt;
+        return foundIt;												//	return value to the caller
     }
 
     public static int[] lookingForDouble(int searchFor) {
-        int[][] arrayOfInts = {
+        int[][] arrayOfInts = {										//	just a two dimensional array of random numbers
                 { 32,   87,    3, 589 },
                 { 12, 1076, 2000,   8 },
                 { 622, 127,   77, 955 }
@@ -32,61 +32,47 @@ public class Looping {
         int[] foundIt = null;
 
         search:
-        for (i = 0; i < arrayOfInts.length; i++) {
-            for (j = 0; j < arrayOfInts[i].length; j++) {
-                if (arrayOfInts[i][j] == searchFor) {
-                    foundIt = new int[] {i, j};
-                    break search;
+        for (i = 0; i < arrayOfInts.length; i++) {					//	loop through the rows of the array
+            for (j = 0; j < arrayOfInts[i].length; j++) {			//	loop through the columns of the array
+                if (arrayOfInts[i][j] == searchFor) {				//	looking for a particular number
+                    foundIt = new int[] {i, j};						//	now we need to return TWO values - create a small array
+                    break search;									//	we are inside a double loop, so we use break LABEL to get out
                 }
             }
         }
-        return foundIt;
+        return foundIt;												//	return the two entry array to the caller
     }
 
-    public static int countLetter(String searchMe, char letter) {
+	/**
+	 * 	countLetter - this method accepts two parameters
+	 * @param searchMe	A string we want to search
+	 * @param letter	a character we want to find in the searchMe string
+	 * @return			the number of times we found letter inside the searchMe string
+	 */
+	public static int countLetter(String searchMe, char letter) {
         int max = searchMe.length();
         int charCount = 0;
 
-        for (int i = 0; i < max; i++) {
+        for (int i = 0; i < max; i++) {				//	loop through the length of the searchMe string
             // interested only in one letter
-            if (searchMe.charAt(i) != letter)
-                continue;
+            if (searchMe.charAt(i) != letter)		//	is the character at this position the same as letter?
+                continue;							//	no so continue the loop
 
             // process p's
-            charCount++;
+            charCount++;							//	yes, we found a match. So count it
         }
         return charCount;
-    }
-
-    public static boolean findStingInString(String searchMe, String searchFor) {
-        boolean foundIt = false;
-
-        int max = searchMe.length() - searchFor.length();
-
-        test:
-        for (int i = 0; i <= max; i++) {
-            int n = searchFor.length();
-            int j = i;
-            int k = 0;
-            while (n-- != 0) {
-                if (searchMe.charAt(j++) != searchFor.charAt(k++)) {
-                    continue test;
-                }
-            }
-            foundIt = true;
-            break test;
-        }
-        return foundIt;
     }
 
     public static void main(String[] args) {
 
 		Scanner sc = new Scanner(System.in);
+		int searchFor;
 
 		while (true) {
 			System.out.println("\n1 while    2 do       3 while2   4 dowhile2\n" +
 							     "5 for      6 for:     7 looking  8 double\n" +
-							     "9 count   10 findstr    exit");
+							     "9 count   		    exit");
 			String what = sc.nextLine();
 			switch (what.toLowerCase()) {
 				case "1":
@@ -145,7 +131,8 @@ public class Looping {
 
 				case "7":
 				case "looking":
-					int searchFor = 12;
+					what = sc.nextLine();
+					searchFor = Integer.parseInt(what);
 					int foundIt = Looping.lookingFor(searchFor);
 
 					if (foundIt >= 0) {
@@ -157,8 +144,8 @@ public class Looping {
 
 				case "8":
 				case "double":
-					searchFor = 12;
 					int[] foundIt2;
+					searchFor = Integer.parseInt(what);
 					foundIt2 = Looping.lookingForDouble(searchFor);
 
 					if (foundIt2 != null) {
@@ -170,18 +157,10 @@ public class Looping {
 
 				case "9":
 				case "count":
-					char letter = 'p';
+					char letter = what.charAt(0);
 					String searchMe = "peter piper picked a peck of pickled peppers";
 					int charCount = Looping.countLetter(searchMe, letter);
 					System.out.println("Found " + charCount + " " + letter + "'s in the string.");
-					break;
-
-				case "10":
-				case "findstr":
-					searchMe = "Look for a substring in me";
-					String searchForSub = "sub";
-					boolean subFound = findStingInString(searchMe, searchForSub);
-					System.out.println((subFound ? "Found: '" : "Didn't find: '") + searchForSub + "' in: " + searchMe);
 					break;
 
 				case "exit"	:

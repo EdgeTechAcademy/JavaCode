@@ -4,15 +4,16 @@
 public class StringMethods {
 	public static void main(String[] args) {
 
-		String fullPathName = "C:\\Projects\\firstJava\\Verion.1.2.0\\src\\FirstClass.java";
+		String fullPathName = "C: Projects firstJava Verion.1.2.0 src FirstClass.java";
+		char[] myPath = fullPathName.toCharArray();
 
-		int slashIndex = fullPathName.lastIndexOf("\\");            // find the last slash
+		int slashIndex = fullPathName.lastIndexOf(" ");            // find the last slash
 		String fullFileName = fullPathName.substring(slashIndex + 1);    // we found the slash now go 1 more  char
 
-		String[] tokens = fullPathName.split("\\\\");                //	What’s the deal with all of the slashes
-		for (int i = 0; i < tokens.length - 1; i++)
+		String[] tokens = fullPathName.split(" ");                //	What’s the deal with all of the slashes
+		for (int i = 0; i < tokens.length; i++)
 			System.out.println(i + " " + tokens[i]);
-
+		System.out.println();
 		int dotIndex = fullPathName.lastIndexOf(".");
 
 		if (dotIndex >= 0 && slashIndex >= 0) {
@@ -26,4 +27,5 @@ public class StringMethods {
 		if ( fullFileName.endsWith(".java"))
 			System.out.println("This is a Java file!");
 	}
+
 }
