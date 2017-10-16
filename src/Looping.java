@@ -74,7 +74,7 @@ public class Looping {
 
 		while (true) {
 			System.out.println("\n1 while    2 do       3 while2   4 dowhile2\n" +
-							     "5 for      6 for:     7 looking  8 double\n" +
+							     "5 fori     6 forx     7 looking  8 double\n" +
 							     "9 count   		    exit");
 			String what = sc.nextLine();
 			switch (what.toLowerCase()) {
@@ -117,26 +117,27 @@ public class Looping {
 					break;
 
 				case "5":
-				case "for":
+				case "for index":
 					for (int i = 1; i < 11; i++) {
-						System.out.println("For inc: Count is: " + i);
-					}
-					break;
-
-				case "f":
-					for (int i = 0; i < numbers.length; i++) {
-						System.out.println("For item: Count is: " + numbers[i]);
+						System.out.println("For index: Count is: " + i);
 					}
 					break;
 
 				case "6":
-				case "for:":
-					for (int item : numbers) {
-						System.out.println("For item: element is: " + item);
+				case "fori":
+					for (int i = 0; i < numbers.length; i++) {
+						System.out.println("Fori: Item is: " + numbers[i]);
 					}
 					break;
 
 				case "7":
+				case "forx":
+					for (int item : numbers) {
+						System.out.println("Extended For item: element is: " + item);
+					}
+					break;
+
+				case "8":
 				case "looking":
 					System.out.print("What number are you looking for? ");
 					what = sc.nextLine();
@@ -150,7 +151,7 @@ public class Looping {
 					}
 					break;
 
-				case "8":
+				case "9":
 				case "double":
 					int[] foundIt2;
 					System.out.print("What number are you looking for? ");
@@ -164,7 +165,7 @@ public class Looping {
 					}
 					break;
 
-				case "9":
+				case "10":
 				case "count":
 					char letter = what.charAt(0);
 					String searchMe = "peter piper picked a peck of pickled peppers";
