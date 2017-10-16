@@ -66,6 +66,9 @@ public class Looping {
 
     public static void main(String[] args) {
 
+		int[] numbers =
+				{11, 1, 12, 2, 13, 3, 14, 4, 5, 6, 7, 8, 9, 10};
+
 		Scanner sc = new Scanner(System.in);
 		int searchFor;
 
@@ -120,17 +123,22 @@ public class Looping {
 					}
 					break;
 
+				case "f":
+					for (int i = 0; i < numbers.length; i++) {
+						System.out.println("For item: Count is: " + numbers[i]);
+					}
+					break;
+
 				case "6":
 				case "for:":
-					int[] numbers =
-							{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 					for (int item : numbers) {
-						System.out.println("For item: Count is: " + item);
+						System.out.println("For item: element is: " + item);
 					}
 					break;
 
 				case "7":
 				case "looking":
+					System.out.print("What number are you looking for? ");
 					what = sc.nextLine();
 					searchFor = Integer.parseInt(what);
 					int foundIt = Looping.lookingFor(searchFor);
@@ -145,6 +153,7 @@ public class Looping {
 				case "8":
 				case "double":
 					int[] foundIt2;
+					System.out.print("What number are you looking for? ");
 					searchFor = Integer.parseInt(what);
 					foundIt2 = Looping.lookingForDouble(searchFor);
 
