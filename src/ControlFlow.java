@@ -140,54 +140,54 @@ public class ControlFlow {
 			switch (what.toLowerCase()) {
 				case "1":
 				case "name":
-					System.out.print("Enter month number: ");
-					monthNum = Integer.parseInt(sc.nextLine());
-					String monthString = ControlFlow.getMonthName(monthNum);
+					System.out.print("Enter month number: ");					//	ask user for a month number
+					monthNum = Integer.parseInt(sc.nextLine());					//	convert to a number
+					String monthString = ControlFlow.getMonthName(monthNum);	//	get the month name
 					System.out.println(monthString);
 
 					break;
 
 				case "2":
 				case "num":
-					System.out.print("Enter month name: ");
+					System.out.print("Enter month name: ");						//	ask user for a month
 					checkMonth = sc.nextLine();
-					int returnedMonthNumber = ControlFlow.getMonthNumber(checkMonth);
-					if (returnedMonthNumber == 0) {
+					monthNum = ControlFlow.getMonthNumber(checkMonth);			//	get the month number
+					if (monthNum == 0) {										//	if it is 0 we entered a bad month
 						System.out.println("Invalid month");
 					} else {
-						System.out.println(checkMonth + " is the " + returnedMonthNumber + " month");
+						System.out.println(checkMonth + " is the " + monthNum + " month");
 					}
 					break;
 
 				case "3":
 				case "grade":
-					System.out.print("Enter score: ");
-					testScore = Integer.parseInt(sc.nextLine());
-					char grade = ControlFlow.getGrade(testScore);
+					System.out.print("Enter score: ");							//	ask user for a test score
+					testScore = Integer.parseInt(sc.nextLine());				//	convert to a number
+					char grade = ControlFlow.getGrade(testScore);				//	get the student grade
 					System.out.println("Grade = " + grade);
 					break;
 
 				case "4":
 				case "days":
-					System.out.print("Enter month number: ");
-					monthNum = Integer.parseInt(sc.nextLine());
+					System.out.print("Enter month number: ");					//	get the number of a month
+					monthNum = Integer.parseInt(sc.nextLine());					//	convert to a number
 
-					System.out.print("Enter year number: ");
-					year = Integer.parseInt(sc.nextLine());
-					numDays = ControlFlow.daysInMonth(monthNum, year);
+					System.out.print("Enter year number: ");					//	get the year value
+					year = Integer.parseInt(sc.nextLine());						//	convert to a number
+					numDays = ControlFlow.daysInMonth(monthNum, year);			//	determine the number of days in the month
 					System.out.println("Number of Days = " + numDays);
 					break;
 
 				case "5":
 				case "future":
-					System.out.print("Enter month number: ");
-					monthNum = Integer.parseInt(sc.nextLine());
-					futureMonths = ControlFlow.getFutureMonths(monthNum);
+					System.out.print("Enter month number: ");					//	get the number of a month
+					monthNum = Integer.parseInt(sc.nextLine());					//	convert to a number
+					futureMonths = ControlFlow.getFutureMonths(monthNum);		//	return a list of months for the rest of the year
 
-					if (futureMonths.isEmpty()) {
+					if (futureMonths.isEmpty()) {								//	if the list is empthy a bad month was entered
 						System.out.println("Invalid month number");
 					} else {
-						for (String monthName : futureMonths) {
+						for (String monthName : futureMonths) {					//	loop through the list of months and print them out
 							System.out.println(monthName);
 						}
 					}
