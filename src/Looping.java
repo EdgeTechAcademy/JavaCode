@@ -73,9 +73,9 @@ public class Looping {
 		int searchFor;
 
 		while (true) {
-			System.out.println("\n1 while    2 do       3 while2   4 dowhile2\n" +
-							     "5 fori     6 forx     7 looking  8 double\n" +
-							     "9 count   		    exit");
+			System.out.println("\n1 while       2 do       3 while2   4 dowhile2\n" +
+							     "5 for index   6 fori     7 forx     8 looking\n" +
+							     "9 double     10 count   	    exit");
 			String what = sc.nextLine();
 			switch (what.toLowerCase()) {
 				case "1":
