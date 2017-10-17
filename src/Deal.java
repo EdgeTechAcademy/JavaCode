@@ -16,8 +16,7 @@ public class Deal {
 		String[] suit = new String[] {
 				"♣", "♥", "♦", "♠" };
 		String[] rank = new String[] {
-				"A","2","3","4","5","6","7","8",
-				"9","10","J","Q","K" };
+				"A","2","3","4","5","6","7","8","9","10","J","Q","K" };
 		List<String> deck = new ArrayList<String>();
 		for (int i = 0; i < suit.length; i++)
 			for (int j = 0; j < rank.length; j++)
