@@ -64,31 +64,11 @@ public class Looping {
         return charCount;
     }
 
-    public static boolean findStingInString(String searchMe, String searchFor) {
-        boolean foundIt = false;
-
-        int max = searchMe.length() - searchFor.length();
-
-        test:
-        for (int i = 0; i <= max; i++) {
-            int n = searchFor.length();
-            int j = i;
-            int k = 0;
-            while (n-- != 0) {
-                if (searchMe.charAt(j++) != searchFor.charAt(k++)) {
-                    continue test;
-                }
-            }
-            foundIt = true;
-            break test;
-        }
-        return foundIt;
-    }
-
     public static void main(String[] args) {
 
 		Scanner sc = new Scanner(System.in);
 		int searchFor;
+		int[] numbers = { 32,   87,    3, 589, 12, 1076, 2000,   8,622, 127,   77, 955 };
 
 		while (true) {
 			System.out.println("\n1 while       2 do       3 while2   4 dowhile2\n" +
@@ -189,22 +169,12 @@ public class Looping {
 
 				case "10":
 				case "count":
-					char letter = what.charAt(0);
-					System.out.print("What are you looking for? ");
+					System.out.print("What letter are you looking for? ");
 					lookFor = sc.nextLine();
 					char letter = lookFor.charAt(0);
 					String searchMe = "peter piper picked a peck of pickled peppers";
 					int charCount = Looping.countLetter(searchMe, letter);
 					System.out.println("Found " + charCount + " " + letter + "'s in the string.");
-					break;
-
-				case "10":
-				case "findstr":
-					searchMe = "Look for a substring in me";
-					System.out.print("What are you looking for? ");
-					lookFor = sc.nextLine();
-					boolean subFound = findStingInString(searchMe, lookFor);
-					System.out.println((subFound ? "Found: '" : "Didn't find: '") + lookFor + "' in: " + searchMe);
 					break;
 
 				case "exit"	:
