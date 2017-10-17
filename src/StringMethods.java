@@ -10,7 +10,7 @@ public class StringMethods {
 		String fullFileName = fullPathName.substring(slashIndex + 1);    // we found the slash now go 1 more  char
 
 		String[] tokens = fullPathName.split("\\\\");                //	What’s the deal with all of the slashes
-		for (int i = 0; i < tokens.length - 1; i++)
+		for (int i = 0; i < tokens.length; i++)
 			System.out.println(i + " " + tokens[i]);
 
 		int dotIndex = fullPathName.lastIndexOf(".");

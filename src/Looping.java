@@ -81,14 +81,17 @@ public class Looping {
 
     public static void main(String[] args) {
 
+		int searchFor;
 		Scanner sc = new Scanner(System.in);
 
 		while (true) {
-			System.out.println("\n1 while    2 do       3 while2   4 dowhile2\n" +
-							     "5 for      6 for:     7 looking  8 double\n" +
-							     "9 count   10 findstr    exit");
 			String what = sc.nextLine();
 			switch (what.toLowerCase()) {
+				case "0":
+					System.out.println("\n1 while    2 do       3 while2   4 dowhile2\n" +
+										   "5 for      6 for:     7 looking  8 double\n" +
+										   "9 count   10 findstr    exit");
+					break;
 				case "1":
 				case "while":
 					int count = 1;
@@ -145,7 +148,10 @@ public class Looping {
 
 				case "7":
 				case "looking":
-					int searchFor = 12;
+					System.out.print("What are you looking for? ");
+					String lookFor = sc.nextLine();
+					searchFor = Integer.parseInt(lookFor);
+
 					int foundIt = Looping.lookingFor(searchFor);
 
 					if (foundIt >= 0) {
@@ -157,7 +163,9 @@ public class Looping {
 
 				case "8":
 				case "double":
-					searchFor = 12;
+					System.out.print("What are you looking for? ");
+					lookFor = sc.nextLine();
+					searchFor = Integer.parseInt(lookFor);
 					int[] foundIt2;
 					foundIt2 = Looping.lookingForDouble(searchFor);
 
@@ -170,7 +178,9 @@ public class Looping {
 
 				case "9":
 				case "count":
-					char letter = 'p';
+					System.out.print("What are you looking for? ");
+					lookFor = sc.nextLine();
+					char letter = lookFor.charAt(0);
 					String searchMe = "peter piper picked a peck of pickled peppers";
 					int charCount = Looping.countLetter(searchMe, letter);
 					System.out.println("Found " + charCount + " " + letter + "'s in the string.");
@@ -179,9 +189,10 @@ public class Looping {
 				case "10":
 				case "findstr":
 					searchMe = "Look for a substring in me";
-					String searchForSub = "sub";
-					boolean subFound = findStingInString(searchMe, searchForSub);
-					System.out.println((subFound ? "Found: '" : "Didn't find: '") + searchForSub + "' in: " + searchMe);
+					System.out.print("What are you looking for? ");
+					lookFor = sc.nextLine();
+					boolean subFound = findStingInString(searchMe, lookFor);
+					System.out.println((subFound ? "Found: '" : "Didn't find: '") + lookFor + "' in: " + searchMe);
 					break;
 
 				case "exit"	:

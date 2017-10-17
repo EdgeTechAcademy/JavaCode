@@ -3,7 +3,7 @@
  */
 public class IfThenElse {
 	public static void main (String[] args) {
-			int testscore = (args.length == 1) ? Integer.parseInt(args[0]) : 33;
+		int testscore = (args.length == 1) ? Integer.parseInt(args[0]) : 33;
 		char grade;
 		if (testscore >= 90) {
 			grade = 'A';

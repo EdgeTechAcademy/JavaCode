@@ -20,8 +20,8 @@ public class TryCatchFinally {
 	}
 
 	public static void main(String... args) {
-		TryCatchFinally lon = new TryCatchFinally();
-		lon.writeList();
+		TryCatchFinally tcf = new TryCatchFinally();
+		tcf.writeList();
 	}
 	public void writeList() {
 		PrintWriter out = null;
