@@ -12,7 +12,7 @@ public class StringMethods {
 		String[] tokens = fullPathName.split("\\\\");                //	What’s the deal with all of the slashes
 		for (int i = 0; i < tokens.length; i++)
 			System.out.println(i + " " + tokens[i]);
-
+		System.out.println();
 		int dotIndex = fullPathName.lastIndexOf(".");
 
 		if (dotIndex >= 0 && slashIndex >= 0) {

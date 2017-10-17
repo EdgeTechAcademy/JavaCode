@@ -6,19 +6,19 @@ import java.util.Scanner;
 public class Looping {
 
     public static int lookingFor(int searchFor) {
-        int[] arrayOfInts =
+        int[] arrayOfInts =											// just an array of random numbers
                 { 32, 87, 3, 589, 12, 1076, 2000, 8, 622, 127 };
 
         int i;
         int foundIt = -1;
 
-        for (i = 0; i < arrayOfInts.length; i++) {
-            if (arrayOfInts[i] == searchFor) {
-                foundIt = i;
-                break;
+        for (i = 0; i < arrayOfInts.length; i++) {					//	loop through the array looking
+            if (arrayOfInts[i] == searchFor) {						//	looking for a particular number
+                foundIt = i;										//	if we found it save the index value
+                break;												//	and get out
             }
         }
-        return foundIt;
+        return foundIt;												//	return value to the caller
     }
 
     public static int[] lookingForDouble(int searchFor) {
@@ -32,28 +32,34 @@ public class Looping {
         int[] foundIt = null;
 
         search:
-        for (i = 0; i < arrayOfInts.length; i++) {
-            for (j = 0; j < arrayOfInts[i].length; j++) {
-                if (arrayOfInts[i][j] == searchFor) {
-                    foundIt = new int[] {i, j};
-                    break search;
+        for (i = 0; i < arrayOfInts.length; i++) {					//	loop through the rows of the array
+            for (j = 0; j < arrayOfInts[i].length; j++) {			//	loop through the columns of the array
+                if (arrayOfInts[i][j] == searchFor) {				//	looking for a particular number
+                    foundIt = new int[] {i, j};						//	now we need to return TWO values - create a small array
+                    break search;									//	we are inside a double loop, so we use break LABEL to get out
                 }
             }
         }
-        return foundIt;
+        return foundIt;												//	return the two entry array to the caller
     }
 
-    public static int countLetter(String searchMe, char letter) {
+	/**
+	 * 	countLetter - this method accepts two parameters
+	 * @param searchMe	A string we want to search
+	 * @param letter	a character we want to find in the searchMe string
+	 * @return			the number of times we found letter inside the searchMe string
+	 */
+	public static int countLetter(String searchMe, char letter) {
         int max = searchMe.length();
         int charCount = 0;
 
-        for (int i = 0; i < max; i++) {
+        for (int i = 0; i < max; i++) {				//	loop through the length of the searchMe string
             // interested only in one letter
-            if (searchMe.charAt(i) != letter)
-                continue;
+            if (searchMe.charAt(i) != letter)		//	is the character at this position the same as letter?
+                continue;							//	no so continue the loop
 
             // process p's
-            charCount++;
+            charCount++;							//	yes, we found a match. So count it
         }
         return charCount;
     }
@@ -81,17 +87,15 @@ public class Looping {
 
     public static void main(String[] args) {
 
-		int searchFor;
 		Scanner sc = new Scanner(System.in);
+		int searchFor;
 
 		while (true) {
+			System.out.println("\n1 while       2 do       3 while2   4 dowhile2\n" +
+							     "5 for index   6 fori     7 forx     8 looking\n" +
+							     "9 double     10 count   	    exit");
 			String what = sc.nextLine();
 			switch (what.toLowerCase()) {
-				case "0":
-					System.out.println("\n1 while    2 do       3 while2   4 dowhile2\n" +
-										   "5 for      6 for:     7 looking  8 double\n" +
-										   "9 count   10 findstr    exit");
-					break;
 				case "1":
 				case "while":
 					int count = 1;
@@ -131,22 +135,27 @@ public class Looping {
 					break;
 
 				case "5":
-				case "for":
+				case "for index":
 					for (int i = 1; i < 11; i++) {
-						System.out.println("For inc: Count is: " + i);
+						System.out.println("For index: Count is: " + i);
 					}
 					break;
 
 				case "6":
-				case "for:":
-					int[] numbers =
-							{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-					for (int item : numbers) {
-						System.out.println("For item: Count is: " + item);
+				case "fori":
+					for (int i = 0; i < numbers.length; i++) {
+						System.out.println("Fori: Item is: " + numbers[i]);
 					}
 					break;
 
 				case "7":
+				case "forx":
+					for (int item : numbers) {
+						System.out.println("Extended For item: element is: " + item);
+					}
+					break;
+
+				case "8":
 				case "looking":
 					System.out.print("What are you looking for? ");
 					String lookFor = sc.nextLine();
@@ -161,12 +170,14 @@ public class Looping {
 					}
 					break;
 
-				case "8":
+				case "9":
 				case "double":
 					System.out.print("What are you looking for? ");
 					lookFor = sc.nextLine();
 					searchFor = Integer.parseInt(lookFor);
 					int[] foundIt2;
+					System.out.print("What number are you looking for? ");
+					searchFor = Integer.parseInt(what);
 					foundIt2 = Looping.lookingForDouble(searchFor);
 
 					if (foundIt2 != null) {
@@ -176,8 +187,9 @@ public class Looping {
 					}
 					break;
 
-				case "9":
+				case "10":
 				case "count":
+					char letter = what.charAt(0);
 					System.out.print("What are you looking for? ");
 					lookFor = sc.nextLine();
 					char letter = lookFor.charAt(0);

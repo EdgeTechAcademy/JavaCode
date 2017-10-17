@@ -8,10 +8,11 @@ public class Vehicle {
     private int         engineSize;     //  in cubic cm
     private int         doors;
     private int         gearCount;
-    private boolean     automatic;  //  true if automatic. false if manual
+    private boolean     isAutomatic;  //  true if isAutomatic. false if manual
     private int         seatingCapacity;
     private String      model;
     private String      color;
+    private String[]      accessories;          //TODO add code for accessories
 
     //  driver changeable fields
     private boolean     running;
@@ -48,7 +49,7 @@ public class Vehicle {
     }
 
     public boolean isAutomatic() {
-        return automatic;
+        return isAutomatic;
     }
 
 
@@ -86,7 +87,7 @@ public class Vehicle {
         this.doors = doors;
         this.engineSize = engineSize;
         this.gearCount = gearCount;
-        this.automatic = automatic;
+        this.isAutomatic = automatic;
         this.seatingCapacity = seatingCapacity;
         this.color = color;
         this.model = model;
@@ -100,7 +101,7 @@ public class Vehicle {
                 ", doors=" + doors +
                 ", gear=" + gear +
                 ", gearCount=" + gearCount +
-                ", automatic=" + automatic +
+                ", isAutomatic=" + isAutomatic +
                 ", seatingCapacity=" + seatingCapacity +
                 ", running=" + running +
                 ", model='" + model + '\'' +
