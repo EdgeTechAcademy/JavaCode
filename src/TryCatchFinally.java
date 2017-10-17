@@ -27,8 +27,8 @@ public class TryCatchFinally {
 		PrintWriter out = null;
 		try {
 			System.out.println ("Entering try statement");
-			out = new PrintWriter (new FileWriter ("OutFile.txt"));		//	change to E: to demonstrate the IOException
-			for (int i = 0; i <= SIZE; i++) {								//	change to <= to demonstrate the IndexOutOfBoundException
+			out = new PrintWriter (new FileWriter ("OutFile.txt"));			//	change to E: to demonstrate the IOException
+			for (int i = 0; i < SIZE; i++) {								//	change to <= to demonstrate the IndexOutOfBoundException
 				out.println ("Value at: " + i + " = " + list.get (i));
 			}
 		} catch (IndexOutOfBoundsException e) {
