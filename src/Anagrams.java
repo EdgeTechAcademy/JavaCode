@@ -34,7 +34,7 @@ public class Anagrams {
 		//		The key is the anagram of the word
 		//		The value is the list of words matching that anagram
 		try {
-			//	did the use pass in a number?
+			//	did the user pass in a number?
 			//		if so we are going to dump all words that are of anagramLen or greater
 			int anagramLen = Integer.parseInt(args[1]);
 
