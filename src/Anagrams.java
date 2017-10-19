@@ -50,7 +50,10 @@ public class Anagrams {
 			//		alphabetize it and show the words with matching anagrams
 			String anagram = alphabetize(args[1]);
 			List<String> l = m.get(anagram);
-			System.out.println(l.size() + ": " + l);
+			if (l != null)
+				System.out.println(l.size() + ": " + l);
+			else
+				System.out.println("No matching anagrams for: " + args[1] + " : " + anagram);
 		}
 	}
 
