@@ -10,7 +10,7 @@ public class Truck extends VehicleE {
     }
 
     public Truck(WHEELS wheels, DOORS doors, int engineSize, int gearCount, TRANS transmission, SEATS seatingCapacity, COLOR color, String model, int towingCapacity) {
-        super(wheels, doors, engineSize, gearCount, transmission, seatingCapacity, color, model);
+		super(wheels, doors, engineSize, gearCount, transmission, seatingCapacity, color, model);
         this.towingCapacity = towingCapacity;
     }
 
@@ -29,7 +29,9 @@ public class Truck extends VehicleE {
 
 	@Override
 	public String toString() {
-		return super.toString() + "\nThe " + getModel() + " has a " + getTowingCapacity() + " pound Towing Capacity.";
+		return "Truck{" +
+					   "towingCapacity=" + towingCapacity +
+					   "} " + super.toString();
 	}
 
 	public static void main(String[] args) {
