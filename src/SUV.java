@@ -30,4 +30,16 @@ public class SUV extends VehicleE {
         System.out.println("The SUV" + " has " + getSeatCount() +
                 " seats.");
     }
+
+    @Override
+    public String toString() {
+        return "SUV{" +
+                "seatCount=" + seatCount +
+                "} " + super.toString();
+    }
+
+    public static void main(String[] args) {
+        SUV suv = new SUV(200, 6, COLOR.BLACK, "Chevy", 6);
+        System.out.println(suv);
+    }
 }
