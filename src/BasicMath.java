@@ -1,6 +1,6 @@
 /**
  * Created by Edge Tech Academy on 11/9/2016.
- *      Base Math
+ *      Basic Math
  */
 public class BasicMath {
     public static void main(String[] args) {
