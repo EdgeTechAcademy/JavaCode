@@ -23,7 +23,7 @@ public enum Quotes {
 
 	@Override
 	public String toString() {
-		return actor + " said '" + quote + "' in '" + movie + "' in " + year;
+		return actor + " said '" + quote + "' in '" + movie + "' in the year " + year;
 	}
 
 	public String whoSaidIt        () { return actor; }
@@ -32,6 +32,13 @@ public enum Quotes {
 	public String whatDidTheySay   () { return quote; }
 
 	static public void main(String[] args) {
+
+		System.out.println(	Quotes.CASABLANCA);
+		String str = CASABLANCA.toString();
+		System.out.println("This is the toString retrun value ---> " + str);
+
+		Object[] obj = Quotes.values();
+		System.out.println(obj[3]);
 		for (Quotes q : Quotes.values()) {
 			System.out.println(q);
 		}

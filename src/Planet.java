@@ -38,7 +38,7 @@ public enum Planet {
         double earthWeight = Double.parseDouble(args[0]);
         double mass = earthWeight/EARTH.surfaceGravity();
         for (Planet p : Planet.values()) {
-            System.out.printf("    Your weight on %8s is %f%n", p, p.surfaceWeight(mass));
+            System.out.printf("    Your weight on %8s is %6.2f%n", p, p.surfaceWeight(mass));
             if (p == MERCURY)
                 System.out.printf("    %s's radius is %e%n", p, p.radius());
         }
