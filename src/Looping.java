@@ -1,7 +1,8 @@
 import java.util.Scanner;
 
 /**
- * Created by GJames on 11/10/2016.
+ * Created by Edge Tech Academy on 11/10/2016.
+ * Modified on Mar 19 2018
  */
 public class Looping {
 
@@ -130,7 +131,7 @@ public class Looping {
 
 				case "7":
 				case "forx":
-					for (int item : numbers) {
+					foreach (int item : numbers) {
 						System.out.println("Extended For item: element is: " + item);
 					}
 					break;
@@ -152,9 +153,6 @@ public class Looping {
 
 				case "9":
 				case "double":
-					System.out.print("What are you looking for? ");
-					lookFor = sc.nextLine();
-					searchFor = Integer.parseInt(lookFor);
 					int[] foundIt2;
 					System.out.print("What number are you looking for? ");
 					searchFor = Integer.parseInt(what);

@@ -1,3 +1,4 @@
+import java.math.BigDecimal;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -7,7 +8,10 @@ import java.util.stream.IntStream;
  * Created by EdgeTech Academy on 5/31/2017.
  */
 public class QuickTests {
-	public static void main(String[] args) {
+
+	public static void test () {
+
+
 		int [][] daysInTheYear = {
 				{0, 1, 2, 3},
 				{4, 5},
@@ -44,13 +48,13 @@ public class QuickTests {
 		System.out.println("stats: " + stats);
 
 		Map<Person.Gender, List<Person>> byGender	=
-			people.stream()
-				.collect (Collectors.groupingBy(p -> p.getGender()));
+				people.stream()
+						.collect (Collectors.groupingBy(p -> p.getGender()));
 		System.out.println(byGender.get(Person.Gender.MALE));
 
 		long totalMale	= people.stream()
-								.filter	(p -> p.getGender().equals(Person.Gender.MALE))
-								.count();
+									.filter	(p -> p.getGender().equals(Person.Gender.MALE))
+									.count();
 		System.out.println("There are " + totalMale + " men");
 
 		people.stream()
@@ -65,10 +69,10 @@ public class QuickTests {
 				.forEach(System.out::println);
 
 		people.stream()
-		//	.sorted((p1, p2) -> p1.getFirstName().compareTo(p2.getFirstName()))
-			.sorted(Comparator.comparing(Person::getFirstName))
-			.limit(3)
-			.forEach(System.out::println);
+				//	.sorted((p1, p2) -> p1.getFirstName().compareTo(p2.getFirstName()))
+				.sorted(Comparator.comparing(Person::getFirstName))
+				.limit(3)
+				.forEach(System.out::println);
 
 		people.stream()
 				.map(Person::getAge)
@@ -80,5 +84,68 @@ public class QuickTests {
 				.sorted()
 				.limit(3)
 				.forEach(System.out::println);
+
+	}
+
+	public static int[] answer(int area) {
+
+		List list = new ArrayList();
+		do {
+			int square = (int)Math.sqrt(area);
+			square *= square;
+			list.add (square);
+			area -= square;
+		}
+		while (area >= 1);
+
+		int[] ret = new int[list.size()];
+		for (int i = 0; i < list.size(); i++) {
+			ret[i] = ((Integer)list.get(i)).intValue();
+		}
+		return ret;
+	}
+
+	public static void main(String[] args) {
+
+		char c = 'A';
+		System.out.println(c);
+
+
+		for ( int z = 1; z < 20; z++ ) {
+			int[] x = answer(z);
+
+			for (int i = 0; i < x.length; i++) {
+				System.out.print((i > 0 ? ", " : z + " ") + x[i]);
+			}
+			System.out.println();
+		}
+
+		String quote = "Now is the time for all good men (and women) to come to the aid of their country";
+
+		String[] words = quote.split(" " );
+		for (int i = 0; i < words.length; i++) {
+			if (words[i].length() > 4)
+				System.out.println("words[" + i + "] = " + words[i]);
+		}
+
+		String[] endsWithE = quote.split("e " );
+		for (int i = 0; i < endsWithE.length; i++) {
+			String s = endsWithE[i];
+			System.out.println("s = " + s);
+		}
+
+		Date today = new Date();
+
+		String dateWords = today.toString();
+		words = dateWords.split(" ");
+		for (int i = 0; i < words.length; i++) {
+			System.out.println("words{" + i + "] = " + words[i]);
+
+		}
+
+		float boxOffice = 0;
+		BigDecimal take = new BigDecimal(0);
+		System.out.println("take = " + take);
+		System.out.println("boxOffice = " + boxOffice);
 	}
 }
