@@ -131,7 +131,7 @@ public class Looping {
 
 				case "7":
 				case "forx":
-					foreach (int item : numbers) {
+					for (int item : numbers) {
 						System.out.println("Extended For item: element is: " + item);
 					}
 					break;
