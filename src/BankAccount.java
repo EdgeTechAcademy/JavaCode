@@ -3,10 +3,10 @@
  */
 public class BankAccount {
 
-	double	balance;
-	double	interestRate;
-	String	name;
-	static 	double	OPENING_BALANCE = 5.0;
+	private double	balance;
+	private double	interestRate;
+	private String	name;
+	private static 	double	OPENING_BALANCE = 5.0;
 
 	public BankAccount(String name, double interestRate) {
 		this(name, OPENING_BALANCE, interestRate);
@@ -20,10 +20,6 @@ public class BankAccount {
 
 	public double getBalance() {
 		return balance;
-	}
-
-	public void setBalance(double balance) {
-		this.balance = balance;
 	}
 
 	public double getInterestRate() {
@@ -55,7 +51,7 @@ public class BankAccount {
 		return false;
 	}
 
-	public void transferAmount(BankAccount toAccount, double transferAmt) {
+	public void transfer(BankAccount toAccount, double transferAmt) {
 		if (balance >= transferAmt) {
 			toAccount.makeDeposit(transferAmt);
 			makeWithdrawal(transferAmt);
@@ -77,15 +73,22 @@ public class BankAccount {
 	}
 
 	public static void main(String[] args) {
-		BankAccount savings  = new BankAccount("Savings",          5.0);
+		BankAccount savings  = new BankAccount("Savings",                  5.0);
 		BankAccount checking = new BankAccount("Checking", 5000.0, 2.0);
 		BankAccount taxes    = new BankAccount("Taxes",    1000.0, 2.0);
 
 		System.out.println(checking);
 		System.out.println(taxes);
-		checking.transferAmount(taxes, checking.getBalance()/2.0);
+		checking.transfer(taxes, checking.getBalance()/2.0);
 		System.out.println(checking);
 		System.out.println(taxes);
+
+		if(checking.getBalance() > taxes.getBalance()) {
+			System.out.println("checking = " + checking.getBalance() );
+		} else {
+			System.out.println("taxes = " + taxes.getBalance());
+		}
+
 		int		month = 0;
 		double	endingBalance;
 		double beginningBalance = savings.getBalance();

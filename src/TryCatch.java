@@ -8,7 +8,10 @@ import java.io.RandomAccessFile;
  */
 public class TryCatch {
 
-
+	public static void main(String[] args) {
+		TryCatch tc = new TryCatch();
+		tc.cat(new File("OutFile.txt"));
+	}
 	public static void cat (File file) {
 		RandomAccessFile input = null;
 		String line = null;

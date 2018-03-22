@@ -4,20 +4,20 @@
 public class Vehicle {
 
     //  unchanging fields
-    private int         wheels;
-    private int         engineSize;     //  in cubic cm
-    private int         doors;
-    private int         gearCount;
-    private boolean     isAutomatic;  //  true if isAutomatic. false if manual
-    private int         seatingCapacity;
-    private String      model;
-    private String      color;
-    private String[]      accessories;          //TODO add code for accessories
+    private int wheels;
+    private int engineSize;     //  in cubic cm
+    private int doors;
+    private int gearCount;
+    private boolean isAutomatic;  //  true if isAutomatic. false if manual
+    private int seatingCapacity;
+    private String model;
+    private String color;
+    private String[] accessories;          //TODO add code for accessories
 
     //  driver changeable fields
-    private boolean     running;
-    private int         gear;
-    private int         speed;
+    private boolean running;
+    private int gear;
+    private int speed;
 
     //  unchanging fields
     public int getWheels() {
@@ -110,16 +110,17 @@ public class Vehicle {
                 "}";
     }
 
-    public static void main (String[] args) {
-        Vehicle acuraTLX   = new Vehicle(4, 4, 300, 8, true,  5, "Black",   "Acura TLX");
-        Vehicle acuraTSX   = new Vehicle(      300, 8,           "Silver",  "Acura TSX");
-        Vehicle fordF150   = new Vehicle(4, 2, 450, 3, true,  3, "White",   "Ford F150");
-        Vehicle miniCooper = new Vehicle(4, 2, 200, 3, true,  2, "Green",   "Mini Cooper");
-        Vehicle spider     = new Vehicle(3, 0, 300, 4, false, 2, "Black",   "Spider");
-        Vehicle indian     = new Vehicle(2, 0, 450, 4, false, 2, "Yellow",  "Indian!");
+    public static void main(String[] args) {
+        Vehicle acuraTLX = new Vehicle(4, 4, 300, 8, true, 5, "Black", "Acura TLX");
+        Vehicle acuraTSX = new Vehicle(300, 8, "Silver", "Acura TSX");
+        Vehicle fordF150 = new Vehicle(4, 2, 450, 3, true, 3, "White", "Ford F150");
+        Vehicle miniCooper = new Vehicle(4, 2, 200, 3, true, 2, "Green", "Mini Cooper");
+        Vehicle spider = new Vehicle(3, 0, 300, 4, false, 2, "Black", "Spider");
+        Vehicle indian = new Vehicle(2, 0, 450, 4, false, 2, "Yellow", "Indian!");
 
         System.out.println(spider);
         System.out.println(fordF150);
         spider.setGear(3);
+        System.out.println(spider);
     }
 }

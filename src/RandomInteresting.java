@@ -30,8 +30,7 @@ public class RandomInteresting {
 		System.out.println("sec " + gap/1000.0 + "\n     PI = " + 4 * pi + "\nMath.PI = " + Math.PI + "\nPI - Math.PI " + (4 * pi - Math.PI)); //PI=3.141592642478473 after 90000000
 	}
 
-	public static long factorial ( long base )
-	{
+	public static long factorial ( long base ) {
 		return ((base <= 1) ? 1 : base * factorial(base-1));
 	}
 }

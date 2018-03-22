@@ -13,8 +13,9 @@ public class ReadNumbers {
     public void ListOfNumbers () {
         list = new ArrayList<Integer>(SIZE);
         for (int i = 0; i < SIZE; i++)
-            list.add(new Integer(i));
+            list.add(i);
     }
+
     public void writeList() {
         PrintWriter out = null;
 

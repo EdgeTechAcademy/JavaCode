@@ -68,6 +68,7 @@ public class Looping {
 
 		Scanner sc = new Scanner(System.in);
 		int searchFor;
+		String [] stuff = {"string 1", "Texas", "junk", "123", "Mars"};
 		int[] numbers = { 32,   87,    3, 589, 12, 1076, 2000,   8,622, 127,   77, 955 };
 
 		while (true) {
@@ -124,7 +125,8 @@ public class Looping {
 				case "6":
 				case "fori":
 					for (int i = 0; i < numbers.length; i++) {
-						System.out.println("Fori: Item is: " + numbers[i]);
+						int item = numbers[i];
+						System.out.println("Fori: " + i + " Item is: " + item);
 					}
 					break;
 
@@ -132,6 +134,9 @@ public class Looping {
 				case "forx":
 					for (int item : numbers) {
 						System.out.println("Extended For item: element is: " + item);
+					}
+					for (String str : stuff) {
+						System.out.println("str = " + str);
 					}
 					break;
 
@@ -156,8 +161,6 @@ public class Looping {
 					lookFor = sc.nextLine();
 					searchFor = Integer.parseInt(lookFor);
 					int[] foundIt2;
-					System.out.print("What number are you looking for? ");
-					searchFor = Integer.parseInt(what);
 					foundIt2 = Looping.lookingForDouble(searchFor);
 
 					if (foundIt2 != null) {

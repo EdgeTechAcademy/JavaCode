@@ -1,27 +1,94 @@
+import java.text.SimpleDateFormat;
+
 /**
  * Created by Edge Tech Academy on 11/9/2016.
- *      Basic Math
+ * Base Math
  */
 public class BasicMath {
+
+
+    public static void split(String string, int number) {
+
+
+        String[] done = string.split(" ");
+        String all = " ";
+        for (int i = 0; i < done.length; i++) {
+
+            if (done[i].length() > number) {
+
+                System.out.println(i + " = " + done[i]);
+            }
+        }
+
+    }
+
+    public static void loop(String string) {
+
+        String all = " ";
+
+        String[] array = string.split(" ");
+
+        for (int i = 0; i < array.length; i++) {
+
+            switch (array[i].length()) {
+
+                case 1:
+                case 2:
+                case 3:
+                    System.out.println("Small word " + array[i]);
+                    break;
+                case 4:
+                case 5:
+                case 6:
+                    System.out.println("Medium word " + array[i]);
+                    break;
+                default:
+                    System.out.println("Bigger word " + array[i]);
+            }
+        }
+
+    }
+
+    public static void whatTimeIsIt(int seconds) {
+
+
+        //I'm sure this can be done much easier but had fun breaking it down
+        //Please advise on the easy way
+
+        int hours = seconds / 3600;
+        int minutes = (seconds % 3600) / 60;
+        int seconds2 = seconds % 60;
+
+        String timeString = String.format("%02d:%02d:%02d", hours, minutes, seconds2);
+        if (seconds > 43200 && seconds < 46800) {
+            timeString = String.format("%02d:%02d:%02d", hours = 12, minutes, seconds2);
+            System.out.println(timeString + " PM");
+
+        } else {
+            if (seconds > 43200 && seconds > 46800) {
+                timeString = String.format("%02d:%02d:%02d", hours - 12, minutes, seconds2);
+                System.out.println(timeString + " PM");
+            } else {
+                if (seconds < 3600) {
+                    timeString = String.format("%02d:%02d:%02d", hours + 12, minutes, seconds2);
+                } else {
+
+                }
+                System.out.println(timeString + " AM");
+            }
+        }
+    }
+
+
     public static void main(String[] args) {
-        double a = -191.635;
-        double b = 43.74;
-        int c = 16, d = 45;
+        String quote = "Now is the time for all good men (and women) to come to the aid of their country";
 
-        System.out.printf("The absolute value " + "of %.3f is %.3f%n",  a, Math.abs(a));
-        System.out.printf("The ceiling of " + "%.2f is %.0f%n",         b, Math.ceil(b));
-        System.out.printf("The floor of " + "%.2f is %.0f%n",           b, Math.floor(b));
-        System.out.printf("The rint of %.2f " + "is %.0f%n",            b, Math.rint(b));
-        System.out.printf("The max of %d and " + "%d is %d%n",       c, d, Math.max(c, d));
-        System.out.printf("The min of of %d " + "and %d is %d%n",    c, d, Math.min(c, d));
+        split(quote, 5);
 
-        double x = 11.635;
-        double y = 2.76;
 
-        System.out.printf("The value of " + "e is %.4f%n",         Math.E);
-        System.out.printf("exp(%.3f) " + "is %.3f%n",           x, Math.exp(x));
-        System.out.printf("log(%.3f) is " + "%.3f%n",           x, Math.log(x));
-        System.out.printf("pow(%.3f, %.3f) " + "is %.3f%n",  x, y, Math.pow(x, y));
-        System.out.printf("sqrt(%.3f) is " + "%.3f%n",          x, Math.sqrt(x));
+        loop(quote);
+
+
+        whatTimeIsIt(12000);
     }
 }
