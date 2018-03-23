@@ -1,7 +1,8 @@
 import java.util.Scanner;
 
 /**
- * Created by GJames on 11/10/2016.
+ * Created by Edge Tech Academy on 11/10/2016.
+ * Modified on Mar 19 2018
  */
 public class Looping {
 
@@ -157,9 +158,6 @@ public class Looping {
 
 				case "9":
 				case "double":
-					System.out.print("What are you looking for? ");
-					lookFor = sc.nextLine();
-					searchFor = Integer.parseInt(lookFor);
 					int[] foundIt2;
 					foundIt2 = Looping.lookingForDouble(searchFor);
 

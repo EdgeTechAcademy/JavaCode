@@ -44,12 +44,22 @@ public class Employee {
         isEmployeed = employeed;
     }
 
-    public static void manin(String[] args) {
+	@Override
+	public String toString() {
+		return "Employee{" +
+					   "name=" + name +
+					   ", title=" + title +
+					   '}';
+	}
+
+	public static void manin(String[] args) {
 
         Employee    emp1 = new Employee("Steve Martin", "Banjo Player", true);
         Employee    emp2 = new Employee();
         emp2.setName("Bill Murray");
         emp2.setTitle("Ghostbuster");
         emp2.setEmployeed(true);
+
+        HelloWorld hw = new HelloWorld(emp2.getName());
     }
 }
