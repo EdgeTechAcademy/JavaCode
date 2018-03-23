@@ -84,9 +84,9 @@ public class BankAccount {
 		System.out.println(taxes);
 
 		if(checking.getBalance() > taxes.getBalance()) {
-			System.out.println("checking = " + checking.getBalance() );
+			System.out.println(checking.getName() + " = " + checking.getBalance() );
 		} else {
-			System.out.println("taxes = " + taxes.getBalance());
+			System.out.println(taxes.getName() + " = " + taxes.getBalance());
 		}
 
 		int		month = 0;
