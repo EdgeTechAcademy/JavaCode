@@ -11,12 +11,12 @@ public class Person  implements Comparable<Person> {
 
 	public enum Gender { MALE, FEMALE }
 
-	String		firstName, lastName;
-	String		job;
-	LocalDate	birthday;
-	Gender gender;
-	String		email;
-	int			salary;
+	private String		firstName, lastName;
+	private String		job;
+	private LocalDate	birthday;
+	private Gender 		gender;
+	private String		email;
+	private int			salary;
 
 	Person(String firstNameArg, String lastNameArg, String jobArg, LocalDate birthdayArg, Gender genderArg, String emailArg) {
 		firstName= firstNameArg;

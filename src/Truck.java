@@ -37,5 +37,6 @@ public class Truck extends VehicleE {
 	public static void main(String[] args) {
 		Truck truck = new Truck(300, 6, COLOR.BLUE, "Titan", 5000);
 		truck.printDescription();
+        System.out.println("truck = " + truck);
 	}
 }

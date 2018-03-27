@@ -60,6 +60,6 @@ public class Employee {
         emp2.setTitle("Ghostbuster");
         emp2.setEmployeed(true);
 
-        HelloWorld hw = new HelloWorld(emp2.getName());
+//        HelloWorld hw = new HelloWorld(emp2.getName());
     }
 }

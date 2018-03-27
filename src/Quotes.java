@@ -35,7 +35,7 @@ public enum Quotes {
 
 		System.out.println(	Quotes.CASABLANCA);
 		String str = CASABLANCA.toString();
-		System.out.println("This is the toString retrun value ---> " + str);
+		System.out.println("This is the toString return value ---> " + str);
 
 		Object[] obj = Quotes.values();
 		System.out.println(obj[3]);

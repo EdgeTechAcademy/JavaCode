@@ -68,7 +68,7 @@ public class Looping {
     public static void main(String[] args) {
 
 		Scanner sc = new Scanner(System.in);
-		int searchFor;
+		int searchFor = 0;
 		String [] stuff = {"string 1", "Texas", "junk", "123", "Mars"};
 		int[] numbers = { 32,   87,    3, 589, 12, 1076, 2000,   8,622, 127,   77, 955 };
 
