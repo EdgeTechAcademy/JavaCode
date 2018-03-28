@@ -1,3 +1,5 @@
+package inheritance;
+
 /**
  * Created by Edge Tech Academy on 11/10/2016.
  */
@@ -95,7 +97,7 @@ public class Vehicle {
 
     @Override
     public String toString() {
-        return "Vehicle { " +
+        return "inheritance.Vehicle { " +
                 "wheels=" + wheels +
                 ", engineSize=" + engineSize +
                 ", doors=" + doors +
@@ -118,6 +120,10 @@ public class Vehicle {
         Vehicle spider = new Vehicle(3, 0, 300, 4, false, 2, "Black", "Spider");
         Vehicle indian = new Vehicle(2, 0, 450, 4, false, 2, "Yellow", "Indian!");
 
+        Vehicle[] veh2 = {acuraTLX, acuraTSX, fordF150, miniCooper, spider, indian};
+        for (int i = 0; i < veh2.length; i++) {
+            System.out.println(veh2[i]);
+        }
         System.out.println(spider);
         System.out.println(fordF150);
         spider.setGear(3);

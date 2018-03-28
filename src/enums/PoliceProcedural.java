@@ -1,3 +1,5 @@
+package enums;
+
 public class PoliceProcedural {
 
 	public enum PP_Style { GRITTY, BUDDY, COMEDY, INNER_CITY, DRAMA }
@@ -25,7 +27,7 @@ public class PoliceProcedural {
 
 	@Override
 	public String toString() {
-		return "PoliceProcedural{" +
+		return "enums.PoliceProcedural{" +
 					   "ensemble=" + ensemble +
 					   ", style='" + style + '\'' +
 					   ", location='" + location + '\'' +

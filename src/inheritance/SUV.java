@@ -1,3 +1,5 @@
+package inheritance;
+
 /**
  * Created by Edge Tech Academy on 11/14/2016.
  */
@@ -20,13 +22,13 @@ public class SUV extends VehicleE {
 
     public void printDescription(){
         super.printDescription();
-        System.out.println("SUV: has " + getSeatCount() +
+        System.out.println("inheritance.SUV: has " + getSeatCount() +
                 " seats.");
     }
 
     @Override
     public String toString() {
-        return "SUV{" +
+        return "inheritance.SUV{" +
                 "seatCount=" + seatCount +
                 "} " + super.toString();
     }

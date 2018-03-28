@@ -1,3 +1,7 @@
+package inheritance;
+
+import interfaces.WarpDrive;
+
 /**
  * Created by Edge Tech Academy on 11/10/2016.
  */
@@ -119,7 +123,7 @@ public class VehicleE implements WarpDrive {
     public void setWarpFactor(double  warpFactor)
     {
         this.warpFactor = warpFactor;
-        speed = LIGHT_SPEED * Math.pow(warpFactor, 3.3333);
+        speed = WarpDrive.LIGHT_SPEED * Math.pow(warpFactor, 3.3333);
     }
 
     public void accelerate (int deltaVelocity) {
@@ -142,7 +146,7 @@ public class VehicleE implements WarpDrive {
 	}
 
     public void engage() {
-        setWarpFactor(MAX_WARP);
+        setWarpFactor(WarpDrive.MAX_WARP);
     }
 
     public VehicleE(int engineSize, int gearCount, COLOR color, String model) {
@@ -162,7 +166,7 @@ public class VehicleE implements WarpDrive {
 
     @Override
     public String toString() {
-        return "VehicleE { " +
+        return "inheritance.VehicleE { " +
                 "wheels=" + wheels +
                 ", engineSize=" + engineSize +
                 ", doors=" + doors +
@@ -178,7 +182,7 @@ public class VehicleE implements WarpDrive {
     }
 
     public void printDescription() {
-        System.out.println("VehicleE: The " + "Vehicle is a " + getModel());
+        System.out.println("inheritance.VehicleE: The " + "inheritance.Vehicle is a " + getModel());
     }
 
 

@@ -1,3 +1,5 @@
+package inheritance;
+
 /**
  * Created by Edge Tech Academy on 11/14/2016.
  */
@@ -24,12 +26,12 @@ public class Truck extends VehicleE {
 
     public void printDescription() {
         super.printDescription();
-        System.out.println("Truck: it has a " + getTowingCapacity() + " pound Towing Capacity.");
+        System.out.println("inheritance.Truck: it has a " + getTowingCapacity() + " pound Towing Capacity.");
     }
 
 	@Override
 	public String toString() {
-		return "Truck{" +
+		return "inheritance.Truck{" +
 					   "towingCapacity=" + towingCapacity +
 					   "} " + super.toString();
 	}

@@ -2,7 +2,7 @@ import java.text.SimpleDateFormat;
 
 /**
  * Created by Edge Tech Academy on 11/9/2016.
- * Base Math
+ * inheritance.Base Math
  */
 public class BasicMath {
 

@@ -1,3 +1,5 @@
+package inheritance;
+
 public class CelestialObject {
     private String    name;
     private float     mass;
@@ -7,38 +9,31 @@ public class CelestialObject {
     public String getName() {
         return name;
     }
-
     public void setName(String name) {
         this.name = name;
     }
-
     public float getMass() {
         return mass;
     }
-
     public void setMass(float mass) {
         this.mass = mass;
     }
-
     public String getNGC() {
         return NGC;
     }
-
     public void setNGC(String NGC) {
         this.NGC = NGC;
     }
-
     public long getAge() {
         return age;
     }
-
     public void setAge(long age) {
         this.age = age;
     }
 
     @Override
     public String toString() {
-        return "CelestialObject{" +
+        return "inheritance.CelestialObject{" +
                 "name='" + name + '\'' +
                 ", mass=" + mass +
                 ", NGC='" + NGC + '\'' +
@@ -52,17 +47,21 @@ public class CelestialObject {
         this.mass = mass;
     }
 }
-
+enum PlanetType {
+    ROCKY, GAS_GIANT, DWARF, WATER_WORLD;
+}
 class Planets extends CelestialObject {
     private  int     naturalSatelites;
     private  int     highTempAtEquator;
     private  int     lowTempAtEquator;
+//    private  String  planetType;        // "Rocky", "Gas Giant", "Dwarf", "Water World"
+    private  PlanetType  type;
     private  boolean inHabitableZone;
     private  long    orbitalPeriod;     // in 10^6 seconds
 
     @Override
     public String toString() {
-        return "Planets{" +
+        return "inheritance.Planets{" +
                 "naturalSatelites=" + naturalSatelites +
                 ", highTempAtEquator=" + highTempAtEquator +
                 ", lowTempAtEquator=" + lowTempAtEquator +
@@ -75,6 +74,10 @@ class Planets extends CelestialObject {
         super(name, mass);
         this.inHabitableZone = inHabitableZone;
         this.orbitalPeriod = orbitalPeriod;
+        this.type = PlanetType.GAS_GIANT;
     }
 
+    public static void main(String[] args) {
+        Planets planetX = new Planets("PlanetX", 5e30f, true, 32);
+    }
 }

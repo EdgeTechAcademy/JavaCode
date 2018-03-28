@@ -1,4 +1,6 @@
-// filename Main.java
+package inheritance;
+
+// filename inheritance.Main.java
 class Grandparent {
     public void Print() {
         System.out.format("%nGrandparent %s%n", this.getClass());
@@ -8,26 +10,26 @@ class Grandparent {
 class Parent extends Grandparent {
     public void Print() {
         super.Print();
-        System.out.format("Parent %s%n", this.getClass());
+        System.out.format("inheritance.Parent %s%n", this.getClass());
     }
 }
 
 class Child extends Parent {
     public void Print() {
         super.Print();
-        System.out.format("Child %s%n", this.getClass());
+        System.out.format("inheritance.Child %s%n", this.getClass());
     }
 }
 
 class Base {
      public void show() {           //final
-        System.out.format("Base%n");
+        System.out.format("inheritance.Base%n");
     }
 }
 
 class Derived extends Base {
     public void show() {
-        System.out.format("Derived%n");
+        System.out.format("inheritance.Derived%n");
     }
 }
 
