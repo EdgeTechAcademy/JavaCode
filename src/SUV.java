@@ -20,7 +20,7 @@ public class SUV extends VehicleE {
 
     public void printDescription(){
         super.printDescription();
-        System.out.println("The SUV" + " has " + getSeatCount() +
+        System.out.println("SUV: has " + getSeatCount() +
                 " seats.");
     }
 
