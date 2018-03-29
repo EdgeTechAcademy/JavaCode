@@ -14,8 +14,10 @@ public class AggregateOperations {
 		List<Person> roster = Person.createRoster();
 		System.out.println("Contents of roster:");
 
-		roster.stream()
-			  .forEach(p -> p.printPerson());
+		String hello = "This is me, Gary James from Edge Tech Academy";
+		System.out.println(hello.substring(12,22).toUpperCase().substring(0,4).toLowerCase());
+
+		roster.stream().forEach(p -> p.printPerson());
 		System.out.println();
 
 		// 1. Average age of male members, average operation

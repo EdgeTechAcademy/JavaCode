@@ -1,13 +1,18 @@
 package interfaces;
 
-public class Horse implements Mammal, Mythical {
-    public String whatAmI () {
-        return "I am a horse.";
+public class Horse implements Mammal {
+
+    public static void main(String[] args) {
+        Horse horse = new Horse();
     }
+
+    @Override
     public String liveBirth() {
-        return "Standing Birth";
+        return "your stuff here";
     }
-    public String magicPower() {
-        return "I can Fly!";
+
+    @Override
+    public String whatAmI() {
+        return null;
     }
 }

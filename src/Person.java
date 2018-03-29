@@ -35,7 +35,7 @@ public class Person  implements Comparable<Person> {
 	public String		getJob() {
 		return job;
 	}
-	public Gender getGender() {
+	public Gender 		getGender() {
 		return gender;
 	}
 	public String		getLastName() {
@@ -61,12 +61,13 @@ public class Person  implements Comparable<Person> {
 
 	@Override
 	public String toString() {
-		return "Person{" +
-					   "firstName='" + firstName + '\'' +
-					   ", lastName='" + lastName + '\'' +
-					   ", age=" + getAge() +
-					   '}';
-	}
+		return firstName;
+//				"Person{" +
+//					   "firstName='" + firstName + '\'' +
+//					   ", lastName='" + lastName + '\'' +
+//					   ", age=" + getAge() +
+//					   '}';
+}
 
 	public int compareTo(Person another) {
 		return this.getAge() - another.getAge();
