@@ -19,8 +19,6 @@ public class Collect {
                     System.out.println(set.size() + ": set = " + set);
                     System.out.println(map.size() + ": map = " + map);
                     continue;
-                case "stop":
-                    break;
                 case "map":
                     Set keys = map.keySet();
                     Collection values = map.values();
@@ -32,6 +30,8 @@ public class Collect {
                                         .map(Object::toString)
                                         .collect(Collectors.joining(", "));
                     System.out.println("joined = " + joined);
+                    break;
+                case "stop":
                     break;
             }
 
