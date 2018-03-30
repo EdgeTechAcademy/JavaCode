@@ -13,29 +13,32 @@ public class Collect {
 
             System.out.print("Enter data: ");
             String str = sc.nextLine();
-            if ( str.equals("show") ) {
-                System.out.println(list.size() + ": list = " + list);
-                System.out.println(set.size()  + ": set = "  + set);
-                System.out.println(map.size()  + ": map = "  + map);
-                continue;
-            } else if (str.equals("stop") ) {
-                break;
-            } else if (str.equals("map") ) {
-                Set keys = map.keySet();
-                Collection values = map.values();
-                System.out.println("keys = " + keys);
-                System.out.println("values = " + values);
-            } else if (str.equals("join")) {
-                String joined = list.stream()
-                        .map(Object::toString)
-                        .collect(Collectors.joining(", "));
-                System.out.println("joined = " + joined);
+            switch (str) {
+                case "show":
+                    System.out.println(list.size() + ": list = " + list);
+                    System.out.println(set.size() + ": set = " + set);
+                    System.out.println(map.size() + ": map = " + map);
+                    continue;
+                case "stop":
+                    break;
+                case "map":
+                    Set keys = map.keySet();
+                    Collection values = map.values();
+                    System.out.println("keys = " + keys);
+                    System.out.println("values = " + values);
+                    break;
+                case "join":
+                    String joined = list.stream()
+                                        .map(Object::toString)
+                                        .collect(Collectors.joining(", "));
+                    System.out.println("joined = " + joined);
+                    break;
             }
 
             Collections.sort(list);
             list.add(str);
             set.add(str);
-            map.put(cnt++,str);
+            map.put(cnt++, str);
         }
 
     }
