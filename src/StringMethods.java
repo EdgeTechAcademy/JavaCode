@@ -30,7 +30,8 @@ public class StringMethods {
         String upper = "THE UPPER CASE STRING";
         //  let's do this with an old fashioned compare
         //  I hope you see the bad logic of these tests!
-        //      what if the strings are equal?
+        //      what if the
+        // .strings are equal?
         //      the upper string would win
         //      because the else portion of > 0 is <= 0
         if (lower.compareTo(upper) > 0) {

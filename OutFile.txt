@@ -1,10 +1,5 @@
-Value at: 0 = 0
-Value at: 1 = 1
-Value at: 2 = 4
-Value at: 3 = 9
-Value at: 4 = 16
-Value at: 5 = 25
-Value at: 6 = 36
-Value at: 7 = 49
-Value at: 8 = 64
-Value at: 9 = 81
+user name,address,phone number, age
+gtjames,8701 Bedford Euless Rd,682-334-5679,63
+christiaan,virginia,999-333-0000,38
+laura,utah,333-222-1111,10
+unknown student, , ,
