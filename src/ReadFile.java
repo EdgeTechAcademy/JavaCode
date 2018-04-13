@@ -18,26 +18,26 @@ public class ReadFile {
 
 	public static void main(String[] args) {
 		try {
-			BufferedReader br = new BufferedReader(new FileReader("OutFile.txt"));
+			BufferedReader br = new BufferedReader(new FileReader("JobSearch.csv"));
 			String line;
 
 			//	consume the header line
 			String header = br.readLine();
-			int CityCol = getColNum(header, "CityCol");
-			int nameCol = getColNum(header, "userName");
-			if (CityCol == -1 || nameCol == -1)
+			int col1 = getColNum(header, "location");
+			int col2 = getColNum(header, "title");
+			if (col1 == -1 || col2 == -1)
 				return;
 			//	find the column number of the 'address' field
 			int cntDallas = 0, cntPune = 0;
 			while ((line = br.readLine()) != null) {
 				String[] aLine = line.split(",");
-				if (aLine[CityCol].equalsIgnoreCase("Dallas")) {
+				if (aLine[col1].equalsIgnoreCase("Dallas")) {
 					cntDallas++;
-					System.out.println(aLine[nameCol] + ": " + aLine[CityCol]);            // print the address
+					System.out.println(aLine[col1] + ": " + aLine[col2]);            // print the address
 				}
-				if (aLine[CityCol].equalsIgnoreCase("Pune")) {
+				if (aLine[col1].equalsIgnoreCase("Pune")) {
 					cntPune++;
-					System.out.println(aLine[nameCol] + ": " + aLine[CityCol]);            // print the address
+					System.out.println(aLine[col1] + ": " + aLine[col2]);            // print the address
 				}
 			}
 
