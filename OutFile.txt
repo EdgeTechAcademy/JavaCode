@@ -1,5 +1,5 @@
-user name,address,phone number, age
+username,address,phonenumber,age
 gtjames,8701 Bedford Euless Rd,682-334-5679,63
 christiaan,virginia,999-333-0000,38
 laura,utah,333-222-1111,10
-unknown student, , ,
+unknown student, a, b, c
