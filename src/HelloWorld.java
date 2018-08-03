@@ -2,7 +2,7 @@ import java.sql.Array;
 
 /**
  * Created by Edge Tech Academy on 10/31/2016.
- *       Demonstrating a simple Class definition
+ * Demonstrating a simple Class definition
  */
 
 @SuppressWarnings("WeakerAccess")
@@ -32,14 +32,16 @@ public class HelloWorld {
 
 	public static void main(String[] args) {
 
-		HelloWorld me;
+		HelloWorld student1 = new HelloWorld("Alice");
+		System.out.println(student1);
 
-		String textEle = "Alice; Bob; Clem;   Don   ;Ellen   ;Francis;    Greg";
-		String[] nameArray = textEle.split(";");
-		for (int i = 0; i < nameArray.length; i++) {
-			me = new HelloWorld(nameArray[i]);           //  Create your me Object
-			System.out.println("more students " + i + ">" + me.getName().trim() +"<");
-			System.out.println("more students " + i + ">" + me.getName() + "<");
+		HelloWorld student2 = new HelloWorld();
+		student2.setName("Benjamin");
+		System.out.println("This is the name of our 2nd student " + student2.getName());
+
+		if (args.length == 1) {
+			HelloWorld me = new HelloWorld(args[0]);
+			System.out.println(me);
 		}
 	}
 }

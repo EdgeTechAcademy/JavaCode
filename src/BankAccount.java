@@ -66,10 +66,10 @@ public class BankAccount {
 	@Override
 	public String toString() {
 		return "BankAccount{" +
-					   "name = '" + name + '\'' +
-					   ", balance = " + balance +
-					   ", interestRate = " + interestRate +
-					   '}';
+				"name = '" + name + '\'' +
+				", balance = " + balance +
+				", interestRate = " + interestRate +
+				'}';
 	}
 
 	public static void main(String[] args) {
@@ -77,6 +77,7 @@ public class BankAccount {
 		BankAccount checking = new BankAccount("Checking", 5000.0, 2.0);
 		BankAccount taxes    = new BankAccount("Taxes",    1000.0, 2.0);
 
+		savings.makeDeposit(100.00);
 		System.out.println(checking);
 		System.out.println(taxes);
 		checking.transfer(taxes, checking.getBalance()/2.0);
