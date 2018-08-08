@@ -14,7 +14,7 @@ public class Anagrams {
 			matchWord = args[1];
 		else {
 			Scanner sc = new Scanner(System.in);
-			System.out.print("What word should be look for: ");
+			System.out.print("What word should we look for: ");
 			matchWord = sc.nextLine();
 		}
 
