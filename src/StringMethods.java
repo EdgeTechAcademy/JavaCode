@@ -1,59 +1,47 @@
+import java.util.Arrays;
+import java.util.stream.Collectors;
+
 /**
- * Created by Edge Tech Academy on 3/6/2017.
+ * Created by Edge Tech Academy on 10/9/2017.
  */
 public class StringMethods {
-    public static void main(String[] args) {
+	public static void main (String[] args) {
 
-        String fullPathName = "C:/Projects/firstJava/Verion.1.2.0/src/FirstClass.java";
+		String rick = "Louie, I think this is the beginning of a beautiful friendship.";
+		System.out.println(rick + " length " + rick.length());
+		String renault = "I'm shocked, shocked to find that gambling is going on in here!";
+		System.out.println("char 13 " + renault.charAt (13));
+		renault = renault.replaceFirst("shocked", "SHOCKED");
+		System.out.println(renault);
+		System.out.println("Play it, Sam. Play ‘As Time Goes By.’".substring (19, 35));
+		System.out.println("Play it, Sam. Play ‘As Time Goes By.’".substring (19, 35).length());
 
-        int slashIndex = fullPathName.lastIndexOf("/");            // find the last slash
-        String fullFileName = fullPathName.substring(slashIndex + 1);    // we found the slash now go 1 more char
+		String original = "Java Software";
+		int   space  = original.indexOf(' ');
+		String soft  = original.substring(space+1,space+5);
+		String ware  = original.substring(9);
+		System.out.println(ware.toUpperCase() + " " + soft.toLowerCase());
 
-        String[] tokens = fullPathName.split("/");                //	What’s the deal with all of the slashes
-        for (int i = 0; i < tokens.length; i++)
-            System.out.println(i + " " + tokens[i]);
-        System.out.println();
-        int dotIndex = fullPathName.lastIndexOf(".");
+		String test = "This is a string with how many words";
+		String[] words = test.split(" ");
+		System.out.println("this is the 4th word in the string " + words[3]);
+		System.out.println("The string had how many words? " + words.length);
 
-        if (dotIndex >= 0 && slashIndex >= 0) {
-            String fileName = fullPathName.substring(slashIndex + 1, dotIndex);
-            String extension = fullPathName.substring(dotIndex + 1);
-            System.out.println("File name: " + fileName + " ext " + extension);
-        } else {
-            System.out.println("File name: " + fullPathName + " does not contain proper path name");
-        }
+		String replace = original.replace("a","_");
+		System.out.println(replace);
+		System.out.println(original.replaceFirst("a","_"));
 
-        if (fullFileName.endsWith(".java"))
-            System.out.println("This is a Java file!");
+		String name = "Gary Thomas James";
+		String intials;
+		String[] names = name.split(" ");
+		String initials = Arrays.stream(names).map(n -> n.substring(0,1)).collect(Collectors.joining(""));
+		System.out.println(initials.toLowerCase());
 
-        String lower = "the lower case string";
-        String upper = "THE UPPER CASE STRING";
-        //  let's do this with an old fashioned compare
-        //  I hope you see the bad logic of these tests!
-        //      what if the
-        // .strings are equal?
-        //      the upper string would win
-        //      because the else portion of > 0 is <= 0
-        if (lower.compareTo(upper) > 0) {
-            System.out.println("Who is bigger: " + lower);
-        } else {
-            System.out.println("Who is bigger: " + upper);
-        }
-
-        //  I like this better using the ?: elvis operator
-        //  it still hasthe same problem as the code above. Nobody is checking for equal
-        System.out.println("Who is bigger: " + (lower.compareTo(upper) > 0 ? lower : upper));
-        System.out.println("Who is bigger: " + (lower.compareToIgnoreCase(upper) > 0 ? lower : upper));
-
-        //  let's show what is required to test for less than, greater than AND equals
-        System.out.println("Who is bigger: " +
-                (lower.compareTo(upper) > 0 ? lower :
-                 lower.compareTo(upper) < 0 ? upper : "They are equal"));
-
-        //  basic test for equals. So it only returns true of false
-        boolean b = lower.equals("the LOWER case STRING");
-        System.out.println("b = " + b);
-        b = lower.equalsIgnoreCase("the LOWER case STRING");
-        System.out.println("b = " + b);
-    }
+		String barbara = "She said, \"Oh, no you don’t\"\nand I said, “Oh yes I did\"";
+		System.out.println(barbara);
+		barbara = barbara.replace("She", "Barbara");
+		barbara = barbara.replace("did", "DID!");
+		barbara = barbara.replace("Oh yes", "Oh, yes");
+		System.out.println(barbara);
+	}
 }
