@@ -26,7 +26,7 @@ public class Utils {
 		int number;
 		do {
 			number = getInteger(prompt);
-		} while (number < max);
+		} while (number > max);
 		return number;
 	}
 

@@ -73,10 +73,10 @@ public class Experiments {
 			System.out.println("Do you see a J in the phrase? " + what.contains("J") + " where was it " + what.indexOf("J"));
 		}
 
-		String prompt = "Give me a number";
-		System.out.print(prompt);
-		String response = sc.nextLine();
-		int number = Integer.parseInt(prompt);
+//		String prompt = "Give me a number";
+//		System.out.print(prompt);
+//		String response = sc.nextLine();
+//		int number = Integer.parseInt(prompt);
 
 	}
 }

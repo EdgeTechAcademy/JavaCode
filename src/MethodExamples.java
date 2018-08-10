@@ -1,14 +1,20 @@
 import java.util.Date;
 
 public class MethodExamples {
+	private String name;
 	public static void main(String[] args) {
-		MethodExamples method = new MethodExamples();
+		MethodExamples method1 = new MethodExamples("Gary");
+		MethodExamples method2 = new MethodExamples("Tari");
 
-		String msg = method.hello("Programmer Rock Star");
+		String msg = method1.hello("Programmer Rock Star");
 		System.out.println("msg = " + msg);
 
-		msg = method.getDate();
+		msg = method1.getDate();
 		System.out.println("The current time is: "  + msg);
+	}
+
+	public MethodExamples(String name) {
+		this.name = name;
 	}
 
 	public String hello(String name) {
