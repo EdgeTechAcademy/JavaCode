@@ -7,7 +7,9 @@ public class Assignment5 {
 		classNames[3] = "Samuel";
 		classNames[4] = "Gary";
 
-		System.out.println(classNames[3]);
+		for (int i = 0; i < classNames.length; i++) {
+			System.out.println("Student " + i + " " + classNames[i]);
+		}
 
 		//	i need an integer array of size 20
 		int[] myNumbers = new int[20];
@@ -16,11 +18,10 @@ public class Assignment5 {
 		myNumbers[14] = 876;
 		myNumbers[19] = 6;
 
+		//		something to hold money values
 		float[] myFloats = new float[30];
 		myFloats[0] = 99.99f;
 		myFloats[myFloats.length - 1] = 99.99f;
-		//	put your code here
-		//	we did this in class on Aug 8
 
 		double num = Math.random();
 		num *= 50;
@@ -41,6 +42,5 @@ public class Assignment5 {
 		for (int i = 0; i <= 1024; i++) {
 			System.out.format("%3d = %04X %012d %n", i, i, Long.parseLong(Integer.toBinaryString(i)));
 		}
-
 	}
 }

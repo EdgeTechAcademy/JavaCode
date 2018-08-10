@@ -16,6 +16,12 @@ public class StringMethods {
 		System.out.println("Play it, Sam. Play ‘As Time Goes By.’".substring (19, 35));
 		System.out.println("Play it, Sam. Play ‘As Time Goes By.’".substring (19, 35).length());
 
+		rick = "Of all the gin joints in all the towns in the world, she walks in to mine.";
+		System.out.println("rick.length() = " + rick.length());
+		System.out.println(renault.charAt (25));
+		String x = "Play it, Sam. Play ‘As Time Goes By.’".substring (14, 35);
+		System.out.println("x =" + x + "<");
+
 		String original = "Java Software";
 		int   space  = original.indexOf(' ');
 		String soft  = original.substring(space+1,space+5);
