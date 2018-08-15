@@ -136,7 +136,7 @@ public class ControlFlow {
 
 		while (true) {
 			String what = utils.getInput("\n1 name   2 num     3 grade\n" +
-							     "4 days   5 future    exit");
+							     "4 days   5 future  7 exit");
 			switch (what.toLowerCase()) {
 				case "1":
 				case "name":
@@ -185,6 +185,7 @@ public class ControlFlow {
 					}
 					break;
 
+				case "7"	:
 				case "exit"	:
 					return;
 			}
