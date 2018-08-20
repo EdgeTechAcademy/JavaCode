@@ -4,7 +4,7 @@
 public class Methods {
 
 	//	We are not going to worry about Classes for now so these examples will all be of the static variety.
-	//	the method will have a job to do. Everything it needs to know will get passed in by the calling metho, which will be main
+	//	the method will have a job to do. Everything it needs to know will get passed in by the calling method, which will be main
 
 
 	//--------------------------------------------------------------------------------------------------------
@@ -16,9 +16,9 @@ public class Methods {
 	//		is named - this method is named hello. Anyone that wants to use it just uses hello() in their code
 	//		it receives (parameters) - we put the parameters between parenthesises, more later
 	//		does - what it does is the code between the opening { and the closing }
-	static void hello() {
+	static void helloWorld() {
 		//	this guy only prints a single message.
-		System.out.println("Can anyone hear me!");
+		System.out.println("Hello World! Can anyone hear me?");
 		//	and nothing is returned.
 		//	when the code hits the closing } is just returns execution back to the calling method
 	}
@@ -62,10 +62,10 @@ public class Methods {
 	//	take these two paramters and concatenate them together and return the new string
 	static String combineStrings(String strA, String strB) {
 		//	TODO add the code that will return the two strings together
-
+		String msg = strA + strB;
 		//	TODO delete this line of code. It is here only to let the compiler be happy
 		// 	until you put in the correct line of code where the two strings are combined.
-		return "";
+		return msg;
 	}
 
 
@@ -82,7 +82,7 @@ public class Methods {
 	// 									"Jack, you will be 100 years old in 2074"
 	//									"Bobby, you will be 100 years old in 2099"
 	//
-	//	just a reminder a method in this example your method will start with
+	//	just a reminder: the example for this method will start with
 	// 			public static		then you will have the
 	// 			return type			followed by
 	// 			function name		followed by
@@ -94,8 +94,6 @@ public class Methods {
 	//			{		code is between an opening {
 	//										code goes in here
 	//			}		and a closing 		}
-	//	TODO add your code in here
-	//	TODO add your code in here
 	//	TODO add your code in here
 
 
@@ -145,25 +143,38 @@ public class Methods {
 	//--------------------------------------------------------------------------------------------------------
 	//
 	// 	main is here for you to test out your methods
-	//	in the real world your methods will be called by other applications when then need work
-	//	done that only your code knows how to do
+	//	in the real world your methods will be called by other applications
+	//	when they need work done that only your code knows how to do
 	//
 	public static void main(String[] args) {
 
 		//	call the hello method. no parameters, nothing returned. kind of sad and lonely
-		hello();
+		//	helloWorld is just a beginners method
+		helloWorld();
 
-		//	we can say anything we want now.
+		//	Now we want to say more than hello world.
 		//	just create a string and pass it into the saySomething method
 		saySomething("I was just passed into the saySomething method");
-		String msg = saySomething("is this upper case");
+		String msg = saySomething("is this upper case?");
 		System.out.println(msg + " it is now");
 
 		int		firstInt  = 54;
 		int		secondInt = 42;
+		//	the addTwoNumbers will take two parameters and return the result of the method and assign that result to theSum
 		int 	theSum = addTwoNumbers(firstInt, secondInt);
 		System.out.println("this is the sum of " + firstInt + " and " + secondInt + " = " + theSum);
+
+		//	here we do the very same operation but this time around we will not save the result we will just use it directly in the println
 		System.out.println("this is the sum of " + firstInt + " and " + secondInt + " = " + addTwoNumbers(firstInt, secondInt));
+
+		String msg1, msg2;
+		msg1 = combineStrings("1 string", " 2 strings");
+		msg2 = combineStrings(" Red strings", " Blue strings");
+		msg = combineStrings(msg1, msg2);
+		saySomething(msg);
+
+		saySomething(combineStrings( combineStrings("One string", " Two strings"),
+				                     combineStrings(" Red strings", " Blue strings")));
 
 		msg = combineStrings("This is half of a message", " This is the other half");
 		saySomething(msg);

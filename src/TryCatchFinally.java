@@ -25,11 +25,15 @@ public class TryCatchFinally {
 		TryCatchFinally tcf = new TryCatchFinally();
 
 		//	call a method to write to a local file
-		tcf.writeList();
+		if ( tcf.writeList("Z:OutFile.txt") == false ) {
+			System.out.println("File did not exist");
+			tcf.writeList("OutFile.txt");
+		}
 	}
 
-	public void writeList() {
+	public boolean writeList(String fileName) {
 		PrintWriter out = null;
+		boolean result = true;
 		try {
 			//	we will open a file to write to it
 			System.out.println ("Entering try statement");
@@ -37,7 +41,7 @@ public class TryCatchFinally {
 			/*
 			 *		change to E: to demonstrate the IOException
 			 */
-			out = new PrintWriter (new FileWriter("OutFile.txt"));
+			out = new PrintWriter (new FileWriter(fileName));
 
 			//	we are adding the date to the start of the file to show that this was the file created just now
 			out.println(new Date());
@@ -67,6 +71,7 @@ public class TryCatchFinally {
 			 *		this exception is generated when we try to access an illegal file location
 			 */
 			System.err.println ("Caught IOException: " +  e.getMessage () + "\n" + e.getCause());
+			result = false;
 		} finally {
 			/*
 			 *		this is a guaranteed piece of code to be called after failure or success
@@ -78,6 +83,7 @@ public class TryCatchFinally {
 			else {
 				System.out.println ("PrintWriter not open");
 			}
+			return result;
 		}
 	}
 }

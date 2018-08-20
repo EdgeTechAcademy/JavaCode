@@ -12,6 +12,7 @@ public class TryCatch {
 		TryCatch tc = new TryCatch();
 		tc.cat(new File("OutFile.txt"));
 	}
+
 	public static void cat (File file) {
 		RandomAccessFile input = null;
 		String line = null;
