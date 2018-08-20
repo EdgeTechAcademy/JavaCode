@@ -4,8 +4,8 @@ import java.util.Date;
 
 /**
  * Created by Edge Tech Academy on 6/7/2017.
+ * 		added comments in Aug 2018
  */
-
 public class TryCatchFinally {
 
 	private ArrayList<Integer> list;
