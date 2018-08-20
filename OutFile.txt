@@ -1,5 +1,11 @@
-username,address,phonenumber,age
-gtjames,8701 Bedford Euless Rd,682-334-5679,63
-christiaan,virginia,999-333-0000,38
-laura,utah,333-222-1111,10
-unknown student, a, b, c
+Mon Aug 20 07:26:32 CDT 2018
+Value at: 0 = 83
+Value at: 1 = 2
+Value at: 2 = 5
+Value at: 3 = 27
+Value at: 4 = 40
+Value at: 5 = 76
+Value at: 6 = 64
+Value at: 7 = 70
+Value at: 8 = 86
+Value at: 9 = 7

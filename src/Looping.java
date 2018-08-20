@@ -69,8 +69,9 @@ public class Looping {
 
 		Scanner sc = new Scanner(System.in);
 		int searchFor = 0;
-		String [] stuff = {"string 1", "Texas", "junk", "123", "Mars"};
-		int[] numbers = { 32,   87,    3, 589, 12, 1076, 2000,   8,622, 127,   77, 955 };
+		int count;
+		String [] stuff = {"string 1", "Texas", "junk", "123", "Mars", "Falcon"};
+		int[] numbers = { 32, 87, 3, 589, 12, 1076, 2000, 8, 622, 127, 77, 955 };
 
 		while (true) {
 			System.out.println("\n1 while       2 do       3 while2   4 dowhile2\n" +
@@ -80,7 +81,7 @@ public class Looping {
 			switch (what.toLowerCase()) {
 				case "1":
 				case "while":
-					int count = 1;
+					count = 1;
 					while (count < 11) {
 						System.out.println("Loop 1: Count is: " + count);
 						count++;
@@ -99,7 +100,7 @@ public class Looping {
 
 				case "3":
 				case "while2":
-					count = 11;
+					count = 99;
 					//  how is the output different between these two while loops?
 					while (count < 11) {
 						System.out.println("Loop 3: Count is: " + count);
@@ -109,7 +110,7 @@ public class Looping {
 
 				case "4":
 				case "dowhile2":
-					count = 11;
+					count = 99;
 					do {
 						System.out.println("Loop 4: Count is: " + count);
 						count++;
@@ -126,15 +127,15 @@ public class Looping {
 				case "6":
 				case "fori":
 					for (int i = 0; i < numbers.length; i++) {
-						int item = numbers[i];
-						System.out.println("Fori: " + i + " Item is: " + item);
+						int number = numbers[i];
+						System.out.println("Fori: " + i + " Item is: " + number);
 					}
 					break;
 
 				case "7":
 				case "forx":
-					for (int item : numbers) {
-						System.out.println("Extended For item: element is: " + item);
+					for (int number : numbers) {
+						System.out.println("Extended For item: element is: " + number);
 					}
 					for (String str : stuff) {
 						System.out.println("str = " + str);

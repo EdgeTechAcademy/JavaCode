@@ -13,20 +13,20 @@ public class ControlFlow {
 			return monthNumber;
 		}
 
-		switch (month.toLowerCase()) {
-			case	"january":		monthNumber = 1;		break;
-			case	"february":		monthNumber = 2;		break;
-			case	"march":		monthNumber = 3;		break;
-			case	"april":		monthNumber = 4;		break;
-			case	"may":			monthNumber = 5;		break;
-			case	"june":			monthNumber = 6;		break;
-			case	"july":			monthNumber = 7;		break;
-			case	"august":		monthNumber = 8;		break;
-			case	"september":	monthNumber = 9;		break;
-			case	"october":		monthNumber = 10;		break;
-			case	"november":		monthNumber = 11;		break;
-			case	"december":		monthNumber = 12;       break;
-			default:				monthNumber = 0;		break;
+		switch (month.toLowerCase().substring(0,3)) {
+			case	"jan":	monthNumber = 1;		break;
+			case	"feb":	monthNumber = 2;		break;
+			case	"mar":	monthNumber = 3;		break;
+			case	"apr":	monthNumber = 4;		break;
+			case	"may":	monthNumber = 5;		break;
+			case	"jun":	monthNumber = 6;		break;
+			case	"jul":	monthNumber = 7;		break;
+			case	"aug":	monthNumber = 8;		break;
+			case	"sep":	monthNumber = 9;		break;
+			case	"oct":	monthNumber = 10;		break;
+			case	"nov":	monthNumber = 11;		break;
+			case	"dec":	monthNumber = 12;       break;
+			default:		monthNumber = 0;		break;
 		}
 		return monthNumber;
 	}
@@ -90,8 +90,8 @@ public class ControlFlow {
 				break;
 			case 2:
 				if (((year % 4 == 0) &&
-						!(year % 100 == 0))
-						|| (year % 400 == 0))
+					!(year % 100 == 0))
+				  || (year % 400 == 0))
 					numDays = 29;
 				else
 					numDays = 28;
@@ -135,8 +135,9 @@ public class ControlFlow {
 		Utils utils = new Utils();
 
 		while (true) {
-			String what = utils.getInput("\n1 name   2 num     3 grade\n" +
-							     "4 days   5 future  7 exit");
+			String what = utils.getInput(
+					"\n1 name   2 num     3 grade\n" +
+					  "4 days   5 future  7 exit\n>  ");
 			switch (what.toLowerCase()) {
 				case "1":
 				case "name":

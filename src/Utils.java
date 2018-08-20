@@ -3,9 +3,6 @@ import java.util.Scanner;
 public class Utils {
 
 	static Scanner sc = new Scanner((System.in));
-	public Utils() {
-		sc = new Scanner((System.in));
-	}
 
 	public static String getInput(String prompt) {
 		System.out.print(prompt);
