@@ -53,6 +53,10 @@ public class TryCatchFinally {
 			//	we are adding the date to the end of the file to show that this was the file created just now
 			out.println(new Date());
 
+			//	uncomment to generate a DivideByZero Exception
+//			int z = 1000;
+//			z /= 0;
+
 		} catch (IndexOutOfBoundsException e) {
 			/*
 			 *		this exception is generated when we go past the end of our array
