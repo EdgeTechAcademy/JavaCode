@@ -141,7 +141,7 @@ public class ControlFlow {
 			switch (what.toLowerCase()) {
 				case "1":
 				case "name":
-					monthNum = utils.getInteger("Enter month number: ");		//	ask user for a month number
+					monthNum = utils.getNumber("Enter month number: ");		//	ask user for a month number
 					String monthString = ControlFlow.getMonthName(monthNum);	//	get the month name
 					System.out.println(monthString);
 					break;
@@ -159,22 +159,22 @@ public class ControlFlow {
 
 				case "3":
 				case "grade":
-					testScore = utils.getInteger("Enter score: ");				//	ask user for a test score
+					testScore = utils.getNumber("Enter score: ");				//	ask user for a test score
 					char grade = ControlFlow.getGrade(testScore);				//	get the student grade
 					System.out.println("Grade = " + grade);
 					break;
 
 				case "4":
 				case "days":
-					monthNum = utils.getInteger("Enter month number: ");		//	get the number of a month
-					year = utils.getInteger("Enter year number: ");				//	get the year value
+					monthNum = utils.getNumber("Enter month number: ");		//	get the number of a month
+					year = utils.getNumber("Enter year number: ");				//	get the year value
 					numDays = ControlFlow.daysInMonth(monthNum, year);			//	determine the number of days in the month
 					System.out.println("Number of Days = " + numDays);
 					break;
 
 				case "5":
 				case "future":
-					monthNum = utils.getInteger("Enter month number: ");		//	get the number of a month
+					monthNum = utils.getNumber("Enter month number: ");		//	get the number of a month
 					futureMonths = ControlFlow.getFutureMonths(monthNum);		//	return a list of months for the rest of the year
 
 					if (futureMonths.isEmpty()) {								//	if the list is empthy a bad month was entered

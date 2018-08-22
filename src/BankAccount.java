@@ -1,33 +1,16 @@
-/**
- * Created by Edge Tech Academy on 10/17/2017.
- */
 public class BankAccount {
+	private String name;
+	private float balance;
+	private String accountNumber;
+	private BankAccount overdraftProtection;
 
-	private double	balance;
-	private double	interestRate;
-	private String	name;
-	private static 	double	OPENING_BALANCE = 5.0;
-
-	public BankAccount(String name, double interestRate) {
-		this(name, OPENING_BALANCE, interestRate);
-	}
-
-	public BankAccount(String name, double balance, double interestRate) {
-		this.balance = balance;
-		this.interestRate = interestRate / 100.0;
-		this.name = name;
-	}
-
-	public double getBalance() {
+	//	here are my getters and setters
+	public float getBalance() {
 		return balance;
 	}
 
-	public double getInterestRate() {
-		return interestRate;
-	}
-
-	public void setInterestRate(double interestRate) {
-		this.interestRate = interestRate / 100.0;
+	public void setBalance(float balance) {
+		this.balance = balance;
 	}
 
 	public String getName() {
@@ -38,66 +21,115 @@ public class BankAccount {
 		this.name = name;
 	}
 
-	public double makeDeposit(double amount) {
-		balance += amount;
-		return  balance;
+	public String getAccountNumber() {
+		return accountNumber;
 	}
 
-	public boolean makeWithdrawal (double amount) {
-		if (balance > amount) {
-			balance -= amount;
-			return true;
+	public void setAccountNumber(String accountNumber) {
+		this.accountNumber = accountNumber;
+	}
+
+	public BankAccount getOverdraftProtection() {
+		return overdraftProtection;
+	}
+
+	public void setOverdraftProtection(BankAccount overdraftProtection) {
+		this.overdraftProtection = overdraftProtection;
+	}
+
+	//	here are my methods to manage my object
+
+	/**
+	 * 	withdraw
+	 * @param howMuch	float - amount of money to be transferred out of he account
+	 * @return			float - current balance of the account
+	 */
+	public float withdraw(float howMuch) {
+		//	do we have enough in the account for the transfer?
+		if (balance >= howMuch) {
+			balance -= howMuch;							//	remove money from account
+		} else if (overdraftProtection != null) {       //	do we have an overdraft account?
+			//	is there enough between the two accounts to cover the withdrawal request
+			if (overdraftProtection.getBalance() + balance > howMuch) {
+				howMuch -= balance;        				//	this account will cover what it can
+				balance = 0;            				//	this account will be drained
+				//	take the remaining amount from the overdraft account
+				overdraftProtection.withdraw(howMuch);
+			} else {
+				System.out.println("Even with your overdraft account you do not have sufficient funds");
+			}
+		} else {
+			System.out.println("You have insufficient funds. Account Balance is: $" + balance);
 		}
-		return false;
+		return balance;
 	}
 
-	public void transfer(BankAccount toAccount, double transferAmt) {
-		if (balance >= transferAmt) {
-			toAccount.makeDeposit(transferAmt);
-			makeWithdrawal(transferAmt);
-		}
+	public float deposit(float howMuch) {
+		balance += howMuch;
+		return balance;
 	}
 
-	public double addMonthlyInterest() {
-		double interest = balance * (interestRate / 12);
-		return makeDeposit(interest);
+	//		here are my constructors
+	public BankAccount(String name) {        //	notice that we only have the single parameter
+		this.name = name;
+		this.balance = 0;            //	yup we created an account but no balance was defined
+	}
+
+	public BankAccount(String name, float balance) {    //	here we are going to use two params
+		this.name = name;
+		this.balance = balance;
 	}
 
 	@Override
 	public String toString() {
-		return "BankAccount{" +
-				"name = '" + name + '\'' +
-				", balance = " + balance +
-				", interestRate = " + interestRate +
+		return "Bank{" +
+				"name='" + name + '\'' +
+				", balance=" + balance +
 				'}';
 	}
 
 	public static void main(String[] args) {
-		BankAccount savings  = new BankAccount("Savings",                  5.0);
-		BankAccount checking = new BankAccount("Checking", 5000.0, 2.0);
-		BankAccount taxes    = new BankAccount("Taxes",    1000.0, 2.0);
+		BankAccount		checking = null, savings = null;
+		String 			accountName;
+		int 			amount, option;
 
-		savings.makeDeposit(100.00);
-		System.out.println(checking);
-		System.out.println(taxes);
-		checking.transfer(taxes, checking.getBalance()/2.0);
-		System.out.println(checking);
-		System.out.println(taxes);
-
-		if(checking.getBalance() > taxes.getBalance()) {
-			System.out.println(checking.getName() + " = " + checking.getBalance() );
-		} else {
-			System.out.println(taxes.getName() + " = " + taxes.getBalance());
-		}
-
-		int		month = 0;
-		double	endingBalance;
-		double beginningBalance = savings.getBalance();
 		do {
-			endingBalance = savings.addMonthlyInterest();
-			month++;
-		} while ( beginningBalance * 2 > endingBalance);
-		System.out.println("it took " + (int)(month/12.0) + " years " + month%12 + " months to double our balance with an interest rate of " + savings.getInterestRate()*100);
-		System.out.printf("it took %d years %d months to double our balance with an interest rate of %.1f",(int)(month/12.0), month%12, savings.getInterestRate()*100);
+			option = Utils.getNumber("ATM Options" +
+					"\n 1 - Create Checking Account		2 - Make Deposit to Checking" +
+					"\n 3 - Create Savings Account		4 - Withdraw from Checking" +
+					"\n 5 - Xfer Checking to Savings	6 - Get Balance" +
+					"\n 7 - Xfer Savings to Checking" +
+					"\n 0 - exit");
+			switch (option) {
+				case 1		:
+					accountName = Utils.getInput("Account Name: ");
+					amount = Utils.getNumber("Starting Balanace: ");
+					checking = new BankAccount(accountName, amount);
+					System.out.println(checking);
+					break;
+
+				case 2		:
+					amount = Utils.getNumber("Amt to Deposit: ");
+					checking.deposit(amount);
+					System.out.println(checking);
+					break;
+
+				case 3	:		//	TODO - create a Savings Account
+					break;
+
+				case 4		:	//	TODO - Withdraw from Checking
+					break;
+
+				case 5		:	//	TODO - Transfer from Checking to Savings
+					break;
+
+				case 6		:	//	TODO - Get Balance for Accounts (Checking and Savings)
+					break;
+
+				case 7		:	//	TODO - Transfer from Checking to Savings
+					break;
+
+			}
+		} 	while (option != 0);
 	}
 }
