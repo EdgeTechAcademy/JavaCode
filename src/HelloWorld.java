@@ -1,5 +1,3 @@
-import java.sql.Array;
-
 /**
  * Created by Edge Tech Academy on 10/31/2016.
  * Demonstrating a simple Class definition

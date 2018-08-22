@@ -8,7 +8,7 @@ public class Char {
 		char uniChar = '\u03A9';							// Unicode for uppercase Greek omega character
 		char[] charArray = { 'a', 'b', 'c', 'd', 'e' };		// an array of chars
 
-		Character chA = new Character ('A');
+		Character chA = 'A';
 
 		System.out.format ("She said \"Hello!\" to me. %c", ch, charArray[0], uniChar);
 	}

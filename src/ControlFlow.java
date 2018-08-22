@@ -166,7 +166,7 @@ public class ControlFlow {
 
 				case "4":
 				case "days":
-					monthNum = utils.getNumber("Enter month number: ");		//	get the number of a month
+					monthNum = utils.getNumber("Enter month number: ");			//	get the number of a month
 					year = utils.getNumber("Enter year number: ");				//	get the year value
 					numDays = ControlFlow.daysInMonth(monthNum, year);			//	determine the number of days in the month
 					System.out.println("Number of Days = " + numDays);
