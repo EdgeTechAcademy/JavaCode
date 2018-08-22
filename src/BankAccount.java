@@ -109,9 +109,9 @@ public class BankAccount {
 					break;
 
 				case 2		:
-					amount = Utils.getNumber("Amt to Deposit: ");
-					checking.deposit(amount);
-					System.out.println(checking);
+					amount = Utils.getNumber("Amt to Deposit: ");		//	ask user for amount to deposit
+					checking.deposit(amount);							//	make deposit
+					System.out.println(checking);						//	show account status
 					break;
 
 				case 3	:		//	TODO - create a Savings Account
