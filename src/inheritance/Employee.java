@@ -39,7 +39,15 @@ class CEO extends Manager {
         this.bonusAmt = bonusAmt;
     }
 
-    public CEO(String name, Date startDate, Date dateOfBirth, double signingLimit, float bonusPct, float salary, String parkingSpot, float bonusAmt) {
+	@Override
+	public String toString() {
+		return "CEO{" +
+				"parkingSpot='" + parkingSpot + '\'' +
+				", bonusAmt=" + bonusAmt +
+				"} " + super.toString();
+	}
+
+	public CEO(String name, Date startDate, Date dateOfBirth, double signingLimit, float bonusPct, float salary, String parkingSpot, float bonusAmt) {
         super(name, startDate, dateOfBirth, signingLimit, bonusPct, salary);
         this.parkingSpot = parkingSpot;
         this.bonusAmt = bonusAmt;
@@ -70,8 +78,17 @@ class Manager extends Employee {
         this.salary = salary;
     }
 
-    public Manager(String name, Date startDate, Date dateOfBirth,
-                   double signingLimit, float bonusPct, float salary) {
+	@Override
+	public String toString() {
+		return "Manager{" +
+				"signingLimit=" + signingLimit +
+				", bonusPct=" + bonusPct +
+				", salary=" + salary +
+				"} " + super.toString();
+	}
+
+	public Manager(String name, Date startDate, Date dateOfBirth,
+				   double signingLimit, float bonusPct, float salary) {
         super(name, startDate, dateOfBirth);
         this.signingLimit = signingLimit;
         this.bonusPct = bonusPct;
@@ -109,7 +126,15 @@ public class Employee {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public Employee(String name, Date startDate, Date dateOfBirth) {
+	@Override
+	public String toString() {
+		return "Employee{" +
+				"name='" + name + '\'' +
+				", startDate=" + startDate +
+				'}';
+	}
+
+	public Employee(String name, Date startDate, Date dateOfBirth) {
         this.name = name;
         this.startDate = startDate;
         this.dateOfBirth = dateOfBirth;
@@ -123,7 +148,7 @@ public class Employee {
             CEO ceo = new CEO("Tim", startDate, dob,
                     10000, 25.0f, 100_000, "A1", 25_000);
             System.out.println("ceo.getName() = " + ceo.getName());
-
+			System.out.println("ceo = " + ceo);
         } catch (ParseException ex) {
             System.out.println("Bad date conversion");
         }
