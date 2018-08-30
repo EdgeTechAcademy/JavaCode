@@ -22,11 +22,5 @@ public class JustTests {
 		}
 		System.out.println("males = " + males);
 		System.out.println("females = " + females);
-//		HashMap<String, Person> map = new HashMap<>();
-//		map.put(person.getFirstName(), person);
-//		Person a = map.get("Allen");
-//		Sort the List in Last Name order, print the result. Just first and last name.
-//		Deque<Person> deque = new Deque();
-//		Add each person from people to a Deque. Now process the Deque from the end (LIFO order), verify that that people come out in the reverse order.
     }
 }

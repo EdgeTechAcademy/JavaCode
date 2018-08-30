@@ -27,7 +27,7 @@ public class Person  implements Comparable<Person> {
 		this.gender	 = gender;
 		this.state	 = state;
 		this.email	 = email;
-		salary   	 = (int)((Math.random() * 50_000) + 40_000);
+		salary   	 = (int)((Math.random() * 60_000) + 40_000);
 	}
 
 	public String getEmail() {
