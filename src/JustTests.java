@@ -1,9 +1,3 @@
-import inheritance.SUV;
-import inheritance.Truck;
-import inheritance.VehicleE;
-
-import java.util.Deque;
-import java.util.HashMap;
 import java.util.List;
 
 /**
