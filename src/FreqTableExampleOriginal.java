@@ -51,15 +51,11 @@ public class FreqTableExampleOriginal {
 			}
 			System.out.println("Total characters in file: " + sum(freqs));
 		}
-
 	}
-
 
 	// return sum of ints in list
 	// list may not be null
 	private static int sum(int[] list) {
-		assert list != null : "Failed precondition, sum: parameter list" +
-									  " may not be null.";
 		int total = 0;
 		for(int x : list){
 			total += x;
@@ -75,14 +71,10 @@ public class FreqTableExampleOriginal {
 	// If IOException occurs message printed and array of
 	// length 0 returned.
 	public static int[] createFreqTableURL (String url){
-		if(url == null)
-			throw new IllegalArgumentException("Violation of precondition. parameter url must not be null.");
-
 		int[] freqs = new int[NUM_ASCII_CHAR];
 		try {
 			URL inputURL = new URL(url);
-			InputStreamReader in
-					= new InputStreamReader(inputURL.openStream());
+			InputStreamReader in = new InputStreamReader(inputURL.openStream());
 
 			while(in.ready()){
 				int c = in.read();
@@ -123,17 +115,8 @@ public class FreqTableExampleOriginal {
 				freqs[ch]++;
 			else
 				System.out.println((char) ch);
-
 		}
 		r.close();
 		return freqs;
 	}
-
-
-
-
-
-
-
-
 }
