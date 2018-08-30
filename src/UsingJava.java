@@ -58,12 +58,11 @@ public class UsingJava {
 				shortWord = word;
 			}
 		}
-		System.out.println("maxWord = " + maxWord + " has a length of " + maxWord.length());
+		System.out.println("maxWord   = " + maxWord + " has a length of " + maxWord.length());
 		System.out.println("shortWord = " + shortWord + " has a length of " + shortWord.length());
-		words = strB.split("[,; ]");
+
 		for (String word : words) {
-			if (word.length() > 0)
-				System.out.println(word);
+			System.out.println(word.charAt(0) + " - " + word);
 		}
 	}
 }
