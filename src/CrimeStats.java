@@ -42,6 +42,66 @@ public class CrimeStats {
 		this.longitude = longitude;
 	}
 
+	public String getComplaint() {
+		return complaint;
+	}
+
+	public String getReportDate() {
+		return reportDate;
+	}
+
+	public int getKeyCode() {
+		return keyCode;
+	}
+
+	public String getOffense() {
+		return offense;
+	}
+
+	public int getPdCode() {
+		return pdCode;
+	}
+
+	public String getPdDescription() {
+		return pdDescription;
+	}
+
+	public String getLawCategoryCode() {
+		return lawCategoryCode;
+	}
+
+	public String getBorough() {
+		return borough;
+	}
+
+	public String getPrecicntCode() {
+		return precicntCode;
+	}
+
+	public String getLocation() {
+		return location;
+	}
+
+	public String getPremiseType() {
+		return premiseType;
+	}
+
+	public String getParkName() {
+		return parkName;
+	}
+
+	public String getDevelopment() {
+		return development;
+	}
+
+	public float getLatitude() {
+		return latitude;
+	}
+
+	public float getLongitude() {
+		return longitude;
+	}
+
 	public static List<CrimeStats> getCrimes() {
 		List<CrimeStats> crimes = new ArrayList<>();
 
