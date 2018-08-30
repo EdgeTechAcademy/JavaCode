@@ -103,6 +103,7 @@ public class Person  implements Comparable<Person> {
 		roster.add(new Person("Shawn", "Patton", "Java", IsoChronology.INSTANCE.date(1993, 10, 30), Gender.MALE, "NY", "Palmer@example.com"));
 		roster.add(new Person("Vern", "Hervey", "Node.js", IsoChronology.INSTANCE.date(2005, 6, 4), Gender.MALE, "CA", "Shawn@example.com"));
 		roster.add(new Person("Victor", "Krum", "C Sharp", IsoChronology.INSTANCE.date(1999, 3, 6), Gender.MALE, "CA", "Vere@example.com"));
+		roster.add(new Person("Walter", "James", "Fortran", IsoChronology.INSTANCE.date(1909, 7, 16), Gender.MALE, "UT", "grandpa@gmail.com"));
 		return roster;
 	}
 }
