@@ -111,16 +111,12 @@ public class CrimeStats {
 
 			//	consume the header line
 			String header = br.readLine();
-			//	find the column number of the 'address' field
-			int lineCnt = 0;
 			while ((line = br.readLine()) != null) {
 				String[] f = line.split(",");
-				CrimeStats stat = new CrimeStats(f[0],f[5], getInt(f[6]), f[7], getInt(f[8]), f[9], f[11], f[13], f[14], f[15], f[16], f[17], f[18], getFloat(f[21]), getFloat(f[22]));
+				CrimeStats stat = new CrimeStats(f[0],f[5], getInt(f[6]), f[7], getInt(f[8]), f[9], f[11], f[13],
+												 f[14], f[15], f[16], f[17], f[18], getFloat(f[21]), getFloat(f[22]));
 				crimes.add(stat);
-				lineCnt++;
-				System.out.println(lineCnt + " " + f[0]);
 			}
-			System.out.println(crimes.size());
 		} catch (Exception e) {
 			System.err.println(e.getMessage()); // handle exception
 		}
