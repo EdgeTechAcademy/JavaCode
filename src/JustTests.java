@@ -10,16 +10,33 @@ public class JustTests {
     public static void main(String[] args) {
 		List<Person> people = Person.createRoster();
     	calcMF(people);
-		calcState(people, "UT");
-		calcStateJobs(people, "Java", "UT");
+		getCountByState(people, "UT");
+		countForJobsAndState(people, "C Sharp", "CO");
 		Set<String> states = getListOfStates(people, "Java");
 		System.out.println("states = " + states + ": there are " + states.size() + " states with Java jobs" );
 		Set<String> jobs = getJobs(people);
+		jobs.remove("Java");
 		System.out.println("Found these jobs = " + jobs + ": there are " + jobs.size() + " different job types" );
+		float totalSalary = totalSalaryByState(people, "ut");
+		System.out.println("totalSalary = " + totalSalary);
     }
 
+	private static float totalSalaryByState(List<Person> people, String state) {
+    	float totalSalary = 0;
+		for (Person person : people) {
+			if (person.getState().equalsIgnoreCase(state)) {
+				totalSalary += person.getSalary();
+			}
+		}
+		return totalSalary;
+	}
+
 	private static Set<String> getJobs(List<Person> people) {
-    	return null;
+		Set<String> jobs = new TreeSet<>();
+		for (Person person : people) {
+			jobs.add(person.getJob());
+		}
+    	return jobs;
 	}
 
 	private static Set<String> getListOfStates(List<Person> people, String jobs) {
@@ -32,20 +49,19 @@ public class JustTests {
 		return states;
 	}
 
-	/*
-			get the count of programmers for a state AND a particular programming skill
-	 */
-	private static void calcStateJobs(List<Person> people, String job, String state) {
+	/*	get the count of programmers for a state AND a particular programming skill  */
+	private static void countForJobsAndState(List<Person> people, String job, String state) {
 		int count = 0;
 		for (Person person : people) {
-			if(person.getState().equalsIgnoreCase(state)) {
+			if( person.getState().equalsIgnoreCase(state) &&
+				person.getJob().equalsIgnoreCase(job)) {
 				count++;
 			}
 		}
 		System.out.println(count + " " + job + " programmers live in " + state);
 	}
 
-	private static void calcState(List<Person> people, String state) {
+	private static void getCountByState(List<Person> people, String state) {
 		int stateCnt = 0;
 		for (Person person : people) {
 			if(person.getState().equalsIgnoreCase(state)) {
@@ -67,5 +83,4 @@ public class JustTests {
 		System.out.println("males = " + males);
 		System.out.println("females = " + females);
 	}
-
 }
