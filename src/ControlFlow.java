@@ -14,7 +14,7 @@ public class ControlFlow {
 		}
 
 		switch (month.toLowerCase().substring(0,3)) {
-			case	"jan":	monthNumber = 1;		break;
+			case	"jan":  monthNumber = 1; 		break;
 			case	"feb":	monthNumber = 2;		break;
 			case	"mar":	monthNumber = 3;		break;
 			case	"apr":	monthNumber = 4;		break;
@@ -52,19 +52,19 @@ public class ControlFlow {
 		String monthString;
 
 		switch (monthNumber) {
-			case 1:				monthString = "January";			break;
-			case 2:				monthString = "February";			break;
-			case 3:				monthString = "March";				break;
-			case 4:				monthString = "April";				break;
-			case 5:				monthString = "May";				break;
-			case 6:				monthString = "June";				break;
-			case 7:				monthString = "July";				break;
-			case 8:				monthString = "August";				break;
-			case 9:				monthString = "September";			break;
-			case 10:			monthString = "October";			break;
-			case 11:			monthString = "November";			break;
-			case 12:			monthString = "December";			break;
-			default:			monthString = "Invalid month";		break;
+			case 1:			monthString = "January";			break;
+			case 2:			monthString = "February";			break;
+			case 3:			monthString = "March";				break;
+			case 4:			monthString = "April";				break;
+			case 5:			monthString = "May";				break;
+			case 6:			monthString = "June";				break;
+			case 7:			monthString = "July";				break;
+			case 8:			monthString = "August";				break;
+			case 9:			monthString = "September";			break;
+			case 10:		monthString = "October";			break;
+			case 11:		monthString = "November";			break;
+			case 12:		monthString = "December";			break;
+			default:		monthString = "Invalid month";		break;
 		}
 		return monthString;
 	}
