@@ -70,14 +70,15 @@ public class Looping {
 		Scanner sc = new Scanner(System.in);
 		int searchFor = 0;
 		int count;
+
 		String [] stuff = {"string 1", "Texas", "junk", "123", "Mars", "Falcon"};
 		int[] numbers = { 32, 87, 3, 589, 12, 1076, 2000, 8, 622, 127, 77, 955 };
 
 		while (true) {
-			System.out.println("\n1 while       2 do       3 while2   4 dowhile2\n" +
-							     "5 for index   6 fori     7 forx     8 looking\n" +
-							     "9 double     10 count   	    exit");
-			String what = sc.nextLine();
+			String what = Utils.getInput(
+					"\n1 while       2 do       3 while2   4 dowhile2\n" +
+					"5 for index   6 fori     7 forx     8 looking\n" +
+					"9 double     10 count   	    exit");
 			switch (what.toLowerCase()) {
 				case "1":
 				case "while":
