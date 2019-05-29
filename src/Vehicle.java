@@ -4,12 +4,6 @@ public class Vehicle {
 	private int gears;         // number of gears
 	private int currentGear;   // what gear the car is in currently
 
-    /* let IntelliJ help you create
-           the getters and setters,
-           the toString
-           and a constructor
-    */
-
 	public Vehicle(int rpm, int speed, int gears, int currentGear) {
 		this.rpm = rpm;
 		this.speed = speed;
@@ -71,8 +65,7 @@ public class Vehicle {
 		if (deltaVelocity < 0) {
 			rpm -= 350;
 		}
-//		if rpm is greater than 2700
-		if (rpm > 2700) {
+		if (rpm > 2700) {        //		if rpm is greater than 2700
 //			if currentGear is less than gears then add one to currentGear and set rpm to 2600
 			if (currentGear < gears) {
 				currentGear++;
@@ -84,16 +77,14 @@ public class Vehicle {
 				System.out.println("Slow Down!");
 			}
 		}
-//		if rpm is less than 2300
-		if (rpm < 2300) {
-//			If currentGear greater than 1 then subtract one from currentGear and set rpm to 2600
+		if (rpm < 2300) {       //		if rpm is less than 2300
+
 			if (currentGear > 1) {
 				currentGear--;
 				rpm = 2600;
 			}
 		}
-//		Last line in method : Print status (Speed, Gear and RPM).
-		System.out.println(this);
+		System.out.println(this);    //		Last line in method : Print status (Speed, Gear and RPM).
 	}
 
 	public static void main(String[] args) {
@@ -106,6 +97,6 @@ public class Vehicle {
 		vehicle.accelerate(-40);
 		vehicle.accelerate(-40);
 		vehicle.accelerate(-40);
-
 	}
 }
+
