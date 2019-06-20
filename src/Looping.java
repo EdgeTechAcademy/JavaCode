@@ -67,7 +67,6 @@ public class Looping {
 
     public static void main(String[] args) {
 
-		Scanner sc = new Scanner(System.in);
 		int searchFor = 0;
 		int count;
 
@@ -145,9 +144,7 @@ public class Looping {
 
 				case "8":
 				case "looking":
-					System.out.print("What are you looking for? ");
-					String lookFor = sc.nextLine();
-					searchFor = Integer.parseInt(lookFor);
+					searchFor = Utils.getNumber("What are you looking for? ");
 
 					int foundIt = Looping.lookingFor(searchFor);
 
@@ -172,9 +169,9 @@ public class Looping {
 
 				case "10":
 				case "count":
-					System.out.print("What letter are you looking for? ");
-					lookFor = sc.nextLine();
-					char letter = lookFor.charAt(0);
+					String sLetter = Utils.getInput("What letter are you looking for? ");
+					char letter = sLetter.charAt(0);
+
 					String searchMe = "peter piper picked a peck of pickled peppers";
 					int charCount = Looping.countLetter(searchMe, letter);
 					System.out.println("Found " + charCount + " " + letter + "'s in the string.");

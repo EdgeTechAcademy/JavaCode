@@ -71,6 +71,52 @@ public class Utils {
 		return number;							//	yay, we have our number
 	}
 
+	/**
+	 * 	getIntArray
+	 * 		Create an integer array with 10-30 elements and fill it with random numbers between 0 and 100
+	 *
+	 * @return	an int array of random numbers
+	 */
+	public static int[] getIntArray() {
+		int size = (int) (Math.random() * 20) + 10;
+		int[] randomNumbers = new int[size];
+		for (int i = 0; i < randomNumbers.length; i++) {
+			randomNumbers[i] = (int) (Math.random() * 100);
+		}
+		return randomNumbers;
+	}
+
+	/**
+	 * 	getStrArray
+	 * 		Create a String array with 10-30 elements and fill it with random Strings between A-Z, a-z, 0-9
+	 *
+	 * @return	an int array of random numbers
+	 */
+	public static String[] getStrArray() {
+		int size = (int) (Math.random() * 20) + 10;
+		String[] randomStrings = new String[size];
+		for (int i = 0; i < randomStrings.length; i++) {
+			randomStrings[i] = getRandomString();
+		}
+		return randomStrings;
+	}
+
+	/**
+	 * 	getRandomString
+	 * 			Create a random sized string between 1 and 20 characters long
+	 */
+	public static String getRandomString() {
+		String src = "abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+		String str = "";
+
+		int size = (int) (Math.random() * 20) + 1;
+		for (int i = 0; i < size; i++) {
+			str += src.charAt((int)(Math.random() * 62));
+		}
+
+		return str;
+	}
+
 	public static void main(String[] args) {
 		int max, number;
 		do {

@@ -2,67 +2,31 @@ import java.util.*;
 
 public class UsingJava {
 	public static void main(String[] args) {
-		String strA = "first a short string";
-		String strB = "Friends, Romans, countrymen, lend me your ears; I come to bury Caesar, not to praise him;";
-		String strC = "this that and the other this does not make sense that toes not either does this";
+		int a, b, closestNum;
 
-		int compare = strA.compareTo(strB);
-		System.out.println("compare = " + compare);
-		if (strA.compareTo(strB) > 0) {
-			System.out.println("strA = " + strA);
-		} else {
-			System.out.println("strB = " + strB);
-		}
+		a = Utils.getNumber("#1 ");
+		b = Utils.getNumber("#2 ");
 
-		compare = strA.compareToIgnoreCase(strB);
-		System.out.println("compare = " + compare);
-		if (strA.compareToIgnoreCase(strB) > 0) {
-			System.out.println("strA = " + strA);
-		} else {
-			System.out.println("strB = " + strB);
-		}
+		closestNum = closestTo10 (a, b);
+		System.out.println("This num is the closest number to 10: " + closestNum);
+	}
 
-		String searchWord = Utils.getInput("Search for: ");
-		int indexOf = strB.indexOf(searchWord);
-		if (indexOf != -1) {
-			System.out.println("Found " + searchWord + " at index " + indexOf);
-		}
-		if (strB.contains(searchWord)) {
-			System.out.println("Found " + searchWord);
-		} else {
-			System.out.println("Did not find " + searchWord);
-		}
+	private static int closestTo10(int x, int y) {
+		int distX = 10 - x;
+		int distY = 10 - y;
+		distX = Math.abs(distX);
+		distY = Math.abs(distY);
+		if (distX < distY)
+			return x;
+		else
+			return y;
 
-		String[] words = strC.split(" ");
-		Set<String> treeSet = new TreeSet<>();
-		Set<String> hashSet = new LinkedHashSet<>();
-		ArrayList<String> list = new ArrayList<>();
-		for (String word : words) {
-			System.out.println(word);
-			treeSet.add(word);
-			hashSet.add(word);
-			list.add(word);
-		}
-		System.out.println("treeSet = " + treeSet);
-		System.out.println("hashSet = " + hashSet);
-		System.out.println("list = " + list);
+//		return (Math.abs(10 - x) < Math.abs(10 - y)) ? x : y;
+//
+//		if (Math.abs(10 - x) < Math.abs(10 - y))
+//			return x;
+//		else
+//			return y;
 
-		words = strB.split(" ");
-		String maxWord = words[0];
-		String shortWord = words[0];
-		for (String word : words) {
-			if (word.length() > maxWord.length()) {
-				maxWord = word;
-			}
-			if (word.length() < shortWord.length()) {
-				shortWord = word;
-			}
-		}
-		System.out.println("maxWord   = " + maxWord + " has a length of " + maxWord.length());
-		System.out.println("shortWord = " + shortWord + " has a length of " + shortWord.length());
-
-		for (String word : words) {
-			System.out.println(word.charAt(0) + " - " + word);
-		}
 	}
 }
