@@ -36,11 +36,22 @@ public class Collect {
 				case "stop":
 					return;
 
+				case "test" :
+					String sentence = Utils.getInput("Enter anything: ");
+					String[] words = sentence.split(" ");
+
+					for (String word : words) {
+						list.add(word);
+						set.add(word);
+					}
+					break;
+
 				default:
 					// Collections.sort(list);
 					list.add(str);
 					set.add(str);
-					map.put(cnt++, str);
+					cnt = Utils.getNumber("Key #: ");
+					map.put(cnt, str);
 					break;
 			}
 		}

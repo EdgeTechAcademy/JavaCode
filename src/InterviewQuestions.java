@@ -10,8 +10,50 @@ public class InterviewQuestions {
 
 		printIntArray(intAr);
 		printStrArray(strAr);
- 	}
 
+//		findTrip();
+//
+//		threeFive();
+//		figSum();
+	}
+
+
+	private static void figSum() {
+		int fib1 = 1, fib2 = 1;
+		int sum = 0;
+		while (fib2 < 4000000) {
+			if ( fib2%2 == 0) {
+				sum += fib2;
+			}
+			int next = fib1 + fib2;
+			fib1 = fib2;
+			fib2 = next;
+			System.out.println("fib2 = " + fib2);
+		}
+		System.out.println("sum = " + sum);
+	}
+	private static void threeFive() {
+		int num = 0;
+		for (int i = 0; i < 1000; i++) {
+			if (i%3==0 || i%5==0)
+				num += i;
+		}
+		System.out.println("num = " + num);
+	}
+	private static void findTrip() {
+		for (int i = 3; i < 500; i++) {
+			for (int j = 4; j < 500; j++) {
+				int hypot = (int)Math.sqrt(i*i + j*j);
+				if (i*i + j*j == hypot*hypot) {
+					System.out.println(i + "^2 + " + j + "^2 = " + hypot + "^2" );
+					if ( i+j+hypot == 1000) {
+						System.out.println("Found it " + i * j * hypot);
+					}
+				}
+			}
+
+		}
+	}
 	private static void printIntArray(int[] ar) {
 		for (int i : ar) {
 			System.out.println(i);

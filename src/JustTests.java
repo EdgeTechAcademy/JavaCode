@@ -33,6 +33,7 @@ public class JustTests {
 
 	private static Set<String> getJobs(List<Person> people) {
 		Set<String> jobs = new TreeSet<>();
+
 		for (Person person : people) {
 			jobs.add(person.getJob());
 		}

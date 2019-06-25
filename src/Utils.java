@@ -1,3 +1,9 @@
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Utils {
@@ -125,5 +131,9 @@ public class Utils {
 			//	yay, here is the users response
 			System.out.println("User entered: " + number + " which is less than " + max);
 		}	while (number != 0);
+	}
+
+	public static String readFile(String fileName) throws IOException {
+		return new String(Files.readAllBytes(Paths.get(fileName)));
 	}
 }

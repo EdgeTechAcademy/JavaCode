@@ -79,16 +79,16 @@ public class Person  implements Comparable<Person> {
 	public static List<Person> createRoster() {
 
 		List<Person> roster = new ArrayList<>();
-		roster.add(new Person("Addison", "Texas", "Java", IsoChronology.INSTANCE.date(1980, 8, 1), Gender.FEMALE, "TX", "Addison@example.com"));
-		roster.add(new Person("Evonne", "Saint", "C Sharp", IsoChronology.INSTANCE.date(1993, 1, 8), Gender.FEMALE, "CO", "Evonne@example.com"));
-		roster.add(new Person("Jayden", "Trump", "Node.js", IsoChronology.INSTANCE.date(2000, 11, 17), Gender.FEMALE, "NY", "Jayden@example.com"));
-		roster.add(new Person("Maude", "Lethargy", "Java", IsoChronology.INSTANCE.date(1980, 8, 13), Gender.FEMALE, "CO", "Maude@example.com"));
-		roster.add(new Person("Queen", "Eskimo", "C Sharp", IsoChronology.INSTANCE.date(1980, 9, 5), Gender.FEMALE, "NY", "jane@example.com"));
-		roster.add(new Person("Ros", "Line", "Node.js", IsoChronology.INSTANCE.date(2007, 9, 3), Gender.FEMALE, "LA", "Quinn@example.com"));
-		roster.add(new Person("Sammy", "Spade", "C Sharp", IsoChronology.INSTANCE.date(2005, 12, 2), Gender.FEMALE, "CA", "Ros@example.com"));
-		roster.add(new Person("Sindy", "Who", "Java", IsoChronology.INSTANCE.date(1998, 1, 25), Gender.FEMALE, "TX", "Tori@example.com"));
-		roster.add(new Person("Tamsen", "Leatherson", "Java", IsoChronology.INSTANCE.date(1993, 4, 16), Gender.FEMALE, "TX", "Sindy@example.com"));
-		roster.add(new Person("Tori", "Brit", "C Sharp", IsoChronology.INSTANCE.date(2005, 12, 23), Gender.FEMALE, "CO", "Tamsen@example.com"));
+		roster.add(new Person("Addison", "Texas", 	"Java", 	IsoChronology.INSTANCE.date(1980, 8, 1), Gender.FEMALE, "TX", "Addison@example.com"));
+		roster.add(new Person("Evonne", "Saint", 	"C Sharp", 	IsoChronology.INSTANCE.date(1993, 1, 8), Gender.FEMALE, "CO", "Evonne@example.com"));
+		roster.add(new Person("Jayden", "Trump", 	"Node.js", 	IsoChronology.INSTANCE.date(2000, 11, 17), Gender.FEMALE, "NY", "Jayden@example.com"));
+		roster.add(new Person("Maude", "Lethargy", 	"Java", 	IsoChronology.INSTANCE.date(1980, 8, 13), Gender.FEMALE, "CO", "Maude@example.com"));
+		roster.add(new Person("Queen", "Eskimo", 	"C Sharp", 	IsoChronology.INSTANCE.date(1980, 9, 5), Gender.FEMALE, "NY", "jane@example.com"));
+		roster.add(new Person("Ros", "Line", 		"Node.js", 	IsoChronology.INSTANCE.date(2007, 9, 3), Gender.FEMALE, "LA", "Quinn@example.com"));
+		roster.add(new Person("Sammy", "Spade", 	"C Sharp", 	IsoChronology.INSTANCE.date(2005, 12, 2), Gender.FEMALE, "CA", "Ros@example.com"));
+		roster.add(new Person("Sindy", "Who", 		"Java", 	IsoChronology.INSTANCE.date(1998, 1, 25), Gender.FEMALE, "TX", "Tori@example.com"));
+		roster.add(new Person("Tamsen", "Leatherson", "Java", 	IsoChronology.INSTANCE.date(1993, 4, 16), Gender.FEMALE, "TX", "Sindy@example.com"));
+		roster.add(new Person("Tori", "Brit", 		"C Sharp", 	IsoChronology.INSTANCE.date(2005, 12, 23), Gender.FEMALE, "CO", "Tamsen@example.com"));
 
 		roster.add(new Person("Alvin", "Dyer", "C Sharp", IsoChronology.INSTANCE.date(2006, 11, 2), Gender.MALE, "CO", "Tori@example.com"));
 		roster.add(new Person("Bob", "Flemming", "C Sharp", IsoChronology.INSTANCE.date(2001, 2, 3), Gender.MALE, "NY", "Alvin@example.com"));
