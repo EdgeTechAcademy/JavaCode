@@ -8,7 +8,7 @@ import java.util.TreeSet;
 public class JustTests {
 
     public static void main(String[] args) {
-		List<Person> people = Person.createRoster();
+    	List<Person> people = Person.createRoster();
     	calcMF(people);
 		getCountByState(people, "UT");
 		countForJobsAndState(people, "C Sharp", "CO");

@@ -10,7 +10,6 @@ public class GameCharacter {
 	public String getName() {
 		return name;
 	}
-
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -18,7 +17,6 @@ public class GameCharacter {
 	public int getHealth() {
 		return health;
 	}
-
 	public void setHealth(int health) {
 		this.health = health;
 	}
@@ -26,7 +24,6 @@ public class GameCharacter {
 	public int getPower() {
 		return power;
 	}
-
 	public void setPower(int power) {
 		this.power = power;
 	}
@@ -72,11 +69,9 @@ class Wizard extends GameCharacter {
 	public float getMana() {
 		return mana;
 	}
-
 	public void setMana(float mana) {
 		this.mana = mana;
 	}
-
 	public ArrayList<String> getSpells() {
 		return spells;
 	}

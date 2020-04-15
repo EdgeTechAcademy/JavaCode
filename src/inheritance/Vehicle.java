@@ -5,13 +5,14 @@ package inheritance;
  */
 public class Vehicle {
 
-    //  unchangin fields
+    //  unchanging fields
     private int wheels;
     private int engineSize;     //  in cubic cm
     private int doors;
     private int gearCount;
     private boolean isAutomatic;  //  true if isAutomatic. false if manual
     private int seatingCapacity;
+    private String make;
     private String model;
     private String color;
     private String[] accessories;          //TODO add code for accessories

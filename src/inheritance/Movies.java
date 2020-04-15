@@ -7,15 +7,12 @@ public class Movies {
 	public String getTitle() {
 		return title;
 	}
-
 	public void setTitle(String title) {
 		this.title = title;
 	}
-
 	public float getBudget() {
 		return budget;
 	}
-
 	public void setBudget(float budget) {
 		this.budget = budget;
 	}
@@ -47,15 +44,12 @@ class War extends Movies {
 	public String getEnemy() {
 		return enemy;
 	}
-
 	public void setEnemy(String enemy) {
 		this.enemy = enemy;
 	}
-
 	public String getWarName() {
 		return warName;
 	}
-
 	public void setWarName(String warName) {
 		this.warName = warName;
 	}
@@ -74,13 +68,13 @@ class War extends Movies {
 		this.warName = warName;
 	}
 }
+
 class Horror extends Movies {
 	private int jumpScareCount;
 
 	public int getJumpScareCount() {
 		return jumpScareCount;
 	}
-
 	public void setJumpScareCount(int jumpScareCount) {
 		this.jumpScareCount = jumpScareCount;
 	}

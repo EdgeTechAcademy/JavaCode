@@ -12,7 +12,6 @@ class Staff extends Employee {
     public float getHourlyRate() {
         return hourlyRate;
     }
-
     public void setHourlyRate(float hourlyRate) {
         this.hourlyRate = hourlyRate;
     }

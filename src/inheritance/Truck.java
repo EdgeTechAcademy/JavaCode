@@ -5,6 +5,8 @@ package inheritance;
  */
 public class Truck extends VehicleE {
     private int towingCapacity;
+    private int lengthOfBed;
+    private int widthOfBed;
 
     public Truck(int engineSize, int gearCount, COLOR color, String model, int towingCapacity) {
         super(engineSize, gearCount, color, model);
