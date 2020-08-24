@@ -62,7 +62,15 @@ public class Vehicle {
     }
 
     public void setGear(int gear) {
-        this.gear = gear;
+        //  don't change to park if speed > 2
+        if (gear == 0 && speed > 2)
+            return;
+
+        if (gear <= this.gearCount && gear >= -1) {
+            this.gear = gear;
+        } else {
+            //  trying to shift to too high of a gear
+        }
     }
 
     public boolean isRunning() {
@@ -71,6 +79,15 @@ public class Vehicle {
 
     public void setRunning(boolean running) {
         this.running = running;
+//        if (running == true && key is in ignition && brake is on){
+//            this.running = running;
+//            return true;
+//        }
+//        if (running == false && speed == 0 && gear == 0) {
+//            this.running = running;
+//            return true;
+//        }
+//        return false;
     }
 
     public int getSpeed() {
@@ -114,12 +131,12 @@ public class Vehicle {
     }
 
     public static void main(String[] args) {
-        Vehicle acuraTLX 	= new Vehicle(4, 4, 300, 8, true, 5, "Black", "Acura TLX");
-        Vehicle acuraTSX 	= new Vehicle(300, 8, "Silver", "Acura TSX");
-        Vehicle fordF150 	= new Vehicle(4, 2, 450, 3, true, 3, "White", "Ford F150");
-        Vehicle miniCooper 	= new Vehicle(4, 2, 200, 3, true, 2, "Green", "Mini Cooper");
-        Vehicle spider 		= new Vehicle(3, 0, 300, 4, false, 2, "Black", "Spider");
-        Vehicle indian 		= new Vehicle(2, 0, 450, 4, false, 2, "Yellow", "Indian!");
+        Vehicle acuraTLX = new Vehicle(4, 4, 300, 8, true, 5, "Black", "Acura TLX");
+        Vehicle acuraTSX = new Vehicle(300, 8, "Silver", "Acura TSX");
+        Vehicle fordF150 = new Vehicle(4, 2, 450, 3, true, 3, "White", "Ford F150");
+        Vehicle miniCooper = new Vehicle(4, 2, 200, 3, true, 2, "Green", "Mini Cooper");
+        Vehicle spider = new Vehicle(3, 0, 300, 4, false, 2, "Black", "Spider");
+        Vehicle indian = new Vehicle(2, 0, 450, 4, false, 2, "Yellow", "Indian!");
 
         Vehicle[] veh2 = {acuraTLX, acuraTSX, fordF150, miniCooper, spider, indian};
         for (int i = 0; i < veh2.length; i++) {
