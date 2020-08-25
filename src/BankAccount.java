@@ -125,7 +125,7 @@ public class BankAccount {
 
 				case 4:    //	TODO - Withdraw from Checking
 					if (checking != null) {
-						amount = Utils.getNumber("Amount available to Withdraw: " + checking.getBalance() + "\nAmount to Withdraw: ", (int)checking.getBalance());    //	ask user for amount to deposit
+						amount = Utils.getNumber("Amount available to Withdraw: " + checking.getBalance() + "\nAmount to Withdraw: ");    //	ask user for amount to deposit
 						checking.withdraw(amount);                            //	make deposit
 						System.out.println(checking);                        //	show account status
 					}
