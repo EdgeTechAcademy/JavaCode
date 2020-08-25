@@ -68,7 +68,7 @@ public class Looping {
     public static void main(String[] args) {
 
 		int searchFor = 0;
-		int count;
+		int count, end;
 
 		String [] stuff = {"string 1", "Texas", "junk", "123", "Mars", "Falcon"};
 		int[] numbers = { 32, 87, 3, 589, 12, 1076, 2000, 8, 622, 127, 77, 955 };
@@ -77,12 +77,13 @@ public class Looping {
 			String what = Utils.getInput(
 					"\n1 while       2 do       3 while2   4 dowhile2\n" +
 					"5 for index   6 fori     7 forx     8 looking\n" +
-					"9 double     10 count   	    exit");
+					"9 double     10 count   	    exit\n\t> ");
 			switch (what.toLowerCase()) {
 				case "1":
 				case "while":
-					count = 1;
-					while (count < 11) {
+					count = Utils.getNumber("Enter a Starting number: ");
+					end   = Utils.getNumber("Enter a Ending   number: ");
+					while (count < end) {
 						System.out.println("Loop 1: Count is: " + count);
 						count++;
 					}
@@ -91,18 +92,20 @@ public class Looping {
 				case "2":
 				case "do":
 					//  how is the output different between these two while loops?
-					count = 1;
+					count = Utils.getNumber("Enter a Starting number: ");
+					end   = Utils.getNumber("Enter a Ending   number: ");
 					do {
 						System.out.println("Loop 2: Count is: " + count);
 						count++;
-					} while (count < 11);
+					} while (count < end);
 					break;
 
 				case "3":
 				case "while2":
-					count = 99;
+					count = Utils.getNumber("Enter a Starting number: ");
+					end   = Utils.getNumber("Enter a Ending   number: ");
 					//  how is the output different between these two while loops?
-					while (count < 11) {
+					while (count < end) {
 						System.out.println("Loop 3: Count is: " + count);
 						count++;
 					}
@@ -110,16 +113,19 @@ public class Looping {
 
 				case "4":
 				case "dowhile2":
-					count = 99;
+					count = Utils.getNumber("Enter a Starting number: ");
+					end   = Utils.getNumber("Enter a Ending   number: ");
 					do {
 						System.out.println("Loop 4: Count is: " + count);
 						count++;
-					} while (count < 11);
+					} while (count < end);
 					break;
 
 				case "5":
 				case "for index":
-					for (int i = 1; i < 11; i++) {
+					count = Utils.getNumber("Enter a Starting number: ");
+					end   = Utils.getNumber("Enter a Ending   number: ");
+					for (int i = count; i < end; i++) {
 						System.out.println("For index: Count is: " + i);
 					}
 					break;
@@ -169,10 +175,11 @@ public class Looping {
 
 				case "10":
 				case "count":
+					String searchMe = "peter piper picked a peck of pickled peppers";
+					System.out.println("This is the string we are searching\n" + searchMe);
 					String sLetter = Utils.getInput("What letter are you looking for? ");
 					char letter = sLetter.charAt(0);
 
-					String searchMe = "peter piper picked a peck of pickled peppers";
 					int charCount = Looping.countLetter(searchMe, letter);
 					System.out.println("Found " + charCount + " " + letter + "'s in the string.");
 					break;

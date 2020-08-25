@@ -70,6 +70,22 @@ public class BankAccount {
 		return balance;
 	}
 
+	private void transferMoney(BankAccount accountTo) {
+		int amount;
+
+		if ( accountTo != null) {
+			amount = Utils.getNumber("Amount to Transfer: ");
+			if (this.getBalance() >= amount) {
+				this.withdraw(amount);
+				accountTo.deposit(amount);
+			} else {
+				System.out.println("Insufficient Funds to Transfer");
+			}
+		} else {
+			System.out.println("Either checking or savings is missing");
+		}
+
+	}
 	//		here are my constructors
 	public BankAccount(String name, float balance) {    //	here we are going to use two params
 		this.name = name;
@@ -132,11 +148,11 @@ public class BankAccount {
 					break;
 
 				case 5:    //	TODO - Transfer from Checking to Savings
-					transferMoney(checking, savings);
+					checking.transferMoney(savings);
 					break;
 
 				case 7:    //	TODO - Transfer from Savings to Checking
-					transferMoney(savings, checking);
+					savings.transferMoney(checking);
 					break;
 
 				case 6:    //	TODO - Get Balance for Accounts (Checking and Savings)
@@ -170,22 +186,5 @@ public class BankAccount {
 					break;
 			}
 		} while (option != 0);
-	}
-
-	private static void transferMoney(BankAccount accountFrom, BankAccount accountTo) {
-		int amount;
-
-		if (accountFrom != null && accountTo != null) {
-			amount = Utils.getNumber("Amount to Transfer: ");
-			if (accountFrom.getBalance() >= amount) {
-				accountFrom.withdraw(amount);
-				accountTo.deposit(amount);
-			} else {
-				System.out.println("Insufficient Funds to Transfer");
-			}
-		} else {
-			System.out.println("Either checking or savings is missing");
-		}
-
 	}
 }
