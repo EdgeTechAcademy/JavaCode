@@ -134,6 +134,6 @@ public class Utils {
     }
 
     public static String readFile(String fileName) throws IOException {
-        return new String(Files.readAllBytes(Paths.get(fileName)));
+            return new String(Files.readAllBytes(Paths.get(fileName)));
     }
 }
