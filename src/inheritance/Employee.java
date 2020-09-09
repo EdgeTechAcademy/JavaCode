@@ -112,17 +112,11 @@ public class Employee {
     public void setName(String name) {
         this.name = name;
     }
-    public Date getStartDate() {
-        return startDate;
-    }
     public void setStartDate(Date startDate) {
         this.startDate = startDate;
     }
     public Date getDateOfBirth() {
         return dateOfBirth;
-    }
-    public void setDateOfBirth(Date dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
     }
 
 	@Override

@@ -3,6 +3,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Scanner;
 
+//  https://gist.github.com/EdgeTechAcademy/2a06f67ca7029c5e57ca083a5ac9ed38
 public class Utils {
 
     static Scanner sc = new Scanner((System.in));
@@ -27,18 +28,18 @@ public class Utils {
      * @return int - The users response converted to a number
      */
     public static int getNumber(String prompt) {
-        int number = 0;                            //	will hold the numeric response from the user
+        int number = 0;                         //	will hold the numeric response from the user
         String response;                        //	the String user response that needs to be converted to a number
         do {                                    //	infinite do-while until the user enters a number
             response = getInput(prompt);        //	ask user for a response
-            try {                                //	protect the code from dieing if we don't get a number from the user
+            try {                               //	protect the code from dieing if we don't get a number from the user
                 number = Integer.parseInt(response);    //	convert to a number
-                break;                            //	Yay! The user gave us a valid number
-            } catch (NumberFormatException e) {            //	bad news. We did not get a number
+                break;                           //	Yay! The user gave us a valid number
+            } catch (NumberFormatException e) {  //	bad news. We did not get a number
                 System.out.println(response + " Is not a number");        //	warn the user and continue prompting
             }
-        } while (true);                            //	stay in the loop until we get a number from the user
-        return number;                            //	yes this could go after the parseInt, I like all methods to end at the bottom
+        } while (true);                          //	stay in the loop until we get a number from the user
+        return number;                           //	yes this could go after the parseInt, I like all methods to end at the bottom
     }
 
     /**
@@ -79,12 +80,12 @@ public class Utils {
 
     /**
      * getIntArray
-     * Create an integer array with 10-30 elements and fill it with random numbers between 0 and 100
+     * Create an integer array with 20-40 elements and fill it with random numbers between 0 and 100
      *
      * @return an int array of random numbers
      */
     public static int[] getIntArray() {
-        int size = (int) (Math.random() * 20) + 10;
+        int size = (int) (Math.random() * 20) + 20;
         int[] randomNumbers = new int[size];
         for (int i = 0; i < randomNumbers.length; i++) {
             randomNumbers[i] = (int) (Math.random() * 100);
@@ -94,7 +95,7 @@ public class Utils {
 
     /**
      * getStrArray
-     * Create a String array with 10-30 elements and fill it with random Strings between A-Z, a-z, 0-9
+     * Create a String array with 10-30 elements and fill it with random Strings between A-Z, a-z, 0-9, ' '
      *
      * @return an int array of random numbers
      */
@@ -109,31 +110,35 @@ public class Utils {
 
     /**
      * getRandomString
-     * Create a random sized string between 1 and 20 characters long
+     * Create a random sized string between 10 and 70 characters long
      */
     public static String getRandomString() {
-        String src = "abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        String str = "";
+        String src = "abcde fghi jklmn o pqrs tu vwx yz0 12345 678 9AB CDE FGH IJK LMNOPQ RSTUV WXYZ ";
+        String strOut = "";
 
-        int size = (int) (Math.random() * 20) + 1;
+        int size = (int) (Math.random() * 60) + 10;
         for (int i = 0; i < size; i++) {
-            str += src.charAt((int) (Math.random() * 62));
+            int z = (int) (Math.random() * src.length());
+            if ( src.charAt(z) == ' ')      //  if the next character is a space
+                strOut = strOut.trim();     //  trim the string to not allow double spaces
+            strOut += src.charAt(z);
         }
-
-        return str;
-    }
-
-    public static void main(String[] args) {
-        int max, number;
-        do {
-            max = getNumber("Enter Maximum number: ");                        //	ask user for a maximum number
-            number = getNumber("Enter a number <= to " + max + ": ", max);    //	test code to see if we can only enter numbers < max
-            //	yay, here is the users response
-            System.out.println("User entered: " + number + " which is less than " + max);
-        } while (number != 0);
+        return strOut.trim();
     }
 
     public static String readFile(String fileName) throws IOException {
-            return new String(Files.readAllBytes(Paths.get(fileName)));
+        return new String(Files.readAllBytes(Paths.get(fileName)));
     }
+
+    public static void main(String[] args) {
+        int[] intAr = getIntArray();
+        String str = getRandomString();
+        System.out.println("strAr = " + str);
+        for ( int x : intAr) {
+            if ( x % 2 == 0) {
+                System.out.println("Even " + x);
+            }
+        }
+    }
+
 }

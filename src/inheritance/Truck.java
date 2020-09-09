@@ -42,5 +42,7 @@ public class Truck extends VehicleE {
 		Truck truck = new Truck(300, 6, COLOR.BLUE, "Titan", 5000);
 		truck.printDescription();
         System.out.println("truck = " + truck);
+        System.out.println(truck.getWheels());
+        System.out.println(truck.getColor());
 	}
 }

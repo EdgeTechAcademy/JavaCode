@@ -44,21 +44,27 @@ public class GameCharacter {
 	}
 
 	public static void main(String[] args) {
-		Monster x1 = new Monster("Aarrg", 90, 75);
-		Monster x2 = new Monster("Meany Face", 50, 25);
-		Monster x3 = new Monster("Big Bad Wolf", 30, 33);
-		Wizard  w1 = new Wizard("Gandalf", 100, 100, 74);
-		Wizard	w2 = new Wizard("Larry", 17, 25, 14);
-		System.out.println("w2 = " + w2);
+		Monster monster1 = new Monster("Aarrg", 90, 75);
+		Monster monster2 = new Monster("Meany Face", 50, 25);
+		Monster monster3 = new Monster("Big Bad Wolf", 30, 33);
+		Wizard  wizard1 = new Wizard("Gandalf", 100, 100, 74);
+		Wizard	wizard2 = new Wizard("Larry", 17, 25, 14);
+		System.out.println("wizard2 = " + wizard2);
 
-		x1.getCurses().add("Stub Toe");
-		x1.getCurses().add("Paper Cut");
-		System.out.println("x1 = " + x1);
+		monster1.getCurses().add("Stub Toe");
+		monster1.getCurses().add("Paper Cut");
+		System.out.println("x1 = " + monster1);
 
 		Werewolf werewolf1 = new Werewolf("Lupus", 66, 98, 91);
 		werewolf1.getAbilities().add("Pouncing");
 		werewolf1.getAbilities().add("Bite");
 		System.out.println("werewolf1 = " + werewolf1);
+
+		System.out.println(wizard1.getName());
+		System.out.println(monster1.getName());
+		System.out.println(werewolf1.getName());
+
+
 	}
 }
 

@@ -8,7 +8,7 @@ import interfaces.WarpDrive;
 public class VehicleE implements WarpDrive {
 
     public enum WHEELS {
-        TWO_WHEELS, FOUR_WHEELS, THREE_WHEELS
+        TWO_WHEELS, THREE_WHEELS, FOUR_WHEELS, EIGHTEEN_WHEELER
     }
 
     public enum SEATS {
@@ -27,12 +27,6 @@ public class VehicleE implements WarpDrive {
         AUTOMATIC(true), STICK(false);
         private boolean value;
         TRANS(boolean value) { this.value = value; }
-    }
-
-    public enum VARIETY {
-        SO_TRUE("True"), NOT_TRUE("False"), POSSIBLE("Possible");
-        private String value;
-        VARIETY(String value) { this.value = value; }
     }
 
     //  unchanging fields

@@ -8,7 +8,7 @@ public class AutoFridge implements Automated {
 
 	@Override
 	public void turnOn() {
-		System.out.println("Really!?");
+		System.out.println("OK!");
 	}
 
 	@Override

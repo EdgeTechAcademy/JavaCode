@@ -3,9 +3,14 @@
  */
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class FindDups {
 	public static void main(String[] args) {
+
+		Set<String> distinctWords = new HashSet<>();
+		Arrays.stream(args).collect (Collectors.toSet ());
+		System.out.println (distinctWords.size ()+" distinct words: " + distinctWords);
 
 		//	add all command line arguments to a String Set
 		Set<String> s = new HashSet<String>();
